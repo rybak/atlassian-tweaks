@@ -1,16 +1,16 @@
 // ==UserScript==
 // @name         JIRA copy summary
 // @namespace    http://tampermonkey.net/
-// @version      1.3
+// @version      1.4
 // @description  copies summary of JIRA ticket
-// @author       Sergey Lukashevich, Andrei Rybak
+// @author       Sergey Lukashevich, Andrei Rybak, Dmitry Trubin
 // @homepage     https://github.com/rybak/atlassian-tweaks
 // @match        https://jira.example.com/browse/*
 // @grant        none
 // ==/UserScript==
 
 /*
- * Copyright 2017-2020 Sergey Lukashevich
+ * Copyright 2017-2021 Sergey Lukashevich
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
  * documentation files (the "Software"), to deal in the Software without restriction, including without limitation the
  * rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit
@@ -64,6 +64,26 @@
 	// if by some reason it doesn't exist - create one
 	if (!copyButton) {
 		var container = document.getElementById("stalker").getElementsByClassName("toolbar-split toolbar-split-left")[0];
+		const jiraMajorVersion = getJiraMajorVersion();
+		switch (jiraMajorVersion) {
+			case 7:
+				var button = createButtonForJira7();
+				break;
+			default:
+				console.log("JIRA v" + jiraMajorVersion + " is not supported");
+				return;
+		}
+		container.appendChild(button);
+		console.log("Created the button");
+	} else {
+		console.log("Using existing button");
+	}
+
+	function getJiraMajorVersion() {
+		return document.querySelector('meta[name="application-name"]').attributes.getNamedItem("data-version").value.split(".")[0];
+	}
+
+	function createButtonForJira7() {
 		var ul = document.createElement("ul");
 		ul.classList.add("toolbar-group");
 		ul.classList.add("pluggable-ops");
@@ -74,13 +94,11 @@
 		copyButton.classList.add("zeroclipboard-is-hover");
 		copyButton.id = "copycopy";
 		copyButton.textContent = "Copy summary*";
-		container.appendChild(ul);
 		ul.appendChild(li);
 		li.appendChild(copyButton);
-		console.log("Created the button");
-	} else {
-		console.log("Using existing button");
+		return ul;
 	}
+
 	function copyClickAction() {
 		var summaryText = document.getElementById("summary-val").textContent;
 		var ticketId = getMeta("ajs-issue-key");
@@ -92,7 +110,9 @@
 		document.removeEventListener('copy', handleCopyEvent);
 		return false;
 	};
+
 	copyButton.onclick = copyClickAction;
+
 	async function keepHandlerAlive() {
 		while (true) {
 			var copyButton = document.getElementById("copycopy");
@@ -103,5 +123,6 @@
 			await sleep(1000);
 		}
 	};
+
 	keepHandlerAlive();
 })();
