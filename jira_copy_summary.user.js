@@ -1,10 +1,11 @@
 // ==UserScript==
 // @name         JIRA copy summary
 // @namespace    http://tampermonkey.net/
-// @version      1.4
+// @version      2.0
 // @description  copies summary of JIRA ticket
 // @author       Sergey Lukashevich, Andrei Rybak, Dmitry Trubin
 // @homepage     https://github.com/rybak/atlassian-tweaks
+// @match        https://jira.example.com/browse/*
 // @match        https://jira.example.com/browse/*
 // @grant        none
 // ==/UserScript==
@@ -63,11 +64,17 @@
 	var copyButton = document.getElementById("copycopy");
 	// if by some reason it doesn't exist - create one
 	if (!copyButton) {
-		var container = document.getElementById("stalker").getElementsByClassName("toolbar-split toolbar-split-left")[0];
 		const jiraMajorVersion = getJiraMajorVersion();
+		var container;
+		var button;
 		switch (jiraMajorVersion) {
-			case 7:
-				var button = createButtonForJira7();
+			case "7":
+				container = document.getElementById("stalker").getElementsByClassName("toolbar-split toolbar-split-left")[0];
+				button = createButtonForJira7();
+				break;
+			case "8":
+				container = document.getElementById("stalker").getElementsByClassName("aui-toolbar2-primary")[0];
+				button = createButtonForJira8();
 				break;
 			default:
 				console.log("JIRA v" + jiraMajorVersion + " is not supported");
@@ -87,22 +94,45 @@
 		var ul = document.createElement("ul");
 		ul.classList.add("toolbar-group");
 		ul.classList.add("pluggable-ops");
+
 		var li = document.createElement("li");
 		li.classList.add("toolbar-item");
+
 		copyButton = document.createElement("a");
+		copyButton.id = "copycopy";
 		copyButton.classList.add("toolbar-trigger");
 		copyButton.classList.add("zeroclipboard-is-hover");
-		copyButton.id = "copycopy";
 		copyButton.textContent = "Copy summary*";
+
 		ul.appendChild(li);
 		li.appendChild(copyButton);
+
 		return ul;
+	}
+
+	function createButtonForJira8() {
+		var div = document.createElement("div");
+		div.id = "opsbar-copycopy_container"
+		div.classList.add("aui-buttons");
+		div.classList.add("pluggable-ops");
+
+		copyButton = document.createElement("a");
+		copyButton.id = "copycopy";
+		copyButton.classList.add("aui-button");
+		copyButton.classList.add("toolbar-trigger");
+		copyButton.classList.add("zeroclipboard-is-hover");
+		copyButton.textContent = "Copy summary*";
+
+		div.appendChild(copyButton);
+
+		return div;
 	}
 
 	function copyClickAction() {
 		var summaryText = document.getElementById("summary-val").textContent;
 		var ticketId = getMeta("ajs-issue-key");
-		var fullLink = document.location.origin + "/browse/" + ticketId;
+		var jiraUrl = getMeta("ajs-jira-base-url");
+		var fullLink = jiraUrl + "/browse/" + ticketId;
 		textResult = '[' + ticketId + '] ' + summaryText;
 		htmlResult = '[<a href="' + fullLink + '">' + ticketId + '</a>] ' + summaryText;
 		document.addEventListener('copy', handleCopyEvent);
