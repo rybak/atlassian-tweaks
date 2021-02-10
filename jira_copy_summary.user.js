@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         JIRA copy summary
 // @namespace    http://tampermonkey.net/
-// @version      2.1
+// @version      2.2
 // @description  copies summary of JIRA ticket
 // @author       Sergey Lukashevich, Andrei Rybak, Dmitry Trubin
 // @homepage     https://github.com/rybak/atlassian-tweaks
@@ -61,7 +61,8 @@
 		clipboardData.setData('text/html', htmlResult);
 	}
 
-	var copyButton = document.getElementById("copycopy");
+	var COPY_BUTTON_ID = "copycopy";
+	var copyButton = document.getElementById(COPY_BUTTON_ID);
 	// if by some reason it doesn't exist - create one
 	if (!copyButton) {
 		const jiraMajorVersion = getJiraMajorVersion();
@@ -99,7 +100,7 @@
 		li.classList.add("toolbar-item");
 
 		copyButton = document.createElement("a");
-		copyButton.id = "copycopy";
+		copyButton.id = COPY_BUTTON_ID;
 		copyButton.classList.add("toolbar-trigger");
 		copyButton.classList.add("zeroclipboard-is-hover");
 		copyButton.textContent = "Copy summary*";
@@ -117,7 +118,7 @@
 		div.classList.add("pluggable-ops");
 
 		copyButton = document.createElement("a");
-		copyButton.id = "copycopy";
+		copyButton.id = COPY_BUTTON_ID;
 		copyButton.classList.add("aui-button");
 		copyButton.classList.add("toolbar-trigger");
 		copyButton.classList.add("zeroclipboard-is-hover");
@@ -145,7 +146,7 @@
 
 	async function keepHandlerAlive() {
 		while (true) {
-			var copyButton = document.getElementById("copycopy");
+			var copyButton = document.getElementById(COPY_BUTTON_ID);
 			if (copyButton.onclick == null) {
 				console.log("Copy summary button died, resetting onclick...");
 				copyButton.onclick = copyClickAction;
