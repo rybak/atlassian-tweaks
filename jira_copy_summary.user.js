@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         JIRA copy summary
 // @namespace    http://tampermonkey.net/
-// @version      2.0
+// @version      2.1
 // @description  copies summary of JIRA ticket
 // @author       Sergey Lukashevich, Andrei Rybak, Dmitry Trubin
 // @homepage     https://github.com/rybak/atlassian-tweaks
@@ -134,7 +134,7 @@
 		var jiraUrl = getMeta("ajs-jira-base-url");
 		var fullLink = jiraUrl + "/browse/" + ticketId;
 		textResult = '[' + ticketId + '] ' + summaryText;
-		htmlResult = '[<a href="' + fullLink + '">' + ticketId + '</a>] ' + summaryText;
+		htmlResult = '[<a href="' + fullLink + '">' + ticketId + '</a>] <i>' + summaryText + '</i>';
 		document.addEventListener('copy', handleCopyEvent);
 		document.execCommand('copy');
 		document.removeEventListener('copy', handleCopyEvent);
