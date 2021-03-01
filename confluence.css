@@ -1,4 +1,4 @@
-code {
+code:not([class]) {
     color: #000;
     background-color: #f8f9fa;
     border: 1px solid #eaecf0;
