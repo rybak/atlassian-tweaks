@@ -62,30 +62,7 @@
 	}
 
 	var COPY_BUTTON_ID = "copycopy";
-	var copyButton = document.getElementById(COPY_BUTTON_ID);
-	// if by some reason it doesn't exist - create one
-	if (!copyButton) {
-		const jiraMajorVersion = getJiraMajorVersion();
-		var container;
-		var button;
-		switch (jiraMajorVersion) {
-			case "7":
-				container = document.getElementById("stalker").getElementsByClassName("toolbar-split toolbar-split-left")[0];
-				button = createButtonForJira7();
-				break;
-			case "8":
-				container = document.getElementById("stalker").getElementsByClassName("aui-toolbar2-primary")[0];
-				button = createButtonForJira8();
-				break;
-			default:
-				console.log("JIRA v" + jiraMajorVersion + " is not supported");
-				return;
-		}
-		container.appendChild(button);
-		console.log("Created the button");
-	} else {
-		console.log("Using existing button");
-	}
+	var copyButton;
 
 	function getJiraMajorVersion() {
 		return document.querySelector('meta[name="application-name"]').attributes.getNamedItem("data-version").value.split(".")[0];
@@ -142,7 +119,35 @@
 		return false;
 	};
 
-	copyButton.onclick = copyClickAction;
+	function createButton() {
+		copyButton = document.getElementById(COPY_BUTTON_ID);
+		// if for some reason it doesn't exist - create one
+		if (!copyButton) {
+			const jiraMajorVersion = getJiraMajorVersion();
+			var container;
+			var button;
+			switch (jiraMajorVersion) {
+				case "7":
+					container = document.getElementById("stalker").getElementsByClassName("toolbar-split toolbar-split-left")[0];
+					button = createButtonForJira7();
+					break;
+				case "8":
+					container = document.getElementById("stalker").getElementsByClassName("aui-toolbar2-primary")[0];
+					button = createButtonForJira8();
+					break;
+				default:
+					console.log("JIRA v" + jiraMajorVersion + " is not supported");
+					return;
+			}
+			container.appendChild(button);
+			console.log("Created the button");
+		} else {
+			console.log("Using existing button");
+		}
+		copyButton.onclick = copyClickAction;
+	}
+
+	createButton();
 
 	async function keepHandlerAlive() {
 		while (true) {
