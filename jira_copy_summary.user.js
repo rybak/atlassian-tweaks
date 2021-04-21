@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         JIRA copy summary
 // @namespace    http://tampermonkey.net/
-// @version      2.2
+// @version      3.0
 // @description  copies summary of JIRA ticket
 // @author       Sergey Lukashevich, Andrei Rybak, Dmitry Trubin
 // @homepage     https://github.com/rybak/atlassian-tweaks
@@ -149,16 +149,16 @@
 
 	createButton();
 
-	async function keepHandlerAlive() {
+	async function keepButtonAlive() {
 		while (true) {
 			var copyButton = document.getElementById(COPY_BUTTON_ID);
-			if (copyButton.onclick == null) {
-				console.log("Copy summary button died, resetting onclick...");
-				copyButton.onclick = copyClickAction;
+			if (!copyButton || !copyButton.onclick) {
+				console.log("Copy summary button died, recreating...");
+				createButton();
 			}
 			await sleep(1000);
 		}
 	};
 
-	keepHandlerAlive();
+	keepButtonAlive();
 })();
