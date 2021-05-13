@@ -7,6 +7,7 @@
 // @homepage     https://github.com/rybak/atlassian-tweaks
 // @match        https://jira.example.com/browse/*
 // @match        https://jira.example.com/browse/*
+// @require      https://code.jquery.com/jquery-3.6.0.js
 // @grant        none
 // ==/UserScript==
 
@@ -108,7 +109,7 @@
 
 	function copyClickAction() {
 		var summaryText = document.getElementById("summary-val").textContent;
-		var ticketId = getMeta("ajs-issue-key");
+		var ticketId = $($("#dx-issuekey-val-h1").children("a")[0]).data("issue-key");
 		var jiraUrl = getMeta("ajs-jira-base-url");
 		var fullLink = jiraUrl + "/browse/" + ticketId;
 		textResult = '[' + ticketId + '] ' + summaryText;
