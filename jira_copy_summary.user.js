@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         JIRA copy summary
 // @namespace    http://tampermonkey.net/
-// @version      3.1
+// @version      3.2
 // @description  copies summary of JIRA ticket
 // @author       Sergey Lukashevich, Andrei Rybak, Dmitry Trubin
 // @homepage     https://github.com/rybak/atlassian-tweaks
@@ -121,31 +121,35 @@
 	};
 
 	function createButton() {
-		copyButton = document.getElementById(COPY_BUTTON_ID);
-		// if for some reason it doesn't exist - create one
-		if (!copyButton) {
-			const jiraMajorVersion = getJiraMajorVersion();
-			var container;
-			var button;
-			switch (jiraMajorVersion) {
-				case "7":
-					container = document.getElementById("stalker").getElementsByClassName("toolbar-split toolbar-split-left")[0];
-					button = createButtonForJira7();
-					break;
-				case "8":
-					container = document.getElementById("stalker").getElementsByClassName("aui-toolbar2-primary")[0];
-					button = createButtonForJira8();
-					break;
-				default:
-					console.log("JIRA v" + jiraMajorVersion + " is not supported");
-					return;
+		try {
+			copyButton = document.getElementById(COPY_BUTTON_ID);
+			// if for some reason it doesn't exist - create one
+			if (!copyButton) {
+				const jiraMajorVersion = getJiraMajorVersion();
+				var container;
+				var button;
+				switch (jiraMajorVersion) {
+					case "7":
+						container = document.getElementById("stalker").getElementsByClassName("toolbar-split toolbar-split-left")[0];
+						button = createButtonForJira7();
+						break;
+					case "8":
+						container = document.getElementById("stalker").getElementsByClassName("aui-toolbar2-primary")[0];
+						button = createButtonForJira8();
+						break;
+					default:
+						console.log("JIRA v" + jiraMajorVersion + " is not supported");
+						return;
+				}
+				container.appendChild(button);
+				console.log("Created the button");
+			} else {
+				console.log("Using existing button");
 			}
-			container.appendChild(button);
-			console.log("Created the button");
-		} else {
-			console.log("Using existing button");
+			copyButton.onclick = copyClickAction;
+		} catch (e) {
+			console.warn("Could not create 'Copy summary' button ", e);
 		}
-		copyButton.onclick = copyClickAction;
 	}
 
 	createButton();
