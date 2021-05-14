@@ -1,13 +1,12 @@
 // ==UserScript==
 // @name         JIRA copy summary
 // @namespace    http://tampermonkey.net/
-// @version      3.3
+// @version      3.4
 // @description  copies summary of JIRA ticket
 // @author       Sergey Lukashevich, Andrei Rybak, Dmitry Trubin
 // @homepage     https://github.com/rybak/atlassian-tweaks
 // @match        https://jira.example.com/browse/*
 // @match        https://jira.example.com/browse/*
-// @require      https://code.jquery.com/jquery-1.7.2.js
 // @grant        none
 // ==/UserScript==
 
@@ -109,9 +108,9 @@
 
 	function copyClickAction() {
 		var summaryText = document.getElementById("summary-val").textContent;
-		var ticketId = $($("#dx-issuekey-val-h1").children("a")[0]).data("issue-key");
+		var ticketId = document.querySelector("#dx-issuekey-val-h1 a").dataset.issueKey;
 		if (!ticketId) {
-			ticketId = $(".aui-page-header-main .issue-link").data("issue-key");
+			ticketId = document.querySelector(".aui-page-header-main .issue-link").dataset.issueKey;
 		}
 		var jiraUrl = getMeta("ajs-jira-base-url");
 		var fullLink = jiraUrl + "/browse/" + ticketId;
