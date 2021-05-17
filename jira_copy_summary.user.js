@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         JIRA copy summary
 // @namespace    http://tampermonkey.net/
-// @version      3.4.1
+// @version      3.5
 // @description  copies summary of JIRA ticket
 // @author       Sergey Lukashevich, Andrei Rybak, Dmitry Trubin
 // @homepage     https://github.com/rybak/atlassian-tweaks
@@ -28,6 +28,11 @@
 
 (function () {
 	'use strict';
+
+	/*
+	 * User configuration
+	 */
+	const ITALICS = true;
 
 	// https://stackoverflow.com/a/39914235/1083697
 	function sleep(ms) {
@@ -116,7 +121,10 @@
 		var jiraUrl = getMeta("ajs-jira-base-url");
 		var fullLink = jiraUrl + "/browse/" + ticketId;
 		textResult = '[' + ticketId + '] ' + summaryText;
-		htmlResult = '[<a href="' + fullLink + '">' + ticketId + '</a>] <i>' + summaryText + '</i>';
+		if (ITALICS) {
+			summaryText = '<i>' + summaryText + '</i>';
+		}
+		htmlResult = '[<a href="' + fullLink + '">' + ticketId + '</a>] ' + summaryText;
 		document.addEventListener('copy', handleCopyEvent);
 		document.execCommand('copy');
 		document.removeEventListener('copy', handleCopyEvent);
