@@ -2,7 +2,7 @@ Atlassian Tweaks
 ===================
 
 This is a collection of [user scripts](https://en.wikipedia.org/wiki/Userscript)
-and [user styles][WikipediaUserStyles] for [Confluence][Confluence]
+and [user styles][WikipediaUserStyles] for [Confluence][Confluence],
 [Bitbucket][Bitbucket], and [JIRA][JIRA].
 
 ## User styles
