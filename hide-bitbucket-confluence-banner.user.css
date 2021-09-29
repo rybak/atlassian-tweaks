@@ -1,0 +1,21 @@
+/* ==UserStyle==
+@name         Hide Bitbucket/Confluence banner at the top
+@author       Andrei Rybak
+@homepageURL  https://github.com/rybak/atlassian-tweaks
+@updateURL    https://github.com/rybak/atlassian-tweaks/raw/main/hide-bitbucket-confluence-banner.user.css
+@version      1.0
+@license      MIT
+@namespace    github.com/openstyles/stylus
+==/UserStyle== */
+
+@-moz-document domain("confluence.example.com") {
+	#header-precursor {
+		display: none !important;
+	}
+}
+
+@-moz-document domain("bitbucket.example.com") {
+	#header .notifications {
+		display: none !important;
+	}
+}
