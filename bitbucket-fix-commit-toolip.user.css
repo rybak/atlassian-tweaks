@@ -1,0 +1,18 @@
+/* ==UserStyle==
+@name         Bitbucket :: fix commit tooltip width
+@author       Andrei Rybak
+@homepageURL  https://github.com/rybak/atlassian-tweaks
+@updateURL    https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-fix-commit-toolip.user.css
+@version      1.0
+@license      MIT
+@namespace    github.com/openstyles/stylus
+==/UserStyle== */
+
+@-moz-document domain("bitbucket.example.com") {
+	.Tooltip,
+	.ghcsui
+	{
+		max-width: 600px !important;
+		width: auto !important;
+	}
+}
