@@ -27,10 +27,13 @@ https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-fix-commit-toolip.u
 
 ### Bitbucket – add convenient links to commits
 Currently, we are using Bitbucket v7.6.8.  This user script brings back
-convenient links to individual commit pages to the pull request's "Diff" view,
-which was removed by Atlassian.
+convenient links to individual commit pages to the pull request's "Diff" tab,
+which was removed by Atlassian.  The tooltip on the commit link includes a fancy
+tooltip, same as commit links on the "Commits" tab.
 
 https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-pull-request-commit-links.user.js
+
+![[Screenshot of "PR links to commits"](images/bitbucket-pr-commit-links-screenshot-diff.png)](https://github.com/rybak/atlassian-tweaks/raw/main/images/bitbucket-pr-commit-links-screenshot-diff.png)
 
 ## How to use Atlassian Tweaks
 1. Install browser extensions for user scripts and user styles.
