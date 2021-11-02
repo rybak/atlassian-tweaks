@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name         Bitbucket : commit links in PRs
 // @namespace    http://tampermonkey.net/
-// @version      1
+// @version      2
 // @description  Adds convenience links in PRs of Bitbucket v7.6.8
 // @author       Andrei Rybak
-// @match        https://bitbucket.example.com/projects/*/repos/*/pull-requests/*/commits/*
+// @match        https://bitbucket.example.com/projects/*/repos/*/pull-requests/*
 // @icon         https://bitbucket.org/favicon.ico
 // @updateURL    https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-pull-request-commit-links.user.js
 // @homepageURL  https://github.com/rybak/atlassian-tweaks
@@ -24,8 +24,12 @@
 	const parsePath = /[/]projects[/]([^/]*)[/]repos[/]([^/]*)[/].*[/]commits[/]([0-9a-f]+)/
 
 	function ensureCommitLink() {
-		const origin = document.location.origin;
 		const matching = document.location.pathname.match(parsePath);
+		if (!matching) {
+			log("No commit in the URL: " + document.location.pathname);
+			return;
+		}
+		const origin = document.location.origin;
 		const hash = document.location.hash; // add hash in case the user clicked to a different file
 		const project = matching[1];
 		const repository = matching[2];
