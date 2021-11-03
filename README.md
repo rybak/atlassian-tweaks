@@ -23,6 +23,8 @@ IDEA) commit messages.
 
 https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-fix-commit-toolip.user.css
 
+## User scripts
+
 ### Bitbucket – add convenient links to commits
 Currently, we are using Bitbucket v7.6.8.  This user script brings back
 convenient links to individual commit pages to the pull request's "Diff" view,
