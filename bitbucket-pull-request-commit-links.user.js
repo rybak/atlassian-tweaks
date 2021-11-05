@@ -136,6 +136,10 @@
 		}).then(data => {
 			log(label, "Ajax response received");
 			createTooltip(data.message);
+			if (!document.getElementById(BLOCK_ID)) {
+				warn(label, `Something happened to #${BLOCK_ID}. Re-creating...`);
+				ensureCommitLink("[smth happened]");
+			}
 		});
 		log(label, "Done");
 	}
