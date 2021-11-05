@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bitbucket: commit links in diff tab of PRs
 // @namespace    https://github.com/rybak/atlassian-tweaks
-// @version      14
+// @version      15
 // @license      MIT
 // @description  Adds convenience links in PRs of Bitbucket v7.6.+
 // @author       Andrei Rybak
@@ -120,7 +120,8 @@
 		} else {
 			// css-18u3ks8 is for Bitbucket Server ~v7.6 (aui ~ 8.1.*)
 			// css-7svmop is for Bitbucket Server v7.21+ (aui ~ 9.3.*)
-			const html = '<div id="' + BLOCK_ID + '"><div class="css-18u3ks8 css-7svmop">' + '<a id="' + URL_ID + '"></a>' + '</div></div>';
+			// css-7uss0q is for Bitbucket Server v8.9+ (aui ~ 9.4.*)
+			const html = '<div id="' + BLOCK_ID + '"><div class="css-18u3ks8 css-7svmop css-7uss0q">' + '<a id="' + URL_ID + '"></a>' + '</div></div>';
 			$(".changes-scope-actions").append(html);
 			log(label, "Creating the link...");
 		}
@@ -135,11 +136,11 @@
 			url: (restApiUrl)
 		}).then(data => {
 			log(label, "Ajax response received");
-			createTooltip(data.message);
 			if (!document.getElementById(BLOCK_ID)) {
 				warn(label, `Something happened to #${BLOCK_ID}. Re-creating...`);
 				ensureCommitLink("[smth happened]");
 			}
+			createTooltip(data.message);
 		});
 		log(label, "Done");
 	}
