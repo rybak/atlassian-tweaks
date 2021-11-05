@@ -77,7 +77,7 @@
 				x = Math.max(maxX - width, 0);
 			}
 			if (y + height > maxY) {
-				y = Math.max(y - height, 0);
+				y = Math.max(maxY - height, 0);
 			}
 			$('#' + TOOLTIP_BLOCK_ID).css({left: x, top: y}).show();
 		}, (e) => {
