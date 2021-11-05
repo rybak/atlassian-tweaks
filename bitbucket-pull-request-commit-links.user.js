@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bitbucket : commit links in PRs
 // @namespace    http://tampermonkey.net/
-// @version      5
+// @version      6
 // @license      MIT
 // @description  Adds convenience links in PRs of Bitbucket v7.6.8
 // @author       Andrei Rybak
@@ -44,7 +44,43 @@
 	const ABBREV_LEN = 8; // abbreviate commit hashes to this number of characters
 	const BLOCK_ID = 'RybakCommitLinkDiv';
 	const URL_ID = 'RybakCommitLinkA';
+	const TOOLTIP_BLOCK_ID = 'RybakCommitMessageDiv';
+	const TOOLTIP_MSG_ID = 'RybakCommitMessagePre';
 	const parsePath = /[/]projects[/]([^/]*)[/]repos[/]([^/]*)[/].*[/]commits[/]([0-9a-f]+)/
+
+	function createTooltip(message) {
+		$('#' + BLOCK_ID).hover((e) => {
+			$('#' + TOOLTIP_BLOCK_ID).remove(); // delete previous tooltip
+			const tooltipHtml = $('<div id="' + TOOLTIP_BLOCK_ID + '" class="Tooltip sc-jnlKLf ghcsui sc-bZQynM WXFrO sc-EHOje cffcMV"' +
+				'style="opacity: 1; position: fixed; top: 0px; left: 0px; display:none;' + // tweaked original element.style
+				'max-width: 600px; width: auto;' + // override of .ghcsui for better fitting of text
+				'background-color: rgb(23, 43, 77); border-radius: 3px; box-sizing: border-box; color: rgb(255, 255, 255); font-size: 12px; ' + // from .WXFrO
+				'line-height: 1.3; padding: 2px 6px; overflow-wrap: break-word;' + // from .WXFrO
+				'pointer-events: none;' + // from .cffcMV
+				'">' +
+				'<pre id="' + TOOLTIP_MSG_ID + '" class="commit-message-tooltip" style="' +
+				'white-space: pre-wrap; word-break: break-word;' + // from .commit-message-tooltip
+				'"></pre>' +
+				'</div>');
+			$($('.atlaskit-portal-container')[0]).append(tooltipHtml);
+			var x = e.pageX + 2;
+			var y = e.pageY + 2;
+			var width = tooltipHtml.outerWidth() + 25;
+			var height = tooltipHtml.height() + 50;
+			var maxX = $(window).width() + window.pageXOffset;
+			var maxY = $(window).height() + window.pageYOffset;
+			if (x + width > maxX) {
+				x = maxX - width;
+			}
+			if (y + height > maxY) {
+				y = y - height;
+			}
+			$('#' + TOOLTIP_MSG_ID).text(message);
+			$('#' + TOOLTIP_BLOCK_ID).css({left: x, top: y}).show();
+		}, (e) => {
+			$('#' + TOOLTIP_BLOCK_ID).hide();
+		});
+	}
 
 	function ensureCommitLink() {
 		const matching = document.location.pathname.match(parsePath);
@@ -61,10 +97,8 @@
 
 		const url = origin + '/projects/' + project + '/repos/' + repository + '/commits/' + commit + document.location.hash;
 		const linkText = commit.substring(0, ABBREV_LEN);
-		const titleText = $($('.selected-value-help-info')[0]).text();
 		log("Link:  " + url);
 		log("Text:  " + linkText);
-		log("Title: " + titleText);
 
 		const prevBlock = $('#' + BLOCK_ID);
 		if (prevBlock.length) {
@@ -76,16 +110,14 @@
 		}
 		$('#' + URL_ID)
 			.attr('href', url)
-			.text(linkText)
-			.prop('title', titleText);
-		// titleText from .selected-value-help-info is only the subject => get whole message seperately from REST
+			.text(linkText);
 		log("Ajax...");
 		$.ajax({
 			// https://docs.atlassian.com/bitbucket-server/rest/7.6.0/bitbucket-rest.html#idp224
 			url: (document.location.origin + "/rest/api/1.0/projects/" + project + '/repos/' + repository + '/commits/' + commit)
 		}).then(data => {
 			log("Ajax response received");
-			$('#' + URL_ID).prop('title', data.message);
+			createTooltip(data.message);
 		});
 		log("Done");
 	}
