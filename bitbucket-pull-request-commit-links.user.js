@@ -13,7 +13,7 @@
 // ==/UserScript==
 
 /*
- * Copyright (c) 2021-2023 Andrei Rybak
+ * Copyright (c) 2021-2024 Andrei Rybak
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -37,8 +37,14 @@
 (function() {
 	'use strict';
 
-	function log(msg) {
-		console.log("[PR commit links] " + msg);
+	const LOG_PREFIX = "[PR commit links]";
+
+	function warn(...toLog) {
+		console.warn(LOG_PREFIX, ...toLog);
+	}
+
+	function log(...toLog) {
+		console.log(LOG_PREFIX, ...toLog);
 	}
 
 	const ABBREV_LEN = 8; // abbreviate commit hashes to this number of characters
@@ -85,10 +91,10 @@
 		});
 	}
 
-	function ensureCommitLink() {
+	function ensureCommitLink(label) {
 		const matching = document.location.pathname.match(parsePath);
 		if (!matching) {
-			log("No commit in the URL: " + document.location.pathname);
+			log(label, "No commit in the URL: " + document.location.pathname);
 			return;
 		}
 		const origin = document.location.origin;
@@ -96,43 +102,48 @@
 		const projectOrUser = matching[1];
 		const project = matching[2];
 		const repository = matching[3];
+		/*
+		 * TODO: keep track of `commit` and avoid recreating everything if
+		 *       `commit` hasn't changed.
+		 */
 		const commit = matching[4];
-		log("Parsed " + project + "/" + repository + "/" + commit);
+		log(label, "Parsed " + project + "/" + repository + "/" + commit);
 
 		const url = origin + '/' + projectOrUser + '/' + project + '/repos/' + repository + '/commits/' + commit + document.location.hash;
 		const linkText = commit.substring(0, ABBREV_LEN);
-		log("Link:  " + url);
-		log("Text:  " + linkText);
+		log(label, "Link:  " + url);
+		log(label, "Text:  " + linkText);
 
 		const prevBlock = $('#' + BLOCK_ID);
 		if (prevBlock.length) {
-			log("Updating the link...");
+			log(label, "Updating the link...");
 		} else {
 			// css-18u3ks8 is for Bitbucket Server ~v7.6 (aui ~ 8.1.*)
 			// css-7svmop is for Bitbucket Server v7.21+ (aui ~ 9.3.*)
 			const html = '<div id="' + BLOCK_ID + '"><div class="css-18u3ks8 css-7svmop">' + '<a id="' + URL_ID + '"></a>' + '</div></div>';
 			$(".changes-scope-actions").append(html);
-			log("Creating the link...");
+			log(label, "Creating the link...");
 		}
 		$('#' + URL_ID)
 			.attr('href', url)
 			.text(linkText);
-		log("Ajax...: " + document.location.origin + "/rest/api/1.0/" + projectOrUser + "/" + project + '/repos/' + repository + '/commits/' + commit);
+		const restApiUrl = document.location.origin + "/rest/api/1.0/" + projectOrUser + "/" + project + '/repos/' + repository + '/commits/' + commit;
+		log(label, "Ajax...: " + restApiUrl);
 
 		$.ajax({
 			// https://docs.atlassian.com/bitbucket-server/rest/7.6.0/bitbucket-rest.html#idp224
-			url: (document.location.origin + "/rest/api/1.0/" + projectOrUser + "/" + project + '/repos/' + repository + '/commits/' + commit)
+			url: (restApiUrl)
 		}).then(data => {
-			log("Ajax response received");
+			log(label, "Ajax response received");
 			createTooltip(data.message);
 		});
-		log("Done");
+		log(label, "Done");
 	}
 
 	$(document).ready(function() {
-		ensureCommitLink();
+		ensureCommitLink("[document.ready]");
 		window.onpopstate = function(event) {
-			ensureCommitLink();
+			ensureCommitLink("[onpopstate]");
 		};
 	});
 
