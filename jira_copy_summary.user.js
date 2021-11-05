@@ -1,12 +1,13 @@
 // ==UserScript==
 // @name         JIRA copy summary
 // @namespace    http://tampermonkey.net/
-// @version      3.5
+// @version      3.6
 // @description  copies summary of JIRA ticket
 // @author       Sergey Lukashevich, Andrei Rybak, Dmitry Trubin
 // @homepage     https://github.com/rybak/atlassian-tweaks
 // @match        https://jira.example.com/browse/*
 // @match        https://jira.example.com/browse/*
+// @icon         https://jira.atlassian.com/favicon.ico
 // @grant        none
 // ==/UserScript==
 
