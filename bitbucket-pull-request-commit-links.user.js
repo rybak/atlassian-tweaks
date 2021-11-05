@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bitbucket : commit links in PRs
 // @namespace    http://tampermonkey.net/
-// @version      4
+// @version      5
 // @license      MIT
 // @description  Adds convenience links in PRs of Bitbucket v7.6.8
 // @author       Andrei Rybak
@@ -78,6 +78,15 @@
 			.attr('href', url)
 			.text(linkText)
 			.prop('title', titleText);
+		// titleText from .selected-value-help-info is only the subject => get whole message seperately from REST
+		log("Ajax...");
+		$.ajax({
+			// https://docs.atlassian.com/bitbucket-server/rest/7.6.0/bitbucket-rest.html#idp224
+			url: (document.location.origin + "/rest/api/1.0/projects/" + project + '/repos/' + repository + '/commits/' + commit)
+		}).then(data => {
+			log("Ajax response received");
+			$('#' + URL_ID).prop('title', data.message);
+		});
 		log("Done");
 	}
 
