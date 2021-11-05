@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bitbucket : commit links in PRs
 // @namespace    http://tampermonkey.net/
-// @version      6
+// @version      7
 // @license      MIT
 // @description  Adds convenience links in PRs of Bitbucket v7.6.8
 // @author       Andrei Rybak
@@ -52,7 +52,7 @@
 		$('#' + BLOCK_ID).hover((e) => {
 			$('#' + TOOLTIP_BLOCK_ID).remove(); // delete previous tooltip
 			const tooltipHtml = $('<div id="' + TOOLTIP_BLOCK_ID + '" class="Tooltip sc-jnlKLf ghcsui sc-bZQynM WXFrO sc-EHOje cffcMV"' +
-				'style="opacity: 1; position: fixed; top: 0px; left: 0px; display:none;' + // tweaked original element.style
+				'style="z-index:800; opacity: 1; position: fixed; top: 0px; left: 0px; display:none;' + // tweaked original element.style
 				'max-width: 600px; width: auto;' + // override of .ghcsui for better fitting of text
 				'background-color: rgb(23, 43, 77); border-radius: 3px; box-sizing: border-box; color: rgb(255, 255, 255); font-size: 12px; ' + // from .WXFrO
 				'line-height: 1.3; padding: 2px 6px; overflow-wrap: break-word;' + // from .WXFrO
