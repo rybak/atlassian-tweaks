@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bitbucket : commit links in PRs
 // @namespace    http://tampermonkey.net/
-// @version      7
+// @version      8
 // @license      MIT
 // @description  Adds convenience links in PRs of Bitbucket v7.6.8
 // @author       Andrei Rybak
@@ -52,7 +52,7 @@
 		$('#' + BLOCK_ID).hover((e) => {
 			$('#' + TOOLTIP_BLOCK_ID).remove(); // delete previous tooltip
 			const tooltipHtml = $('<div id="' + TOOLTIP_BLOCK_ID + '" class="Tooltip sc-jnlKLf ghcsui sc-bZQynM WXFrO sc-EHOje cffcMV"' +
-				'style="z-index:800; opacity: 1; position: fixed; top: 0px; left: 0px; display:none;' + // tweaked original element.style
+				'style="z-index:800; opacity: 1; position: fixed; top: 0px; left: 0px;' + // tweaked original element.style
 				'max-width: 600px; width: auto;' + // override of .ghcsui for better fitting of text
 				'background-color: rgb(23, 43, 77); border-radius: 3px; box-sizing: border-box; color: rgb(255, 255, 255); font-size: 12px; ' + // from .WXFrO
 				'line-height: 1.3; padding: 2px 6px; overflow-wrap: break-word;' + // from .WXFrO
@@ -63,19 +63,22 @@
 				'"></pre>' +
 				'</div>');
 			$($('.atlaskit-portal-container')[0]).append(tooltipHtml);
-			var x = e.pageX + 2;
-			var y = e.pageY + 2;
-			var width = tooltipHtml.outerWidth() + 25;
-			var height = tooltipHtml.height() + 50;
-			var maxX = $(window).width() + window.pageXOffset;
-			var maxY = $(window).height() + window.pageYOffset;
+			$('#' + TOOLTIP_MSG_ID).text(message); // text added early to calculate height correctly
+
+			const width = $('#' + TOOLTIP_BLOCK_ID).outerWidth();
+			const height = $('#' + TOOLTIP_BLOCK_ID).height();
+			const block = $('#' + BLOCK_ID);
+			const blockOffset = block.offset();
+			var x = blockOffset.left;
+			var y = blockOffset.top + block.height() + 8; // 8 is from CSS rule ".changes-scope-actions > *"
+			const maxX = $(window).width() + window.pageXOffset;
+			const maxY = $(window).height() + window.pageYOffset;
 			if (x + width > maxX) {
-				x = maxX - width;
+				x = Math.max(maxX - width, 0);
 			}
 			if (y + height > maxY) {
-				y = y - height;
+				y = Math.max(y - height, 0);
 			}
-			$('#' + TOOLTIP_MSG_ID).text(message);
 			$('#' + TOOLTIP_BLOCK_ID).css({left: x, top: y}).show();
 		}, (e) => {
 			$('#' + TOOLTIP_BLOCK_ID).hide();
