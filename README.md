@@ -32,6 +32,27 @@ which was removed by Atlassian.
 
 https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-pull-request-commit-links.user.js
 
+## How to use Atlassian Tweaks
+1. Install browser extensions for user scripts and user styles.
+2. Click on the link for the user script or user style in the sections above.
+   The corresponding browser extension will automatically recognize the filename
+   extension in the link and prompt you for its installation.
+3. After installation, you can use the browser extension popup to disable or
+   enable individual scripts and styles if needed.  For some scripts, you will
+   need to refresh the page (in browser) to remove effects of the script.
+
+# Browser extensions
+
+## For scripts
+- Recommended: https://www.tampermonkey.net/
+- Big list of different extensions for different browsers available on
+  https://greasyfork.org
+
+## For styles
+- Recommended – Stylus:
+  - [Stylus for Chrome/Chromium](https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne)
+  - [Stylus for Firefox](https://addons.mozilla.org/en-US/firefox/addon/styl-us/)
+
 [WikipediaUserStyles]: https://en.wikipedia.org/wiki/Stylus_(browser_extension)
 [Confluence]: https://www.atlassian.com/software/confluence
 [Bitbucket]: https://bitbucket.org/product
