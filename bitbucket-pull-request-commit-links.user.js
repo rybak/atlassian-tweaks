@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bitbucket : commit links in PRs
 // @namespace    http://tampermonkey.net/
-// @version      3
+// @version      4
 // @license      MIT
 // @description  Adds convenience links in PRs of Bitbucket v7.6.8
 // @author       Andrei Rybak
@@ -61,20 +61,24 @@
 
 		const url = origin + '/projects/' + project + '/repos/' + repository + '/commits/' + commit + document.location.hash;
 		const linkText = commit.substring(0, ABBREV_LEN);
-		log("Link: " + url);
+		const titleText = $($('.selected-value-help-info')[0]).text();
+		log("Link:  " + url);
+		log("Text:  " + linkText);
+		log("Title: " + titleText);
 
 		const prevBlock = $('#' + BLOCK_ID);
 		if (prevBlock.length) {
-			$('#' + URL_ID)
-				.attr('href', url)
-				.text(linkText);
-			log("Updated link");
+			log("Updating the link...");
 		} else {
-			const link = '<a id="' + URL_ID + '" href="' + url + '">' + linkText + "</a>";
-			const html = '<div id="' + BLOCK_ID + '"><div class="css-18u3ks8">' + link + '</div></div>';
+			const html = '<div id="' + BLOCK_ID + '"><div class="css-18u3ks8">' + '<a id="' + URL_ID + '"></a>' + '</div></div>';
 			$(".changes-scope-actions").append(html);
-			log("Created link");
+			log("Creating the link...");
 		}
+		$('#' + URL_ID)
+			.attr('href', url)
+			.text(linkText)
+			.prop('title', titleText);
+		log("Done");
 	}
 
 	$(document).ready(function() {
