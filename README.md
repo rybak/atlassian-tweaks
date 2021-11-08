@@ -23,6 +23,8 @@ IDEA) commit messages.
 
 https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-fix-commit-toolip.user.css
 
+![[Screenshot of "Fix commit tooltip"](images/bitbucket-fix-commit-tooltip.png)](https://github.com/rybak/atlassian-tweaks/raw/main/images/bitbucket-fix-commit-tooltip.png)
+
 ## User scripts
 
 ### Bitbucket – add convenient links to commits
