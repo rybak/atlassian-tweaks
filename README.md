@@ -25,6 +25,14 @@ https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-fix-commit-toolip.u
 
 ![[Screenshot of "Fix commit tooltip"](images/bitbucket-fix-commit-tooltip.png)](https://github.com/rybak/atlassian-tweaks/raw/main/images/bitbucket-fix-commit-tooltip.png)
 
+### JIRA – improve formatting of inline code
+
+Code in JIRA in `{{inline code}}` syntax can be hard to read sometimes.  This
+user style adds a background and a border for such elements to improve
+readability.
+
+https://github.com/rybak/atlassian-tweaks/raw/main/jira-inline-code.user.css
+
 ## User scripts
 
 ### Bitbucket – add convenient links to commits
