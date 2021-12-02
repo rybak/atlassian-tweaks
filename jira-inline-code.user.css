@@ -3,7 +3,7 @@
 @author       Andrei Rybak
 @homepageURL  https://github.com/rybak/atlassian-tweaks
 @updateURL    https://github.com/rybak/atlassian-tweaks/raw/main/jira-inline-code.user.css
-@version      1
+@version      2
 @license      MIT
 @namespace    github.com/openstyles/stylus
 ==/UserStyle== */
@@ -31,7 +31,8 @@
  */
 
 @-moz-document domain("jira.example.com") {
-	#descriptionmodule tt {
+	#descriptionmodule tt,
+	.flooded tt {
 		background-color: #f8f9fa;
 		color: #000;
 		padding: .1em .3em;
