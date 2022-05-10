@@ -45,6 +45,14 @@ https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-pull-request-commit
 
 ![[Screenshot of "PR links to commits"](images/bitbucket-pr-commit-links-screenshot-diff.png)](https://github.com/rybak/atlassian-tweaks/raw/main/images/bitbucket-pr-commit-links-screenshot-diff.png)
 
+### JIRA – better pull request links
+Bitbucket integration in JIRA is not very convenient.  It requires clicking on a
+link, like "3 pull requests", before actually giving the user access to the
+actual links to pull requests.  This user script adds a panel above
+"Development" with a list of clickable links to pull requests.
+
+https://github.com/rybak/atlassian-tweaks/raw/main/jira-pr-links-improver.user.js
+
 ## How to use Atlassian Tweaks
 1. Install browser extensions for user scripts and user styles.
 2. Click on the link for the user script or user style in the sections above.
