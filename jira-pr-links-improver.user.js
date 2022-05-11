@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         JIRA: Pull Request Link Improver
 // @namespace    http://tampermonkey.net/
-// @version      1
+// @version      2
 // @license      MIT
 // @description  Adds more convenient pull request links to JIRA tickets.
 // @author       Andrei Rybak
@@ -47,7 +47,7 @@
 
 	function createPanel() {
 		$('#viewissue-devstatus-panel')
-			.prepend($('<div class="mod-header"><h2 class="toggle-title">Better development</h2></div>' +
+			.prepend($('<div class="mod-header"><h2 class="toggle-title">Pull requests</h2></div>' +
 				`<div class="mod-content" id="${PANEL_ID}" style="margin-bottom:1rem;"></div>`));
 	}
 
@@ -65,7 +65,7 @@
 			const url = pr.url;
 			const prId = pr.id;
 			const li = $('<li/>').appendTo(list);
-			$(`<a href="${url}"><strong>Pull request ${prId}</strong>: ${pr.name}</a>`)
+			$(`<a href="${url}"><strong>${prId}</strong>: ${pr.name}</a>`)
 				.appendTo(li);
 		}
 	}
