@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         JIRA: Pull Request Link Improver
 // @namespace    http://tampermonkey.net/
-// @version      2
+// @version      3
 // @license      MIT
 // @description  Adds more convenient pull request links to JIRA tickets.
 // @author       Andrei Rybak
@@ -45,9 +45,31 @@
 		console.log('[PR Link Improver]:', ...toLog);
 	}
 
+	function warn(...toLog) {
+		console.warn('[PR Link Improver]:', ...toLog);
+	}
+
+	function getJiraMajorVersion() {
+		return document.querySelector('meta[name="application-name"]').attributes.getNamedItem("data-version").value.split(".")[0];
+	}
+
 	function createPanel() {
+		var header;
+		const jiraMajorVersion = getJiraMajorVersion();
+		switch (jiraMajorVersion) {
+			case "7":
+				header = '<div class="mod-header"><h2 class="toggle-title">Pull requests</h2></div>';
+				break;
+			case "8":
+				header = '<div class="mod-header"><h4 class="toggle-title">Pull requests</h4></div>';
+				break;
+			default:
+				warn("JIRA v" + jiraMajorVersion + " is not supported");
+				header = '<div class="mod-header"><h4 class="toggle-title">Pull requests</h4></div>';
+				return;
+		}
 		$('#viewissue-devstatus-panel')
-			.prepend($('<div class="mod-header"><h2 class="toggle-title">Pull requests</h2></div>' +
+			.prepend($(header +
 				`<div class="mod-content" id="${PANEL_ID}" style="margin-bottom:1rem;"></div>`));
 	}
 
