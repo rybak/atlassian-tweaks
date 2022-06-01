@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         JIRA: Pull Request Link Improver
 // @namespace    http://tampermonkey.net/
-// @version      4
+// @version      5
 // @license      MIT
 // @description  Adds more convenient pull request links to JIRA tickets.
 // @author       Andrei Rybak
@@ -40,6 +40,7 @@
 
 	const PANEL_ID = 'PrLinksImproverPanel';
 	const LIST_ID = 'PrLinksImproverList';
+	var loadInProgress = false;
 
 	function log(...toLog) {
 		console.log('[PR Link Improver]:', ...toLog);
@@ -96,18 +97,41 @@
 		}
 	}
 
-	$(document).ready(() => {
+	function addPrLinksPanel() {
+		if ($(`#${PANEL_ID}`).length) {
+			// the PR links panel has already been created
+			loadInProgress = false;
+			return;
+		}
 		const issueId = JIRA.Issue.getIssueId();
 		// https://community.atlassian.com/t5/Jira-questions/JIRA-REST-API-to-get-list-of-branches-related-to-a-issue/qaq-p/800389
 		const pullRequestsUrl = `/rest/dev-status/1.0/issue/detail?issueId=${issueId}&applicationType=stash&dataType=pullrequest`;
 		$.getJSON(pullRequestsUrl, data => {
+			if ($(`#${PANEL_ID}`).length) {
+				// the PR links panel has been created while we were getting the PR data
+				loadInProgress = false;
+				return;
+			}
 			createPanel();
 			if (data.detail.length == 0) {
 				addError(data.errors);
+				loadInProgress = false;
 				return;
 			}
 			const pullRequests = data.detail[0].pullRequests;
 			addPrLinks(pullRequests);
+			loadInProgress = false;
+		});
+	}
+
+	$(document).ready(() => {
+		JIRA.bind(JIRA.Events.NEW_CONTENT_ADDED, function() {
+			if (!loadInProgress) {
+				loadInProgress = true;
+				addPrLinksPanel();
+			} else {
+				log("Already loading. Skipping...");
+			}
 		});
 	});
 })();
