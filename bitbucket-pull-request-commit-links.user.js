@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bitbucket : commit links in PRs
 // @namespace    http://tampermonkey.net/
-// @version      8
+// @version      9
 // @license      MIT
 // @description  Adds convenience links in PRs of Bitbucket v7.6.+
 // @author       Andrei Rybak
@@ -13,7 +13,7 @@
 // ==/UserScript==
 
 /*
- * Copyright (c) 2021 Andrei Rybak
+ * Copyright (c) 2021-2022 Andrei Rybak
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -46,7 +46,7 @@
 	const URL_ID = 'RybakCommitLinkA';
 	const TOOLTIP_BLOCK_ID = 'RybakCommitMessageDiv';
 	const TOOLTIP_MSG_ID = 'RybakCommitMessagePre';
-	const parsePath = /[/]projects[/]([^/]*)[/]repos[/]([^/]*)[/].*[/]commits[/]([0-9a-f]+)/
+	const parsePath = /[/](projects|users)[/]([^/]*)[/]repos[/]([^/]*)[/].*[/]commits[/]([0-9a-f]+)/
 
 	function createTooltip(message) {
 		$('#' + BLOCK_ID).hover((e) => {
@@ -93,9 +93,10 @@
 		}
 		const origin = document.location.origin;
 		const hash = document.location.hash; // add hash in case the user clicked to a different file
-		const project = matching[1];
-		const repository = matching[2];
-		const commit = matching[3];
+		const projectOrUser = matching[1];
+		const project = matching[2];
+		const repository = matching[3];
+		const commit = matching[4];
 		log("Parsed " + project + "/" + repository + "/" + commit);
 
 		const url = origin + '/projects/' + project + '/repos/' + repository + '/commits/' + commit + document.location.hash;
@@ -114,10 +115,11 @@
 		$('#' + URL_ID)
 			.attr('href', url)
 			.text(linkText);
-		log("Ajax...");
+		log("Ajax...: " + document.location.origin + "/rest/api/1.0/projects/" + project + '/repos/' + repository + '/commits/' + commit);
+
 		$.ajax({
 			// https://docs.atlassian.com/bitbucket-server/rest/7.6.0/bitbucket-rest.html#idp224
-			url: (document.location.origin + "/rest/api/1.0/projects/" + project + '/repos/' + repository + '/commits/' + commit)
+			url: (document.location.origin + "/rest/api/1.0/" + projectOrUser + "/" + project + '/repos/' + repository + '/commits/' + commit)
 		}).then(data => {
 			log("Ajax response received");
 			createTooltip(data.message);
