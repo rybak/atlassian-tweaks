@@ -35,6 +35,11 @@ https://github.com/rybak/atlassian-tweaks/raw/main/jira-inline-code.user.css
 
 ## User scripts
 
+### JIRA – copy summary button
+This user script adds or fixes a "Copy Summary" button for issue pages on JIRA.
+
+https://github.com/rybak/atlassian-tweaks/raw/main/jira_copy_summary.user.js
+
 ### Bitbucket – add convenient links to commits
 Currently, we are using Bitbucket v7.6.8.  This user script brings back
 convenient links to individual commit pages to the pull request's "Diff" tab,
@@ -68,6 +73,9 @@ https://github.com/rybak/atlassian-tweaks/raw/main/jira-pr-links-improver.user.j
 - Recommended: https://www.tampermonkey.net/
 - Big list of different extensions for different browsers available on
   https://greasyfork.org
+
+User scripts are compatible with browser extensions Violentmonkey,
+Tampermonkey, and Greasemonkey.
 
 ## For styles
 - Recommended – Stylus:
