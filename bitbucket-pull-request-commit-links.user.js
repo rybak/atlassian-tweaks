@@ -3,7 +3,7 @@
 // @namespace    http://tampermonkey.net/
 // @version      8
 // @license      MIT
-// @description  Adds convenience links in PRs of Bitbucket v7.6.8
+// @description  Adds convenience links in PRs of Bitbucket v7.6.+
 // @author       Andrei Rybak
 // @match        https://bitbucket.example.com/projects/*/repos/*/pull-requests/*
 // @icon         https://bitbucket.org/favicon.ico

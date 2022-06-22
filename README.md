@@ -41,7 +41,7 @@ This user script adds or fixes a "Copy Summary" button for issue pages on JIRA.
 https://github.com/rybak/atlassian-tweaks/raw/main/jira_copy_summary.user.js
 
 ### Bitbucket – add convenient links to commits
-Currently, we are using Bitbucket v7.6.8.  This user script brings back
+Currently, we are using Bitbucket v7.6.\*.  This user script brings back
 convenient links to individual commit pages to the pull request's "Diff" tab,
 which was removed by Atlassian.  The tooltip on the commit link includes a fancy
 tooltip, same as commit links on the "Commits" tab.
