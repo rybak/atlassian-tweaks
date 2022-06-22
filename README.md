@@ -1,5 +1,5 @@
 Atlassian Tweaks
-===================
+================
 
 This is a collection of [user scripts](https://en.wikipedia.org/wiki/Userscript)
 and [user styles][WikipediaUserStyles] for [Confluence][Confluence],
@@ -17,9 +17,13 @@ https://github.com/rybak/atlassian-tweaks/raw/main/hide-bitbucket-confluence-ban
 ### Bitbucket – fix commit tooltip
 
 The width of commit tooltip in Bitbucket can sometimes make it unreadable
-because it is too narrow.  This user style increases the width of the tooltip to
-accommodate the 72 characters wide (default setting for formatting in IntelliJ
-IDEA) commit messages.
+because it is too narrow.  This user style increases the width of the tooltip
+to accommodate commit messages wrapped at 72 characters.  It is the commonly
+used standard for commit message wrapping, which is used by
+[Git](https://github.com/git/git/blob/master/.editorconfig#L15-L16) itself. It
+is also the default wrapping width in some text editors, such as
+[Vim](https://github.com/vim/vim/blob/master/runtime/ftplugin/gitcommit.vim#L13)
+and [IntelliJ IDEA](https://github.com/JetBrains/intellij-community/blob/5544872539d351efcff26220579ff3dccf17cb2a/platform/vcs-impl/src/com/intellij/vcs/commit/message/BodyLimitInspection.java#L29-L31).
 
 https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-fix-commit-toolip.user.css
 
@@ -41,10 +45,10 @@ This user script adds or fixes a "Copy Summary" button for issue pages on JIRA.
 https://github.com/rybak/atlassian-tweaks/raw/main/jira_copy_summary.user.js
 
 ### Bitbucket – add convenient links to commits
-Currently, we are using Bitbucket v7.6.\*.  This user script brings back
-convenient links to individual commit pages to the pull request's "Diff" tab,
-which was removed by Atlassian.  The tooltip on the commit link includes a fancy
-tooltip, same as commit links on the "Commits" tab.
+This user script brings back convenient links to individual commit pages to the
+pull request's "Diff" tab, which was removed by Atlassian some time before
+Bitbucket version 7.6.  The commit link includes a fancy tooltip, same as
+commit links on the "Commits" tab.
 
 https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-pull-request-commit-links.user.js
 
