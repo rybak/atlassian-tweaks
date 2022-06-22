@@ -13,7 +13,7 @@
 // ==/UserScript==
 
 /*
- * Copyright 2017-2021 Sergey Lukashevich
+ * Copyright 2017-2022 Sergey Lukashevich
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
  * documentation files (the "Software"), to deal in the Software without restriction, including without limitation the
  * rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit
@@ -27,6 +27,45 @@
  * COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
  * OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
+
+/*
+version 3.7
+	- User script now supports automatic updates via @updateURL.
+version 3.6
+	- User script now has @icon, which can be rendered by the browser
+	  extension in the list of user scripts, dashboard, etc.
+version 3.5
+	- Adding italics to format the summary text is now "configurable" via a
+	  constant in code.
+version 3.4.1
+	- Fixed the button not working in JIRA 8
+version 3.4
+	- dependency on jQuery has been removed to improve compatibility with
+	  different versions of JIRA, which may use different versions of
+	  jQuery themselves.
+version 3.3
+	- Compatibility with JIRA 8 has been improved.
+version 3.2
+	- "Copy Summary" button will now work in "Detail View" of JQL search
+	  results.
+version 3.1
+	- jQuery version has been downgraded to 1.7.2 to avoid clashing with
+	  JIRA's version of jQuery
+version 3.0
+	- Resurrection of the button has been made more aggressive to handle
+	  more use-cases.
+	- User script used to incorrectly use link or summary of a previously
+	  opened ticket, which has been corrected.
+version 2.2
+	- Code clean up
+version 2.1
+	- Summary text (after ticket id) is italicized, to make it easier to see
+	  where the summary ends
+version 2.0
+	- JIRA 8 is now supported in addition to JIRA 7
+version 1.2
+	- Button "Copy summary" no longer breaks after editing a JIRA ticket
+*/
 
 (function () {
 	'use strict';
