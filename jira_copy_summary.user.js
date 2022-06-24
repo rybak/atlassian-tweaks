@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         JIRA copy summary
 // @namespace    http://tampermonkey.net/
-// @version      3.7
+// @version      3.8
 // @description  copies summary of JIRA ticket
 // @author       Sergey Lukashevich, Andrei Rybak, Dmitry Trubin
 // @homepage     https://github.com/rybak/atlassian-tweaks
@@ -9,7 +9,13 @@
 // @match        https://jira.example.com/browse/*
 // @match        https://jira.example.com/browse/*
 // @icon         https://jira.atlassian.com/favicon.ico
-// @grant        none
+//
+// @require      https://raw.githubusercontent.com/odyniec/MonkeyConfig/0eaeb525/monkeyconfig.js
+// @grant        GM_registerMenuCommand
+// @grant        GM_addStyle
+// @grant        GM_getValue
+// @grant        GM_setValue
+//
 // ==/UserScript==
 
 /*
@@ -29,6 +35,9 @@
  */
 
 /*
+version 3.8
+	- Italic formatting is now configurable via extension menu, and the
+	  configuration persists across script updates.
 version 3.7
 	- User script now supports automatic updates via @updateURL.
 version 3.6
@@ -73,7 +82,16 @@ version 1.2
 	/*
 	 * User configuration
 	 */
-	const ITALICS = true;
+	var cfg = new MonkeyConfig({
+		title: 'JIRA copy summary configuration',
+		menuCommand: true,
+		params: {
+			italic_summary: {
+				type: 'checkbox',
+				default: true
+			}
+		}
+	});
 
 	// https://stackoverflow.com/a/39914235/1083697
 	function sleep(ms) {
@@ -162,7 +180,7 @@ version 1.2
 		var jiraUrl = getMeta("ajs-jira-base-url");
 		var fullLink = jiraUrl + "/browse/" + ticketId;
 		textResult = '[' + ticketId + '] ' + summaryText;
-		if (ITALICS) {
+		if (cfg.get('italic_summary')) {
 			summaryText = '<i>' + summaryText + '</i>';
 		}
 		htmlResult = '[<a href="' + fullLink + '">' + ticketId + '</a>] ' + summaryText;
