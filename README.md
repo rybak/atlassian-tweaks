@@ -27,7 +27,7 @@ and [IntelliJ IDEA](https://github.com/JetBrains/intellij-community/blob/5544872
 
 https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-fix-commit-toolip.user.css
 
-![[Screenshot of "Fix commit tooltip"](images/bitbucket-fix-commit-tooltip.png)](https://github.com/rybak/atlassian-tweaks/raw/main/images/bitbucket-fix-commit-tooltip.png)
+![[Screenshot of "Fix commit tooltip"](images/bitbucket-fix-commit-tooltip.png)](images/bitbucket-fix-commit-tooltip.png)
 
 ### JIRA – improve formatting of inline code
 
@@ -55,7 +55,7 @@ commit links on the "Commits" tab.
 
 https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-pull-request-commit-links.user.js
 
-![[Screenshot of "PR links to commits"](images/bitbucket-pr-commit-links-screenshot-diff.png)](https://github.com/rybak/atlassian-tweaks/raw/main/images/bitbucket-pr-commit-links-screenshot-diff.png)
+![[Screenshot of "PR links to commits"](images/bitbucket-pr-commit-links-screenshot-diff.png)](images/bitbucket-pr-commit-links-screenshot-diff.png)
 
 ### JIRA – better pull request links
 Bitbucket integration in JIRA is not very convenient.  It requires clicking on a
