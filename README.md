@@ -43,6 +43,7 @@ https://github.com/rybak/atlassian-tweaks/raw/main/jira-inline-code.user.css
 This user script adds or fixes a "Copy Summary" button for issue pages on JIRA.
 When on a JIRA page, the script can be configured using the corresponding
 extension menu item (screenshot from Tampermonkey):
+
 [![JIRA copy summary Tampermonkey configuration][copy-summary-cfg]][copy-summary-cfg]
 
 https://github.com/rybak/atlassian-tweaks/raw/main/jira_copy_summary.user.js
