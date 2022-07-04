@@ -79,7 +79,17 @@ https://github.com/rybak/atlassian-tweaks/raw/main/jira-pr-links-improver.user.j
 2. Click on the link for the user script or user style in the sections above.
    The corresponding browser extension will automatically recognize the filename
    extension in the link and prompt you for its installation.
-3. After installation, you can use the browser extension popup to disable or
+3. Change the URL in the "match" settings to the URL of the Bitbucket, JIRA, or
+   Confluence server that you use.  Tampermonkey specific instructions:
+   1. Go to Dashboard in the extension menu
+   2. Click "Edit" button in the line of the script that you've just installed
+   3. Copy the value from `@match` field of the metadata
+   4. Go to the tab "Settings"
+   5. Click "Add..." under "User matches"
+   6. Paste the copied value
+   7. Replace the domain with your domain
+   8. Click "OK"
+4. After installation, you can use the browser extension popup to disable or
    enable individual scripts and styles if needed.  For some scripts, you will
    need to refresh the page (in browser) to remove effects of the script.
 
