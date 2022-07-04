@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bitbucket : commit links in PRs
 // @namespace    http://tampermonkey.net/
-// @version      10
+// @version      11
 // @license      MIT
 // @description  Adds convenience links in PRs of Bitbucket v7.6.+
 // @author       Andrei Rybak
@@ -99,7 +99,7 @@
 		const commit = matching[4];
 		log("Parsed " + project + "/" + repository + "/" + commit);
 
-		const url = origin + '/projects/' + project + '/repos/' + repository + '/commits/' + commit + document.location.hash;
+		const url = origin + '/' + projectOrUser + '/' + project + '/repos/' + repository + '/commits/' + commit + document.location.hash;
 		const linkText = commit.substring(0, ABBREV_LEN);
 		log("Link:  " + url);
 		log("Text:  " + linkText);
@@ -115,7 +115,7 @@
 		$('#' + URL_ID)
 			.attr('href', url)
 			.text(linkText);
-		log("Ajax...: " + document.location.origin + "/rest/api/1.0/projects/" + project + '/repos/' + repository + '/commits/' + commit);
+		log("Ajax...: " + document.location.origin + "/rest/api/1.0/" + projectOrUser + "/" + project + '/repos/' + repository + '/commits/' + commit);
 
 		$.ajax({
 			// https://docs.atlassian.com/bitbucket-server/rest/7.6.0/bitbucket-rest.html#idp224
