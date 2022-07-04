@@ -3,7 +3,7 @@
 @author       Andrei Rybak
 @homepageURL  https://github.com/rybak/atlassian-tweaks
 @updateURL    https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-fix-breadcrumbs-selection.user.css
-@version      1
+@version      2
 @license      MIT
 @namespace    github.com/openstyles/stylus
 ==/UserStyle== */
@@ -30,7 +30,9 @@
  * SOFTWARE.
  */
 
-@-moz-document regexp("https://bitbucket.example.com/.*/repos/.*/commits/.*") {
+@-moz-document regexp("https://bitbucket.example.com/.*/repos/.*/commits/.*"),
+regexp("https://bitbucket.example.com/.*/repos/.*/pull-requests\\?create.*")
+{
 	.aui-lozenge.change-type-lozenge.aui-lozenge-current {
 		user-select: none;
 	}
