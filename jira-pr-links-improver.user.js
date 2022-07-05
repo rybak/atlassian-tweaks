@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         JIRA: Pull Request Link Improver
 // @namespace    http://tampermonkey.net/
-// @version      5
+// @version      6
 // @license      MIT
 // @description  Adds more convenient pull request links to JIRA tickets.
 // @author       Andrei Rybak
@@ -93,6 +93,9 @@
 			if (pr.name.includes(JIRA.Issue.getIssueKey())) {
 				link = `<strong>${link}</strong>`;
 			}
+			if (pr.status == "DECLINED") {
+				link = `<s>${link}</s>`;
+			}
 			$(link).appendTo(li);
 		}
 	}
@@ -106,6 +109,7 @@
 		const issueId = JIRA.Issue.getIssueId();
 		// https://community.atlassian.com/t5/Jira-questions/JIRA-REST-API-to-get-list-of-branches-related-to-a-issue/qaq-p/800389
 		const pullRequestsUrl = `/rest/dev-status/1.0/issue/detail?issueId=${issueId}&applicationType=stash&dataType=pullrequest`;
+		log("Loading: " + pullRequestsUrl);
 		$.getJSON(pullRequestsUrl, data => {
 			if ($(`#${PANEL_ID}`).length) {
 				// the PR links panel has been created while we were getting the PR data
