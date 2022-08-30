@@ -56,6 +56,13 @@ extension menu item (screenshot from Tampermonkey):
 
 https://github.com/rybak/atlassian-tweaks/raw/main/jira_copy_summary.user.js
 
+### JIRA – copy code blocks
+This user scripts adds a "Copy!" button to all code and preformatted blocks in
+JIRA to allow copying its contents.  Useful for copying commands when executing
+Zephyr test cases.
+
+https://github.com/rybak/atlassian-tweaks/raw/main/jira-copy-code-blocks.user.js
+
 ### Bitbucket – add convenient links to commits
 This user script brings back convenient links to individual commit pages to the
 pull request's "Diff" tab, which was removed by Atlassian some time before
