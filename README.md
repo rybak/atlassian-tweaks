@@ -65,6 +65,8 @@ to distinguish from surrounding text.
 
 https://github.com/rybak/atlassian-tweaks/raw/main/confluence-better-monospace.user.css
 
+![[Screenshot of "Confluence: better monospace"](images/confluence-better-monospace.png)](images/confluence-better-monospace.png)
+
 ## JIRA
 
 ### JIRA – improve formatting of inline code
