@@ -58,6 +58,13 @@ when it is almost never used.
 
 https://github.com/rybak/atlassian-tweaks/raw/main/confluence-hide-banner.user.css
 
+### Better monospace
+
+This style adds a border and a background to monospace text, making it easier
+to distinguish from surrounding text.
+
+https://github.com/rybak/atlassian-tweaks/raw/main/confluence-better-monospace.user.css
+
 ## JIRA
 
 ### JIRA – improve formatting of inline code
