@@ -7,12 +7,19 @@ and [user styles][WikipediaUserStyles] for [Confluence][Confluence],
 
 ## User styles
 
-### Hide Bitbucket/Confluence banner
+### Hide Bitbucket banner
 
-Hides the annoying banner at the top of Confluence and
-Bitbucket which takes up vertical space.
+Hides the banner at the top of Bitbucket which takes up vertical space in cases
+when it is almost never used.
 
-https://github.com/rybak/atlassian-tweaks/raw/main/hide-bitbucket-confluence-banner.user.css
+https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-hide-banner.user.css
+
+### Hide Confluence banner
+
+Hides the banner at the top of Confluence which takes up vertical space in cases
+when it is almost never used.
+
+https://github.com/rybak/atlassian-tweaks/raw/main/confluence-hide-banner.user.css
 
 ### Bitbucket – fix commit tooltip
 
@@ -88,6 +95,7 @@ https://github.com/rybak/atlassian-tweaks/raw/main/jira-pr-links-improver.user.j
    extension in the link and prompt you for its installation.
 3. Change the URL in the "match" settings to the URL of the Bitbucket, JIRA, or
    Confluence server that you use.  Tampermonkey specific instructions:
+
    1. Go to Dashboard in the extension menu
    2. Click "Edit" button in the line of the script that you've just installed
    3. Copy the value from `@match` field of the metadata
