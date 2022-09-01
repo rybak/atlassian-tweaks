@@ -2,10 +2,10 @@ Atlassian Tweaks
 ================
 
 This is a collection of [user scripts](https://en.wikipedia.org/wiki/Userscript)
-and [user styles][WikipediaUserStyles] for [Confluence][Confluence],
-[Bitbucket][Bitbucket], and [JIRA][JIRA].
+and [user styles][WikipediaUserStyles] for [Bitbucket][Bitbucket],
+[Confluence][Confluence], and [JIRA][JIRA].
 
-## User styles
+## Bitbucket
 
 ### Hide Bitbucket banner
 
@@ -13,13 +13,6 @@ Hides the banner at the top of Bitbucket which takes up vertical space in cases
 when it is almost never used.
 
 https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-hide-banner.user.css
-
-### Hide Confluence banner
-
-Hides the banner at the top of Confluence which takes up vertical space in cases
-when it is almost never used.
-
-https://github.com/rybak/atlassian-tweaks/raw/main/confluence-hide-banner.user.css
 
 ### Bitbucket – fix commit tooltip
 
@@ -36,14 +29,6 @@ https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-fix-commit-toolip.u
 
 ![[Screenshot of "Fix commit tooltip"](images/bitbucket-fix-commit-tooltip.png)](images/bitbucket-fix-commit-tooltip.png)
 
-### JIRA – improve formatting of inline code
-
-Code in JIRA in `{{inline code}}` syntax can be hard to read sometimes.  This
-user style adds a background and a border for such elements to improve
-readability.
-
-https://github.com/rybak/atlassian-tweaks/raw/main/jira-inline-code.user.css
-
 ### Bitbucket – fix selection of breadcrumbs
 Selection of file paths (breadcrumbs) is broken in some parts of the Bitbucket
 UI in a way, that marker "UPDATED", "ADDED", or "DELETED" is selected, depending
@@ -52,7 +37,34 @@ pill-shaped markers unselectable, fixing this issue.
 
 https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-fix-breadcrumbs-selection.user.css
 
-## User scripts
+### Bitbucket – add convenient links to commits
+This user script brings back convenient links to individual commit pages to the
+pull request's "Diff" tab, which was removed by Atlassian some time before
+Bitbucket version 7.6.  The commit link includes a fancy tooltip, same as
+commit links on the "Commits" tab.
+
+https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-pull-request-commit-links.user.js
+
+![[Screenshot of "PR links to commits"](images/bitbucket-pr-commit-links-screenshot-diff.png)](images/bitbucket-pr-commit-links-screenshot-diff.png)
+
+## Confluence
+
+### Hide Confluence banner
+
+Hides the banner at the top of Confluence which takes up vertical space in cases
+when it is almost never used.
+
+https://github.com/rybak/atlassian-tweaks/raw/main/confluence-hide-banner.user.css
+
+## JIRA
+
+### JIRA – improve formatting of inline code
+
+Code in JIRA in `{{inline code}}` syntax can be hard to read sometimes.  This
+user style adds a background and a border for such elements to improve
+readability.
+
+https://github.com/rybak/atlassian-tweaks/raw/main/jira-inline-code.user.css
 
 ### JIRA – copy summary button
 This user script adds or fixes a "Copy Summary" button for issue pages on JIRA.
@@ -69,16 +81,6 @@ JIRA to allow copying its contents.  Useful for copying commands when executing
 Zephyr test cases.
 
 https://github.com/rybak/atlassian-tweaks/raw/main/jira-copy-code-blocks.user.js
-
-### Bitbucket – add convenient links to commits
-This user script brings back convenient links to individual commit pages to the
-pull request's "Diff" tab, which was removed by Atlassian some time before
-Bitbucket version 7.6.  The commit link includes a fancy tooltip, same as
-commit links on the "Commits" tab.
-
-https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-pull-request-commit-links.user.js
-
-![[Screenshot of "PR links to commits"](images/bitbucket-pr-commit-links-screenshot-diff.png)](images/bitbucket-pr-commit-links-screenshot-diff.png)
 
 ### JIRA – better pull request links
 Bitbucket integration in JIRA is not very convenient.  It requires clicking on a
