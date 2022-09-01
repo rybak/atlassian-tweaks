@@ -5,6 +5,8 @@ This is a collection of [user scripts](https://en.wikipedia.org/wiki/Userscript)
 and [user styles][WikipediaUserStyles] for [Bitbucket][Bitbucket],
 [Confluence][Confluence], and [JIRA][JIRA].
 
+Instructions on how to use user scripts and styles are at the bottom of the README.
+
 ## Bitbucket
 
 ### Hide Bitbucket banner
@@ -95,8 +97,14 @@ https://github.com/rybak/atlassian-tweaks/raw/main/jira-pr-links-improver.user.j
 2. Click on the link for the user script or user style in the sections above.
    The corresponding browser extension will automatically recognize the filename
    extension in the link and prompt you for its installation.
-3. Change the URL in the "match" settings to the URL of the Bitbucket, JIRA, or
-   Confluence server that you use.  Tampermonkey specific instructions:
+3. All scripts and styles use https://example.com by default. You have to manually
+   change the URL in the "match" settings to the hostname of the Bitbucket, JIRA, or
+   Confluence server that you use. This is due to restrictions on how
+   browser extensions can match against URLs.
+   See documentation of [Firefox][firefox-patterns] and [Google
+   Chrome][chrome-patterns] for details.
+
+   Tampermonkey instructions:
 
    1. Go to Dashboard in the extension menu
    2. Click "Edit" button in the line of the script that you've just installed
@@ -104,15 +112,22 @@ https://github.com/rybak/atlassian-tweaks/raw/main/jira-pr-links-improver.user.j
    4. Go to the tab "Settings"
    5. Click "Add..." under "User matches"
    6. Paste the copied value
-   7. Replace the domain with your domain
+   7. Replace the example domain with the domain of website you use
    8. Click "OK"
+
+   Stylus instructions:
+   1. Click "Manage" button in the extension's menu
+   2. Click on the style that you need to adjust
+   3. Click button "Settings" on the left sidebar
+   4. In section "Custom included sites", type in `*://<your URL>/*`. For example, `*://jira.example.com/*`.
+
 4. After installation, you can use the browser extension popup to disable or
    enable individual scripts and styles if needed.  For some scripts, you will
    need to refresh the page (in browser) to remove effects of the script.
 
-# Browser extensions
+### Browser extensions
 
-## For scripts
+#### For scripts
 - Recommended: https://www.tampermonkey.net/
 - Big list of different extensions for different browsers available on
   https://greasyfork.org
@@ -120,7 +135,7 @@ https://github.com/rybak/atlassian-tweaks/raw/main/jira-pr-links-improver.user.j
 User scripts are compatible with browser extensions Violentmonkey,
 Tampermonkey, and Greasemonkey.
 
-## For styles
+#### For styles
 - Recommended – Stylus:
   - [Stylus for Chrome/Chromium](https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne)
   - [Stylus for Firefox](https://addons.mozilla.org/en-US/firefox/addon/styl-us/)
@@ -130,3 +145,5 @@ Tampermonkey, and Greasemonkey.
 [Bitbucket]: https://bitbucket.org/product
 [JIRA]: https://www.atlassian.com/software/jira
 [copy-summary-cfg]: images/jira_copy_summary_cfg_tampermonkey.png
+[chrome-patterns]: https://developer.chrome.com/docs/extensions/mv3/match_patterns/
+[firefox-patterns]: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Match_patterns
