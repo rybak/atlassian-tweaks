@@ -7,7 +7,6 @@
 // @author       Andrei Rybak
 // @match        https://bitbucket.example.com/*/repos/*/pull-requests/*
 // @icon         https://bitbucket.org/favicon.ico
-// @updateURL    https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-pull-request-commit-links.user.js
 // @homepageURL  https://github.com/rybak/atlassian-tweaks
 // @grant        none
 // ==/UserScript==

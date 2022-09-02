@@ -6,8 +6,6 @@
 // @author       Andrei Rybak
 // @match        https://jira.*.com/secure/enav/*
 // @match        https://jira.*.com/browse/*
-// @downloadURL  https://github.com/rybak/atlassian-tweaks/raw/main/jira-copy-code-blocks.user.js
-// @updateURL    https://github.com/rybak/atlassian-tweaks/raw/main/jira-copy-code-blocks.user.js
 // @homepageURL  https://github.com/rybak/atlassian-tweaks
 //
 // ==/UserScript==

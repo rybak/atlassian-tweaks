@@ -8,7 +8,6 @@
 // @match        https://jira.example.com/browse/*
 // @match        https://jira.example.com/browse/*
 // @icon         https://jira.atlassian.com/favicon.ico
-// @updateURL    https://github.com/rybak/atlassian-tweaks/raw/main/jira-pr-links-improver.user.js
 // @homepageURL  https://github.com/rybak/atlassian-tweaks
 // @grant        none
 // ==/UserScript==
