@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         JIRA copy summary
 // @namespace    http://tampermonkey.net/
-// @version      3.8
+// @version      4.0
 // @description  copies summary of JIRA ticket
 // @author       Sergey Lukashevich, Andrei Rybak, Dmitry Trubin
 // @homepage     https://github.com/rybak/atlassian-tweaks
@@ -34,6 +34,9 @@
  */
 
 /*
+version 4.0
+	- Resurrection of the button has been made more robust by relying on
+	  JIRA's own events about edits on the issue pages.
 version 3.8
 	- Italic formatting is now configurable via extension menu, and the
 	  configuration persists across script updates.
@@ -91,11 +94,6 @@ version 1.2
 			}
 		}
 	});
-
-	// https://stackoverflow.com/a/39914235/1083697
-	function sleep(ms) {
-		return new Promise(resolve => setTimeout(resolve, ms));
-	}
 
 	function getMeta(metaName) {
 		const metas = document.getElementsByTagName('meta');
@@ -223,16 +221,8 @@ version 1.2
 
 	createButton();
 
-	async function keepButtonAlive() {
-		while (true) {
-			var copyButton = document.getElementById(COPY_BUTTON_ID);
-			if (!copyButton || !copyButton.onclick) {
-				console.log("Copy summary button died, recreating...");
-				createButton();
-			}
-			await sleep(1000);
-		}
-	};
-
-	keepButtonAlive();
+	JIRA.bind(JIRA.Events.NEW_CONTENT_ADDED, () => {
+		console.log("Something changed, recreating button...");
+		createButton();
+	});
 })();
