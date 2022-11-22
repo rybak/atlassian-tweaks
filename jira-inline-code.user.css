@@ -2,7 +2,7 @@
 @name         JIRA :: better <tt> style
 @author       Andrei Rybak
 @homepageURL  https://github.com/rybak/atlassian-tweaks
-@version      5
+@version      6
 @license      MIT
 @namespace    github.com/openstyles/stylus
 ==/UserStyle== */
@@ -32,7 +32,8 @@
 @-moz-document domain("jira.example.com") {
 	#descriptionmodule tt,
 	.wiki-edit tt,
-	.flooded tt {
+	.flooded tt,
+	.mce-content-body tt {
 		background-color: #f8f9fa;
 		color: #000;
 		padding: .1em .3em;
