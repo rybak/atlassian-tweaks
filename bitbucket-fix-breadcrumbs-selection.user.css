@@ -1,10 +1,13 @@
 /* ==UserStyle==
 @name         Bitbucket :: fix breadcrumbs selection
-@author       Andrei Rybak
 @homepageURL  https://github.com/rybak/atlassian-tweaks
-@version      3
+@author       Andrei Rybak
 @license      MIT
 @namespace    github.com/openstyles/stylus
+@preprocessor uso
+@var text yourDomain "Your Bitbucket domain" "bitbucket.example.com"
+@var text yourDomain2 "Your 2nd Bitbucket domain" "bitbucket.example.com"
+@version      4
 ==/UserStyle== */
 
 /*
@@ -29,9 +32,7 @@
  * SOFTWARE.
  */
 
-@-moz-document regexp("https://bitbucket.example.com/.*/repos/.*/commits/.*"),
-regexp("https://bitbucket.example.com/.*/repos/.*/pull-requests\\?create.*")
-{
+@-moz-document domain(/*[[yourDomain]]*/), domain(/*[[yourDomain2]]*/) {
 	.aui-lozenge.change-type-lozenge {
 		user-select: none;
 	}
