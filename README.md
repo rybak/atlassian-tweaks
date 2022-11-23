@@ -3,7 +3,7 @@ Atlassian Tweaks
 
 This is a collection of [user scripts](https://en.wikipedia.org/wiki/Userscript)
 and [user styles][WikipediaUserStyles] for [Bitbucket][Bitbucket],
-[Confluence][Confluence], and [JIRA][JIRA].
+[Confluence][Confluence], and [Jira][Jira].
 
 Instructions on how to use user scripts and styles are at the bottom of the README.
 
@@ -67,34 +67,34 @@ https://github.com/rybak/atlassian-tweaks/raw/main/confluence-better-monospace.u
 
 ![[Screenshot of "Confluence: better monospace"](images/confluence-better-monospace.png)](images/confluence-better-monospace.png)
 
-## JIRA
+## Jira
 
-### JIRA – improve formatting of inline code
+### Jira – improve formatting of inline code
 
-Code in JIRA in `{{inline code}}` syntax can be hard to read sometimes.  This
+Code in Jira in `{{inline code}}` syntax can be hard to read sometimes.  This
 user style adds a background and a border for such elements to improve
 readability.
 
 https://github.com/rybak/atlassian-tweaks/raw/main/jira-inline-code.user.css
 
-### JIRA – copy summary button
-This user script adds or fixes a "Copy Summary" button for issue pages on JIRA.
-When on a JIRA page, the script can be configured using the corresponding
+### Jira – copy summary button
+This user script adds or fixes a "Copy Summary" button for issue pages on Jira.
+When on a Jira page, the script can be configured using the corresponding
 extension menu item (screenshot from Tampermonkey):
 
-[![JIRA copy summary Tampermonkey configuration][copy-summary-cfg]][copy-summary-cfg]
+[![Jira copy summary Tampermonkey configuration][copy-summary-cfg]][copy-summary-cfg]
 
 https://github.com/rybak/atlassian-tweaks/raw/main/jira_copy_summary.user.js
 
-### JIRA – copy code blocks
+### Jira – copy code blocks
 This user scripts adds a "Copy!" button to all code and preformatted blocks in
-JIRA to allow copying its contents.  Useful for copying commands when executing
+Jira to allow copying its contents.  Useful for copying commands when executing
 Zephyr test cases.
 
 https://github.com/rybak/atlassian-tweaks/raw/main/jira-copy-code-blocks.user.js
 
-### JIRA – better pull request links
-Bitbucket integration in JIRA is not very convenient.  It requires clicking on a
+### Jira – better pull request links
+Bitbucket integration in Jira is not very convenient.  It requires clicking on a
 link, like "3 pull requests", before actually giving the user access to the
 actual links to pull requests.  This user script adds a panel above
 "Development" with a list of clickable links to pull requests.
@@ -107,7 +107,7 @@ https://github.com/rybak/atlassian-tweaks/raw/main/jira-pr-links-improver.user.j
    The corresponding browser extension will automatically recognize the filename
    extension in the link and prompt you for its installation.
 3. All scripts and styles use https://example.com by default. You have to manually
-   change the URL in the "match" settings to the hostname of the Bitbucket, JIRA, or
+   change the URL in the "match" settings to the hostname of the Bitbucket, Jira, or
    Confluence server that you use. This is due to restrictions on how
    browser extensions can match against URLs.
    See documentation of [Firefox][firefox-patterns] and [Google
@@ -156,7 +156,7 @@ Tampermonkey, and Greasemonkey.
 [WikipediaUserStyles]: https://en.wikipedia.org/wiki/Stylus_(browser_extension)
 [Confluence]: https://www.atlassian.com/software/confluence
 [Bitbucket]: https://bitbucket.org/product
-[JIRA]: https://www.atlassian.com/software/jira
+[Jira]: https://www.atlassian.com/software/jira
 [copy-summary-cfg]: images/jira_copy_summary_cfg_tampermonkey.png
 [chrome-patterns]: https://developer.chrome.com/docs/extensions/mv3/match_patterns/
 [firefox-patterns]: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Match_patterns

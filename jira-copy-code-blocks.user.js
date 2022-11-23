@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         JIRA: Copy code blocks
+// @name         Jira: Copy code blocks
 // @namespace    http://tampermonkey.net/
 // @version      4
-// @description  Copy code blocks in JIRA code blocks and Zephyr test steps.
+// @description  Copy code blocks in Jira code blocks and Zephyr test steps.
 // @author       Andrei Rybak
 // @match        https://jira.example.com/secure/enav/*
 // @match        https://jira.example.com/browse/*
@@ -44,7 +44,7 @@
 	var htmlResult = '';
 
 	function log(msg) {
-		console.log("[JIRA code copy] " + msg);
+		console.log("[Jira code copy] " + msg);
 	}
 
 	function handleCopyEvent(e) {

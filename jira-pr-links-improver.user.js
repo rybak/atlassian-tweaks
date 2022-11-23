@@ -1,9 +1,9 @@
 // ==UserScript==
-// @name         JIRA: Pull Request Link Improver
+// @name         Jira: Pull Request Link Improver
 // @namespace    http://tampermonkey.net/
 // @version      6
 // @license      MIT
-// @description  Adds more convenient pull request links to JIRA tickets.
+// @description  Adds more convenient pull request links to Jira tickets.
 // @author       Andrei Rybak
 // @match        https://jira.example.com/browse/*
 // @match        https://jira.example.com/browse/*
@@ -64,7 +64,7 @@
 				header = '<div class="mod-header"><h4 class="toggle-title">Pull requests</h4></div>';
 				break;
 			default:
-				warn("JIRA v" + jiraMajorVersion + " is not supported");
+				warn("Jira v" + jiraMajorVersion + " is not supported");
 				header = '<div class="mod-header"><h4 class="toggle-title">Pull requests</h4></div>';
 				return;
 		}

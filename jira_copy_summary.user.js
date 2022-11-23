@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         JIRA copy summary
+// @name         Jira copy summary
 // @namespace    http://tampermonkey.net/
 // @version      4.0
-// @description  copies summary of JIRA ticket
+// @description  copies summary of Jira ticket
 // @author       Sergey Lukashevich, Andrei Rybak, Dmitry Trubin
 // @homepage     https://github.com/rybak/atlassian-tweaks
 // @match        https://jira.example.com/browse/*
@@ -36,7 +36,7 @@
 /*
 version 4.0
 	- Resurrection of the button has been made more robust by relying on
-	  JIRA's own events about edits on the issue pages.
+	  Jira's own events about edits on the issue pages.
 version 3.8
 	- Italic formatting is now configurable via extension menu, and the
 	  configuration persists across script updates.
@@ -49,19 +49,19 @@ version 3.5
 	- Adding italics to format the summary text is now "configurable" via a
 	  constant in code.
 version 3.4.1
-	- Fixed the button not working in JIRA 8
+	- Fixed the button not working in Jira 8
 version 3.4
 	- dependency on jQuery has been removed to improve compatibility with
-	  different versions of JIRA, which may use different versions of
+	  different versions of Jira, which may use different versions of
 	  jQuery themselves.
 version 3.3
-	- Compatibility with JIRA 8 has been improved.
+	- Compatibility with Jira 8 has been improved.
 version 3.2
 	- "Copy Summary" button will now work in "Detail View" of JQL search
 	  results.
 version 3.1
 	- jQuery version has been downgraded to 1.7.2 to avoid clashing with
-	  JIRA's version of jQuery
+	  Jira's version of jQuery
 version 3.0
 	- Resurrection of the button has been made more aggressive to handle
 	  more use-cases.
@@ -73,9 +73,9 @@ version 2.1
 	- Summary text (after ticket id) is italicized, to make it easier to see
 	  where the summary ends
 version 2.0
-	- JIRA 8 is now supported in addition to JIRA 7
+	- Jira 8 is now supported in addition to Jira 7
 version 1.2
-	- Button "Copy summary" no longer breaks after editing a JIRA ticket
+	- Button "Copy summary" no longer breaks after editing a Jira ticket
 */
 
 (function () {
@@ -85,7 +85,7 @@ version 1.2
 	 * User configuration
 	 */
 	var cfg = new MonkeyConfig({
-		title: 'JIRA copy summary configuration',
+		title: 'Jira copy summary configuration',
 		menuCommand: true,
 		params: {
 			italic_summary: {
@@ -205,7 +205,7 @@ version 1.2
 						button = createButtonForJira8();
 						break;
 					default:
-						console.log("JIRA v" + jiraMajorVersion + " is not supported");
+						console.log("Jira v" + jiraMajorVersion + " is not supported");
 						return;
 				}
 				container.appendChild(button);
