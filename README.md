@@ -125,11 +125,14 @@ https://github.com/rybak/atlassian-tweaks/raw/main/jira-pr-links-improver.user.j
    8. Click "OK"
 
    Stylus instructions:
+
    1. Click "Manage" button in the extension's menu
    2. Click on cog icon in the row of the style that you need to adjust
    3. In field "Your Bitbucket/Confluence/Jira domain", type in the domain of
       your Bitbucket, Confluence, or Jira server.  For example,
-      `jira.example.com`.  Up to two domains are supported.
+      `jira.example.com`.  Up to two domains are supported.  This menu should
+      also be visible in the top right corner of the tab during installation of
+      the style.
 
 4. After installation, you can use the browser extension popup to disable or
    enable individual scripts and styles if needed.  For some scripts, you will
