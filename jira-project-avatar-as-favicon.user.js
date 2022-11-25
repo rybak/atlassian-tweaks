@@ -14,9 +14,9 @@
 (function() {
     'use strict';
 
-    let project_avatar = document.getElementById('project-avatar');
-    let shortcut_ico = document.querySelector('lnk[rel="shortcut icon"]');
-    if (project_avatar && shortcut_ico) {
-        shortcut_ico.href = project_avatar.src;
+    let projectAvatar = document.getElementById('project-avatar');
+    let shortcutIco = document.querySelector('link[rel="shortcut icon"]');
+    if (projectAvatar && shortcutIco) {
+        shortcutIco.href = projectAvatar.src;
     }
 })();
