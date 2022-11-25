@@ -101,6 +101,13 @@ actual links to pull requests.  This user script adds a panel above
 
 https://github.com/rybak/atlassian-tweaks/raw/main/jira-pr-links-improver.user.js
 
+### Jira – project avatar as favicon
+This user script changes favicons of Jira pages (tab icon in browsers) to the
+avatar of individual Jira projects, which makes it easier to distinguish browser
+tabs of tickets in different projects.
+
+https://github.com/rybak/atlassian-tweaks/raw/main/jira-project-avatar-as-favicon.user.js
+
 ## How to use Atlassian Tweaks
 1. Install browser extensions for user scripts and user styles.
 2. Click on the link for the user script or user style in the sections above.
