@@ -37,6 +37,7 @@
 	.wiki-edit tt,
 	.flooded tt,
 	.comment-item__action-body--container tt,
+	span.monospace,
 	.mce-content-body tt {
 		background-color: #f8f9fa;
 		color: #000;
