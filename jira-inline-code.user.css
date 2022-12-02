@@ -7,7 +7,7 @@
 @preprocessor uso
 @var text yourDomain "Your Jira domain" "jira.example.com"
 @var text yourDomain2 "Your 2nd Jira domain" "jira.example.com"
-@version      7
+@version      8
 ==/UserStyle== */
 
 /*
@@ -36,6 +36,8 @@
 	#descriptionmodule tt,
 	.wiki-edit tt,
 	.flooded tt,
+	.comment-item__action-body--container tt,
+	span.monospace,
 	.mce-content-body tt {
 		background-color: #f8f9fa;
 		color: #000;
