@@ -107,6 +107,7 @@ avatar of individual Jira projects, which makes it easier to distinguish browser
 tabs of tickets in different projects.
 
 https://github.com/rybak/atlassian-tweaks/raw/main/jira-project-avatar-as-favicon.user.js
+![[Screenshot of "Jira: project avatar as favicon"](images/jira-project-avatar-as-favicon.png)](images/jira-project-avatar-as-favicon.png)
 
 ## How to use Atlassian Tweaks
 1. Install browser extensions for user scripts and user styles.
