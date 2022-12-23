@@ -101,6 +101,8 @@ actual links to pull requests.  This user script adds a panel above
 
 https://github.com/rybak/atlassian-tweaks/raw/main/jira-pr-links-improver.user.js
 
+[![Screenshot of "Jira: Pull Request Link Improver"](images/jira-pr-link-improver.png)](https://github.com/rybak/atlassian-tweaks/raw/main/jira-pr-links-improver.user.js)
+
 ### Jira – project avatar as favicon
 This user script changes favicons of Jira pages (tab icon in browsers) to the
 avatar of individual Jira projects, which makes it easier to distinguish browser
