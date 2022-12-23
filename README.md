@@ -29,7 +29,7 @@ and [IntelliJ IDEA](https://github.com/JetBrains/intellij-community/blob/5544872
 
 https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-fix-commit-tooltip.user.css
 
-![[Screenshot of "Fix commit tooltip"](images/bitbucket-fix-commit-tooltip.png)](images/bitbucket-fix-commit-tooltip.png)
+[![Screenshot of "Fix commit tooltip"](images/bitbucket-fix-commit-tooltip.png)](https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-fix-commit-tooltip.user.css)
 
 ### Bitbucket – fix selection of breadcrumbs
 Selection of file paths (breadcrumbs) is broken in some parts of the Bitbucket
@@ -47,7 +47,7 @@ commit links on the "Commits" tab.
 
 https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-pull-request-commit-links.user.js
 
-![[Screenshot of "PR links to commits"](images/bitbucket-pr-commit-links-screenshot-diff.png)](images/bitbucket-pr-commit-links-screenshot-diff.png)
+[![Screenshot of "PR links to commits"](images/bitbucket-pr-commit-links-screenshot-diff.png)](images/bitbucket-pr-commit-links-screenshot-diff.png)
 
 ## Confluence
 
@@ -65,7 +65,7 @@ to distinguish from surrounding text.
 
 https://github.com/rybak/atlassian-tweaks/raw/main/confluence-better-monospace.user.css
 
-![[Screenshot of "Confluence: better monospace"](images/confluence-better-monospace.png)](images/confluence-better-monospace.png)
+[![Screenshot of "Confluence: better monospace"](images/confluence-better-monospace.png)](https://github.com/rybak/atlassian-tweaks/raw/main/confluence-better-monospace.user.css)
 
 ## Jira
 
@@ -82,7 +82,7 @@ This user script adds or fixes a "Copy Summary" button for issue pages on Jira.
 When on a Jira page, the script can be configured using the corresponding
 extension menu item (screenshot from Tampermonkey):
 
-[![Jira copy summary Tampermonkey configuration][copy-summary-cfg]][copy-summary-cfg]
+[![Jira copy summary Tampermonkey configuration][copy-summary-cfg]](https://github.com/rybak/atlassian-tweaks/raw/main/jira_copy_summary.user.js)
 
 https://github.com/rybak/atlassian-tweaks/raw/main/jira_copy_summary.user.js
 
@@ -107,7 +107,8 @@ avatar of individual Jira projects, which makes it easier to distinguish browser
 tabs of tickets in different projects.
 
 https://github.com/rybak/atlassian-tweaks/raw/main/jira-project-avatar-as-favicon.user.js
-![[Screenshot of "Jira: project avatar as favicon"](images/jira-project-avatar-as-favicon.png)](images/jira-project-avatar-as-favicon.png)
+
+[![Screenshot of "Jira: project avatar as favicon"](images/jira-project-avatar-as-favicon.png)](https://github.com/rybak/atlassian-tweaks/raw/main/jira-project-avatar-as-favicon.user.js)
 
 ## How to use Atlassian Tweaks
 1. Install browser extensions for user scripts and user styles.
