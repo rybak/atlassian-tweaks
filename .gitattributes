@@ -1,0 +1,2 @@
+*.md diff=markdown
+*.css diff=css
