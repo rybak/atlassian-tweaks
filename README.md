@@ -3,7 +3,8 @@ Atlassian Tweaks
 
 This is a collection of [user scripts](https://en.wikipedia.org/wiki/Userscript)
 and [user styles][WikipediaUserStyles] for [Bitbucket][Bitbucket],
-[Confluence][Confluence], and [Jira][Jira].
+[Confluence][Confluence], and [Jira][Jira].  The source code is distributed
+under the terms of the MIT Licence.  See [LICENSE.txt](LICENSE.txt) for details.
 
 Instructions on how to use user scripts and styles are at the bottom of the README.
 
