@@ -118,7 +118,19 @@ https://github.com/rybak/atlassian-tweaks/raw/main/jira-project-avatar-as-favico
 2. Click on the link for the user script or user style in the sections above.
    The corresponding browser extension will automatically recognize the filename
    extension in the link and prompt you for its installation.
-3. All scripts and styles use https://example.com by default. You have to manually
+3. For styles, if URL of your Bitbucket Server, Confluence, of Jira Server
+   doesn't start with `bitbucket`, `confluence`, or `jira` respectively, you'll
+   have to manually provide your domain.  Stylus instructions:
+
+   1. Click "Manage" button in the extension's menu
+   2. Click on cog icon in the row of the style that you need to adjust
+   3. In field "Your Bitbucket/Confluence/Jira domain", type in the domain of
+      your Bitbucket, Confluence, or Jira server.  For example,
+      `git.example.com` or `bugs.example.com`.  Up to two domains are supported.
+      This menu should also be visible in the top right corner of the tab
+      during installation of the style.
+
+4. Scripts use https://example.com by default. You have to manually
    change the URL in the "match" settings to the hostname of the Bitbucket, Jira, or
    Confluence server that you use. This is due to restrictions on how
    browser extensions can match against URLs.
@@ -136,17 +148,7 @@ https://github.com/rybak/atlassian-tweaks/raw/main/jira-project-avatar-as-favico
    7. Replace the example domain with the domain of website you use
    8. Click "OK"
 
-   Stylus instructions:
-
-   1. Click "Manage" button in the extension's menu
-   2. Click on cog icon in the row of the style that you need to adjust
-   3. In field "Your Bitbucket/Confluence/Jira domain", type in the domain of
-      your Bitbucket, Confluence, or Jira server.  For example,
-      `jira.example.com`.  Up to two domains are supported.  This menu should
-      also be visible in the top right corner of the tab during installation of
-      the style.
-
-4. After installation, you can use the browser extension popup to disable or
+5. After installation, you can use the browser extension popup to disable or
    enable individual scripts and styles if needed.  For some scripts, you will
    need to refresh the page (in browser) to remove effects of the script.
 

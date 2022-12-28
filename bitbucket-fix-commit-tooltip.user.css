@@ -7,7 +7,7 @@
 @preprocessor uso
 @var text yourDomain "Your Bitbucket domain" "bitbucket.example.com"
 @var text yourDomain2 "Your 2nd Bitbucket domain" "bitbucket.example.com"
-@version      3
+@version      4
 ==/UserStyle== */
 
 /*
@@ -32,7 +32,7 @@
  * SOFTWARE.
  */
 
-@-moz-document domain(/*[[yourDomain]]*/), domain(/*[[yourDomain2]]*/) {
+@-moz-document url-prefix("https://bitbucket"), domain(/*[[yourDomain]]*/), domain(/*[[yourDomain2]]*/) {
 	.Tooltip,
 	.ghcsui
 	{

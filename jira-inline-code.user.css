@@ -7,7 +7,7 @@
 @preprocessor uso
 @var text yourDomain "Your Jira domain" "jira.example.com"
 @var text yourDomain2 "Your 2nd Jira domain" "jira.example.com"
-@version      8
+@version      9
 ==/UserStyle== */
 
 /*
@@ -32,7 +32,7 @@
  * SOFTWARE.
  */
 
-@-moz-document domain(/*[[yourDomain]]*/), domain(/*[[yourDomain2]]*/) {
+@-moz-document url-prefix("https://jira"), domain(/*[[yourDomain]]*/), domain(/*[[yourDomain2]]*/) {
 	#descriptionmodule tt,
 	.wiki-edit tt,
 	.flooded tt,

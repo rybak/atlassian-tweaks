@@ -7,7 +7,7 @@
 @preprocessor uso
 @var text yourDomain "Your Confluence domain" "confluence.example.com"
 @var text yourDomain2 "Your 2nd Confluence domain" "confluence.example.com"
-@version      2
+@version      3
 ==/UserStyle== */
 
 /*
@@ -32,7 +32,7 @@
  * SOFTWARE.
  */
 
-@-moz-document domain(/*[[yourDomain]]*/), domain(/*[[yourDomain2]]*/) {
+@-moz-document url-prefix("https://confluence"), domain(/*[[yourDomain]]*/), domain(/*[[yourDomain2]]*/) {
 	code:not([class]) {
 		color: #000;
 		background-color: #f8f9fa;
