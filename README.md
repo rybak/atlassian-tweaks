@@ -50,12 +50,22 @@ https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-pull-request-commit
 
 [![Screenshot of "PR links to commits"](images/bitbucket-pr-commit-links-screenshot-diff.png)](https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-pull-request-commit-links.user.js)
 
+### Bitbucket – header color
+Some instances of Bitbucket are deployed with custom look and feels, which have
+unfortunate color of the header.  This user style allows changing the color of
+Bitbucket header to any color.
+
+https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-header-color.user.css
+
+[![Screenshot of "PR links to commits"](images/bitbucket-header-color-rgb.png)](https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-header-color.user.css)
+
+
 ## Confluence
 
 ### Hide Confluence banner
 
-Hides the banner at the top of Confluence which takes up vertical space in cases
-when it is almost never used.
+Hides the "precursor" banner at the top of Confluence which takes up vertical
+space in cases when it is almost never used.
 
 https://github.com/rybak/atlassian-tweaks/raw/main/confluence-hide-banner.user.css
 
