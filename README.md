@@ -57,7 +57,7 @@ Bitbucket header to any color.
 
 https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-header-color.user.css
 
-[![Screenshot of "PR links to commits"](images/bitbucket-header-color-rgb.png)](https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-header-color.user.css)
+[![Screenshot of "Bitbucket: header color"](images/bitbucket-header-color-rgb.png)](https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-header-color.user.css)
 
 
 ## Confluence
