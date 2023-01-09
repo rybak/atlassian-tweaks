@@ -1,10 +1,11 @@
 // ==UserScript==
 // @name         Bitbucket : commit links in PRs
 // @namespace    http://tampermonkey.net/
-// @version      12
+// @version      13
 // @license      MIT
 // @description  Adds convenience links in PRs of Bitbucket v7.6.+
 // @author       Andrei Rybak
+// @include      https://*bitbucket*/*/repos/*/pull-requests/*
 // @match        https://bitbucket.example.com/*/repos/*/pull-requests/*
 // @icon         https://bitbucket.org/favicon.ico
 // @homepageURL  https://github.com/rybak/atlassian-tweaks
@@ -12,7 +13,7 @@
 // ==/UserScript==
 
 /*
- * Copyright (c) 2021-2022 Andrei Rybak
+ * Copyright (c) 2021-2023 Andrei Rybak
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal

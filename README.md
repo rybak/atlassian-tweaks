@@ -124,30 +124,50 @@ https://github.com/rybak/atlassian-tweaks/raw/main/jira-project-avatar-as-favico
 [![Screenshot of "Jira: project avatar as favicon"](images/jira-project-avatar-as-favicon.png)](https://github.com/rybak/atlassian-tweaks/raw/main/jira-project-avatar-as-favicon.user.js)
 
 ## How to use Atlassian Tweaks
+
 1. Install browser extensions for user scripts and user styles.
 2. Click on the link for the user script or user style in the sections above.
    The corresponding browser extension will automatically recognize the filename
    extension in the link and prompt you for its installation.
-3. For styles, if URL of your Bitbucket Server, Confluence, of Jira Server
-   doesn't start with `bitbucket`, `confluence`, or `jira` respectively, you'll
-   have to manually provide your domain.  Stylus instructions:
 
-   1. Click "Manage" button in the extension's menu
-   2. Click on cog icon in the row of the style that you need to adjust
-   3. In field "Your Bitbucket/Confluence/Jira domain", type in the domain of
-      your Bitbucket, Confluence, or Jira server.  For example,
-      `git.example.com` or `bugs.example.com`.  Up to two domains are supported.
-      This menu should also be visible in the top right corner of the tab
-      during installation of the style.
+After installation, you can use the browser extension popup to disable or
+enable individual scripts and styles if needed.  For some scripts, you will
+need to refresh the page (in browser) to remove effects of the script.
 
-4. Scripts use https://example.com by default. You have to manually
-   change the URL in the "match" settings to the hostname of the Bitbucket, Jira, or
-   Confluence server that you use. This is due to restrictions on how
-   browser extensions can match against URLs.
-   See documentation of [Firefox][firefox-patterns] and [Google
-   Chrome][chrome-patterns] for details.
+### Custom domains
 
-   Tampermonkey instructions:
+Both scripts and styles should automatically work on Bitbucket, Confluence, and
+Jira domains which have `bitbucket`, `confluence`, or `jira` in their domain
+name.  If a style or script doesn't work automatically, for example, if your
+Bitbucket server lives on a domain without the word `bitbucket` in it, you will
+have to add your domain manually.
+
+Also, the automagical `@include` rules which scripts of Atlassian Tweaks use
+might break in future versions of Chrome due to adoption of Manifest V3 for
+browser extensions.  See documentation of [Firefox][firefox-patterns] and
+[Google Chrome][chrome-patterns] for details.
+
+#### Custom domains for user styles
+
+For styles, if URL of your Bitbucket Server, Confluence, of Jira Server
+doesn't start with `bitbucket`, `confluence`, or `jira` respectively, you'll
+have to manually provide your domain.  Stylus instructions:
+
+1. Click "Manage" button in the extension's menu
+2. Click on cog icon in the row of the style that you need to adjust
+3. In field "Your Bitbucket/Confluence/Jira domain", type in the domain of
+   your Bitbucket, Confluence, or Jira server.  For example,
+   `git.example.com` or `bugs.example.com`.  Up to two domains are supported.
+   This menu should also be visible in the top right corner of the tab
+   during installation of the style.
+
+#### Custom domains for user scripts
+
+Scripts use https://example.com by default. You might have to manually change
+the URL in the "match" settings to the hostname of the Bitbucket, Jira, or
+Confluence server that you use.
+
+Tampermonkey instructions:
 
    1. Go to Dashboard in the extension menu
    2. Click "Edit" button in the line of the script that you've just installed
@@ -157,10 +177,6 @@ https://github.com/rybak/atlassian-tweaks/raw/main/jira-project-avatar-as-favico
    6. Paste the copied value
    7. Replace the example domain with the domain of website you use
    8. Click "OK"
-
-5. After installation, you can use the browser extension popup to disable or
-   enable individual scripts and styles if needed.  For some scripts, you will
-   need to refresh the page (in browser) to remove effects of the script.
 
 ### Browser extensions
 

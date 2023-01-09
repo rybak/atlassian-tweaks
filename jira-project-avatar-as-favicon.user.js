@@ -1,10 +1,11 @@
 // ==UserScript==
 // @name         Jira: Project icon as tab icon
 // @namespace    http://tampermonkey.net/
-// @version      3
+// @version      4
 // @license      MIT
 // @description  Changes browser tab icon to Jira project icon
 // @author       Sergey Lukashevich
+// @include      https://*jira*/*
 // @match        https://jira.example.com/*
 // @icon         https://jira.atlassian.com/favicon.ico
 // @homepageURL  https://github.com/rybak/atlassian-tweaks
@@ -12,7 +13,7 @@
 // ==/UserScript==
 
 /*
- * Copyright (c) 2022 Sergey Lukashevich
+ * Copyright (c) 2022-2023 Sergey Lukashevich
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal

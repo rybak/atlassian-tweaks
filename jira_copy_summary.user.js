@@ -1,10 +1,11 @@
 // ==UserScript==
 // @name         Jira copy summary
 // @namespace    http://tampermonkey.net/
-// @version      4.0
+// @version      4.1
 // @description  copies summary of Jira ticket
 // @author       Sergey Lukashevich, Andrei Rybak, Dmitry Trubin
 // @homepage     https://github.com/rybak/atlassian-tweaks
+// @include      https://*jira*/browse/*
 // @match        https://jira.example.com/browse/*
 // @match        https://jira.example.com/browse/*
 // @icon         https://jira.atlassian.com/favicon.ico
@@ -18,7 +19,7 @@
 // ==/UserScript==
 
 /*
- * Copyright 2017-2022 Sergey Lukashevich
+ * Copyright 2017-2023 Sergey Lukashevich
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
  * documentation files (the "Software"), to deal in the Software without restriction, including without limitation the
  * rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit

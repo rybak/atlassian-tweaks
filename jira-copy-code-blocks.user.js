@@ -1,9 +1,11 @@
 // ==UserScript==
 // @name         Jira: Copy code blocks
 // @namespace    http://tampermonkey.net/
-// @version      4
+// @version      5
 // @description  Copy code blocks in Jira code blocks and Zephyr test steps.
 // @author       Andrei Rybak
+// @include      https://*jira*/browse/*
+// @include      https://*jira*/secure/enav/*
 // @match        https://jira.example.com/secure/enav/*
 // @match        https://jira.example.com/browse/*
 // @homepageURL  https://github.com/rybak/atlassian-tweaks
@@ -11,7 +13,7 @@
 // ==/UserScript==
 
 /*
- * Copyright (c) 2022 Andrei Rybak
+ * Copyright (c) 2022-2023 Andrei Rybak
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
