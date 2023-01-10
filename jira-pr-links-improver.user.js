@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Jira: Pull Request Link Improver
 // @namespace    http://tampermonkey.net/
-// @version      7
+// @version      8
 // @license      MIT
 // @description  Adds more convenient pull request links to Jira tickets.
 // @author       Andrei Rybak
@@ -127,14 +127,15 @@
 		});
 	}
 
-	$(document).ready(() => {
-		JIRA.bind(JIRA.Events.NEW_CONTENT_ADDED, function() {
-			if (!loadInProgress) {
-				loadInProgress = true;
-				addPrLinksPanel();
-			} else {
-				log("Already loading. Skipping...");
-			}
-		});
-	});
+	function startPrLoading() {
+		if (!loadInProgress) {
+			loadInProgress = true;
+			addPrLinksPanel();
+		} else {
+			log("Already loading. Skipping...");
+		}
+	}
+
+	$(document).ready(startPrLoading);
+	JIRA.bind(JIRA.Events.NEW_CONTENT_ADDED, startPrLoading);
 })();
