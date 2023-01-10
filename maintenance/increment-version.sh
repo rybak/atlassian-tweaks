@@ -34,5 +34,7 @@ do
 	versionNum=$(grep -o '@version *[0-9][0-9]*' "$file" | grep -o '[0-9]*')
 	let newVersionNum=versionNum+1
 	echo -e "$versionNum -> $newVersionNum\t$file"
-	sed -i .bak -e "s_\(@version *\)${versionNum}_\1${newVersionNum}_" "$file"
+	output=/tmp/atlassian-tweaks-$file
+	sed -e "s_\(@version *\)${versionNum}_\1${newVersionNum}_" "$file" >"$output"
+	mv "$output" "$file"
 done
