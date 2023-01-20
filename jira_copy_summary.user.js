@@ -2,6 +2,7 @@
 // @name         Jira copy summary
 // @namespace    http://tampermonkey.net/
 // @version      4.1
+// @license      MIT
 // @description  copies summary of Jira ticket
 // @author       Sergey Lukashevich, Andrei Rybak, Dmitry Trubin
 // @homepage     https://github.com/rybak/atlassian-tweaks
