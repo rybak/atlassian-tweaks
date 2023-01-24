@@ -3,11 +3,11 @@
 @description  Allows changing the header color of Bitbucket to any color!
 @author       Andrei Rybak
 @homepageURL  https://github.com/rybak/atlassian-tweaks
-@version      1
+@version      2
 @license      MIT
 @namespace    github.com/openstyles/stylus
-@preprocessor default
-@var          color  ds-surface  "header color"  purple
+@preprocessor uso
+@var          color  myColor  "header color"  purple
 @var text yourDomain "Custom Bitbucket domain" "bitbucket.example.com"
 @var text yourDomain2 "Second custom Bitbucket domain" "stash.example.com"
 ==/UserStyle== */
@@ -38,8 +38,8 @@
 	/* Setting custom color header */
 
 	/* CSS classes ".look-and-feel-custom-theme .aui-header" are needed for older versions of Bitbucket, e.g. v7.21.* */
-	.look-and-feel-custom-theme .aui-header {
-		/* `ds-surface` is the name of the variable used on newer version of Bitbucket. E.g. bitbucket.org */
-		background-color: var(--ds-surface);
+	.look-and-feel-custom-theme .aui-header,
+	header[role="banner"] {
+		background-color: /*[[myColor]]*/ !important;
 	}
 }
