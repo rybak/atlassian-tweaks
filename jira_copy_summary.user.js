@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Jira copy summary
 // @namespace    http://tampermonkey.net/
-// @version      4.1
+// @version      4.2
 // @license      MIT
 // @description  copies summary of Jira ticket
 // @author       Sergey Lukashevich, Andrei Rybak, Dmitry Trubin
@@ -36,6 +36,9 @@
  */
 
 /*
+version 4.2
+	- Styling of the button has been updated to be compatible with Jira
+	  version 8.20.*
 version 4.0
 	- Resurrection of the button has been made more robust by relying on
 	  Jira's own events about edits on the issue pages.
@@ -161,7 +164,6 @@ version 1.2
 		copyButton.id = COPY_BUTTON_ID;
 		copyButton.classList.add("aui-button");
 		copyButton.classList.add("toolbar-trigger");
-		copyButton.classList.add("zeroclipboard-is-hover");
 		copyButton.textContent = "Copy summary*";
 
 		div.appendChild(copyButton);
