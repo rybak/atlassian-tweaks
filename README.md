@@ -59,6 +59,14 @@ https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-header-color.user.c
 
 [![Screenshot of "Bitbucket: header color"](images/bitbucket-header-color-rgb.png)](https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-header-color.user.css)
 
+### Bitbucket – PR author avatar as favicon
+This user script changes favicons of Bitbucket pull request pages (tab icon in
+browsers) to the avatar of pull request's author, which makes it easier to
+distinguish browser tabs.
+
+https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-pull-request-avatars.user.js
+
+[![Screenshot of "Bitbucket: PR author avatar as favicon"](images/bitbucket-pull-request-avatars.png)](https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-pull-request-avatars.user.js)
 
 ## Confluence
 
