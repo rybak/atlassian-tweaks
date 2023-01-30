@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Bitbucket: PR avatars
+// @name         Bitbucket: PR author avatar as favicon
 // @namespace    http://tampermonkey.net/
 // @version      1
 // @license      MIT

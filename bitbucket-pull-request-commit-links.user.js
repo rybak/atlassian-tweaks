@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Bitbucket : commit links in PRs
+// @name         Bitbucket: commit links in diff tab of PRs
 // @namespace    http://tampermonkey.net/
 // @version      13
 // @license      MIT

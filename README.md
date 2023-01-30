@@ -40,7 +40,7 @@ pill-shaped markers unselectable, fixing this issue.
 
 https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-fix-breadcrumbs-selection.user.css
 
-### Bitbucket – add convenient links to commits
+### Bitbucket – commit links in diff tab of PRs
 This user script brings back convenient links to individual commit pages to the
 pull request's "Diff" tab, which was removed by Atlassian some time before
 Bitbucket version 7.6.  The commit link includes a fancy tooltip, same as
