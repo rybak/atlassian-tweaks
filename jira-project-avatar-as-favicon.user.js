@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Jira: Project icon as tab icon
 // @namespace    http://tampermonkey.net/
-// @version      4
+// @version      5
 // @license      MIT
 // @description  Changes browser tab icon to Jira project icon
 // @author       Sergey Lukashevich
@@ -50,6 +50,13 @@
 	}
 	if (projectAvatar) {
 		url = projectAvatar.src;
+	} else {
+		// try layout as in the cloud version of Jira Software
+		projectAvatar = document.querySelector('div[data-navheader="true"] span[style*=background]');
+		if (projectAvatar) {
+			const bgImage = projectAvatar.style.getPropertyValue("background-image");
+			url = bgImage.slice(5, bgImage.length - 7); // cut out the URL from CSS code `url('...');`
+		}
 	}
 
 	let shortcutIco = document.querySelector('link[rel="shortcut icon"]');
