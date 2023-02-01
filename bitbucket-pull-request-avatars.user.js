@@ -37,8 +37,8 @@
 (function() {
 	'use strict';
 
-	function log(msg) {
-		console.log("[PR avatars]", msg);
+	function log(...toLog) {
+		console.log("[PR avatars]", ...toLog);
 	}
 
 	window.addEventListener('load', function() {
