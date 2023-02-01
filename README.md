@@ -43,7 +43,7 @@ https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-fix-breadcrumbs-sel
 ### Bitbucket – commit links in diff tab of PRs
 This user script brings back convenient links to individual commit pages to the
 pull request's "Diff" tab, which was removed by Atlassian some time before
-Bitbucket version 7.6.  The commit link includes a fancy tooltip, same as
+Bitbucket Server version 7.6.  The commit link includes a fancy tooltip, same as
 commit links on the "Commits" tab.
 
 https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-pull-request-commit-links.user.js
