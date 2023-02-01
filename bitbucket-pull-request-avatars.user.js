@@ -1,12 +1,13 @@
 // ==UserScript==
 // @name         Bitbucket: PR author avatar as favicon
 // @namespace    http://tampermonkey.net/
-// @version      1
+// @version      2
 // @license      MIT
 // @description  Set Bitbucket PR favicon to author's avatar
 // @author       Andrei Rybak
 // @include      https://*bitbucket*/*/repos/*/pull-requests/*
 // @match        https://bitbucket.example.com/*/repos/*/pull-requests/*
+// @match        https://bitbucket.org/*/pull-requests/*
 // @icon         https://bitbucket.org/favicon.ico
 // @homepageURL  https://github.com/rybak/atlassian-tweaks
 // @grant        none
@@ -41,14 +42,35 @@
 		console.log("[PR avatars]", ...toLog);
 	}
 
+	function debug(...toLog) {
+		console.debug("[PR avatars]", ...toLog);
+	}
+
 	window.addEventListener('load', function() {
+		log("Looking for author avatar...")
 		let userAvatar = document.querySelector("[data-testid=pull-request-author--image]");
-		let shortcutIcon = document.querySelector('link[rel="shortcut icon"]');
-		if (userAvatar && shortcutIcon) {
+		let url = null;
+
+		if (userAvatar) {
+			// Bitbucket Server
 			let image = userAvatar.style.backgroundImage;
-			let url = image.substr(5, image.length - 7); // cut out the URL from CSS code `url('...');`
-			log("URL = " + url);
+			url = image.substr(5, image.length - 7); // cut out the URL from CSS code `url('...');`
+		} else {
+			// fallback to bitbucket.org's layout (Bitbucket Cloud?)
+			log("Falling back to layout as on bitbucket.org for the avatar...");
+			userAvatar = document.querySelector('div[data-qa="pr-header-author-styles"] img')
+			url = userAvatar.src;
+		}
+
+		let shortcutIcon = document.querySelector('link[rel="shortcut icon"], link[rel="icon"]');
+
+		debug("userAvatar =", userAvatar);
+		debug("shortcutIcon =", shortcutIcon);
+		debug("URL =", url);
+		if (url && shortcutIcon) {
 			shortcutIcon.href = url;
+		} else {
+			log("Something went wrong");
 		}
 	}, false);
 })();
