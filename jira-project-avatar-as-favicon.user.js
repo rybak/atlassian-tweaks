@@ -38,6 +38,7 @@
 	'use strict';
 
 	let projectAvatar = document.getElementById('project-avatar');
+	let url = null;
 	if (!projectAvatar) {
 		let elements = document.getElementsByClassName('aui-avatar-project');
 		if (elements.length === 1) {
@@ -47,8 +48,13 @@
 			}
 		}
 	}
+	if (projectAvatar) {
+		url = projectAvatar.src;
+	}
+
 	let shortcutIco = document.querySelector('link[rel="shortcut icon"]');
-	if (projectAvatar && shortcutIco) {
-		shortcutIco.href = projectAvatar.src;
+
+	if (url && shortcutIco) {
+		shortcutIco.href = url;
 	}
 })();
