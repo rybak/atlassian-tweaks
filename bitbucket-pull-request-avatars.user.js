@@ -43,12 +43,12 @@
 
 	window.addEventListener('load', function() {
 		let userAvatar = document.querySelector("[data-testid=pull-request-author--image]");
-		let shortcutIco = document.querySelector('link[rel="shortcut icon"]');
-		if (userAvatar && shortcutIco) {
+		let shortcutIcon = document.querySelector('link[rel="shortcut icon"]');
+		if (userAvatar && shortcutIcon) {
 			let image = userAvatar.style.backgroundImage;
 			let url = image.substr(5, image.length - 7); // cut out the URL from CSS code `url('...');`
 			log("URL = " + url);
-			shortcutIco.href = url;
+			shortcutIcon.href = url;
 		}
 	}, false);
 })();
