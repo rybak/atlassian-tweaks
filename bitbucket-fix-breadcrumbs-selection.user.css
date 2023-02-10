@@ -1,17 +1,18 @@
 /* ==UserStyle==
-@name         Bitbucket :: fix breadcrumbs selection
+@name         Bitbucket: fix breadcrumbs selection
 @homepageURL  https://github.com/rybak/atlassian-tweaks
 @author       Andrei Rybak
+@description  Fix for a bug in CSS of Bitbucket Server.
 @license      MIT
 @namespace    github.com/openstyles/stylus
 @preprocessor uso
 @var text yourDomain "Your Bitbucket domain" "bitbucket.example.com"
 @var text yourDomain2 "Your 2nd Bitbucket domain" "bitbucket.example.com"
-@version      5
+@version      6
 ==/UserStyle== */
 
 /*
- * Copyright (c) 2022 Andrei Rybak
+ * Copyright (c) 2022-2023 Andrei Rybak
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
