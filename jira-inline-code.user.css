@@ -1,5 +1,5 @@
 /* ==UserStyle==
-@name         Jira :: better <tt> style
+@name         Jira: better inline code formatting
 @author       Andrei Rybak
 @homepageURL  https://github.com/rybak/atlassian-tweaks
 @license      MIT
@@ -7,7 +7,7 @@
 @preprocessor uso
 @var text yourDomain "Your Jira domain" "jira.example.com"
 @var text yourDomain2 "Your 2nd Jira domain" "jira.example.com"
-@version      9
+@version      10
 ==/UserStyle== */
 
 /*
