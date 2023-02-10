@@ -8,6 +8,10 @@ under the terms of the MIT Licence.  See [LICENSE.txt](LICENSE.txt) for details.
 
 Instructions on how to use user scripts and styles are at the bottom of the README.
 
+Most of the scripts and styles support only the old-school self-hosted variants
+of Bitbucket, Jira, and Confluence.  Some of the scripts and styles support the
+new cloud-based variants – they are marked as such in their description.
+
 ## Bitbucket
 
 ### Hide Bitbucket banner
@@ -43,7 +47,7 @@ https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-fix-breadcrumbs-sel
 ### Bitbucket – commit links in diff tab of PRs
 This user script brings back convenient links to individual commit pages to the
 pull request's "Diff" tab, which was removed by Atlassian some time before
-Bitbucket version 7.6.  The commit link includes a fancy tooltip, same as
+Bitbucket Server version 7.6.  The commit link includes a fancy tooltip, same as
 commit links on the "Commits" tab.
 
 https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-pull-request-commit-links.user.js
@@ -55,6 +59,8 @@ Some instances of Bitbucket are deployed with custom look and feels, which have
 unfortunate color of the header.  This user style allows changing the color of
 Bitbucket header to any color.
 
+This style supports both Bitbucket Server and Bitbucket Cloud.
+
 https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-header-color.user.css
 
 [![Screenshot of "Bitbucket: header color"](images/bitbucket-header-color-rgb.png)](https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-header-color.user.css)
@@ -63,6 +69,8 @@ https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-header-color.user.c
 This user script changes favicons of Bitbucket pull request pages (tab icon in
 browsers) to the avatar of pull request's author, which makes it easier to
 distinguish browser tabs.
+
+This script supports both Bitbucket Server and Bitbucket Cloud.
 
 https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-pull-request-avatars.user.js
 
@@ -145,6 +153,8 @@ This user script changes favicons of Jira pages (tab icon in browsers) to the
 avatar of individual Jira projects, which makes it easier to distinguish browser
 tabs of tickets in different projects.
 
+This script supports both Jira Server (self-hosted) and Jira Cloud.
+
 https://github.com/rybak/atlassian-tweaks/raw/main/jira-project-avatar-as-favicon.user.js
 
 [![Screenshot of "Jira: project avatar as favicon"](images/jira-project-avatar-as-favicon.png)](https://github.com/rybak/atlassian-tweaks/raw/main/jira-project-avatar-as-favicon.user.js)
@@ -175,9 +185,9 @@ browser extensions.  See documentation of [Firefox][firefox-patterns] and
 
 #### Custom domains for user styles
 
-For styles, if URL of your Bitbucket Server, Confluence, of Jira Server
-doesn't start with `bitbucket`, `confluence`, or `jira` respectively, you'll
-have to manually provide your domain.  Stylus instructions:
+For styles, if URL of your Bitbucket, Confluence, of Jira instance doesn't start
+with `bitbucket`, `confluence`, or `jira` respectively, you'll have to manually
+provide your domain.  Stylus instructions:
 
 1. Click "Manage" button in the extension's menu
 2. Click on cog icon in the row of the style that you need to adjust
