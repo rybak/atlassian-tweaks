@@ -8,7 +8,7 @@
 @preprocessor uso
 @var text yourDomain "Your Bitbucket domain" "bitbucket.example.com"
 @var text yourDomain2 "Your 2nd Bitbucket domain" "bitbucket.example.com"
-@version      6
+@version      7
 ==/UserStyle== */
 
 /*
@@ -34,7 +34,12 @@
  */
 
 @-moz-document url-prefix("https://bitbucket"), domain(/*[[yourDomain]]*/), domain(/*[[yourDomain2]]*/) {
-	.aui-lozenge.change-type-lozenge {
+	/* Fix selection of breadcrumbs */
+
+	/* Bitbucket Server */
+	.aui-lozenge.change-type-lozenge,
+	/* Bitbucket Cloud */
+	.diff-entry-lozenge.aui-lozenge {
 		user-select: none;
 	}
 }
