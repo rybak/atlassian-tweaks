@@ -8,9 +8,10 @@ under the terms of the MIT Licence.  See [LICENSE.txt](LICENSE.txt) for details.
 
 Instructions on how to use user scripts and styles are at the bottom of the README.
 
-Most of the scripts and styles support only the old-school self-hosted variants
-of Bitbucket, Jira, and Confluence.  Some of the scripts and styles support the
-new cloud-based variants – they are marked as such in their description.
+Half of the scripts and styles support both the old-school self-hosted and the
+newer cloud variants of of Bitbucket, Jira, and Confluence – they are marked as
+such in their description.  Some scripts and styles are no longer applicable to
+newer cloud variants due to significant UI redesigns.
 
 ## Bitbucket
 
