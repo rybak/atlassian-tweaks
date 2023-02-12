@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         Confluence: Simple Floating ToC
 @description  Makes widget from macro "Table of Contents" float on the right hand side of content.
-@version      1
+@version      2
 @author       Andrei Rybak
 @homepageURL  https://github.com/rybak/atlassian-tweaks
 @license      MIT
@@ -10,6 +10,7 @@
 @var text yourDomain "Custom Confluence domain" "confluence.example.com"
 @var text yourDomain2 "Second Custom Confluence domain" "confluence.example.net"
 @var number SFTRightMargin "Margin on the right side of ToC, em" [2, 1, 20, 1, "em"]
+@var number SFTTocTopMargin "Margin on top of table of contents, em" [12, 1, 20, 1, "em"]
 @var number SFTContentWidth "Width of main content, percent" [75, 1, 100, 1, "%"]
 @var number SFTTocWidth "Width of table of contents, percent" [20, 1, 100, 1, "%"]
 ==/UserStyle== */
@@ -43,7 +44,7 @@
 
 	.toc-macro > ul {
 		position: fixed;
-		top: 6em;
+		top: /*[[SFTTocTopMargin]]*/;
 		right: /*[[SFTRightMargin]]*/;
 		width: /*[[SFTTocWidth]]*/;
 	}
