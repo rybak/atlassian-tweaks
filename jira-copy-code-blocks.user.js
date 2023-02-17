@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Jira: Copy code blocks
-// @namespace    http://tampermonkey.net/
-// @version      5
+// @namespace    https://github.com/rybak/atlassian-tweaks
+// @version      6
 // @description  Copy code blocks in Jira code blocks and Zephyr test steps.
 // @author       Andrei Rybak
 // @include      https://*jira*/browse/*

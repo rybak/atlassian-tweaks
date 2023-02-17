@@ -4,11 +4,11 @@
 @author       Andrei Rybak
 @description  Fix for a bug in CSS of Bitbucket Server.
 @license      MIT
-@namespace    github.com/openstyles/stylus
+@namespace    https://github.com/rybak/atlassian-tweaks
 @preprocessor uso
 @var text yourDomain "Your Bitbucket domain" "bitbucket.example.com"
 @var text yourDomain2 "Your 2nd Bitbucket domain" "bitbucket.example.com"
-@version      7
+@version      8
 ==/UserStyle== */
 
 /*

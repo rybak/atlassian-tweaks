@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bitbucket: commit links in diff tab of PRs
-// @namespace    http://tampermonkey.net/
-// @version      13
+// @namespace    https://github.com/rybak/atlassian-tweaks
+// @version      14
 // @license      MIT
 // @description  Adds convenience links in PRs of Bitbucket v7.6.+
 // @author       Andrei Rybak

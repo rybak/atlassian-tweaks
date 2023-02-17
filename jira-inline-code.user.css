@@ -4,11 +4,11 @@
 @author       Andrei Rybak
 @homepageURL  https://github.com/rybak/atlassian-tweaks
 @license      MIT
-@namespace    github.com/openstyles/stylus
+@namespace    https://github.com/rybak/atlassian-tweaks
 @preprocessor uso
 @var text yourDomain "Your Jira domain" "jira.example.com"
 @var text yourDomain2 "Your 2nd Jira domain" "jira.example.com"
-@version      10
+@version      11
 ==/UserStyle== */
 
 /*

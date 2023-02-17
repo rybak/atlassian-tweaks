@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bitbucket: PR author avatar as favicon
-// @namespace    http://tampermonkey.net/
-// @version      2
+// @namespace    https://github.com/rybak/atlassian-tweaks
+// @version      3
 // @license      MIT
 // @description  Set Bitbucket PR favicon to author's avatar
 // @author       Andrei Rybak

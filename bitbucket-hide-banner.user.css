@@ -3,11 +3,11 @@
 @homepageURL  https://github.com/rybak/atlassian-tweaks
 @author       Andrei Rybak
 @license      MIT
-@namespace    github.com/openstyles/stylus
+@namespace    https://github.com/rybak/atlassian-tweaks
 @preprocessor uso
 @var text yourDomain "Your Bitbucket domain" "bitbucket.example.com"
 @var text yourDomain2 "Your 2nd Bitbucket domain" "bitbucket.example.com"
-@version      3
+@version      4
 ==/UserStyle== */
 
 /*

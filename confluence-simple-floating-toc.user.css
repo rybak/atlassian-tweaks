@@ -1,11 +1,11 @@
 /* ==UserStyle==
 @name         Confluence: Simple Floating ToC
 @description  Makes widget from macro "Table of Contents" float on the right hand side of content.
-@version      2
+@version      3
 @author       Andrei Rybak
 @homepageURL  https://github.com/rybak/atlassian-tweaks
 @license      MIT
-@namespace    github.com/openstyles/stylus
+@namespace    https://github.com/rybak/atlassian-tweaks
 @preprocessor uso
 @var text yourDomain "Custom Confluence domain" "confluence.example.com"
 @var text yourDomain2 "Second Custom Confluence domain" "confluence.example.net"

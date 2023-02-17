@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Jira: Pull Request Link Improver
-// @namespace    http://tampermonkey.net/
-// @version      8
+// @namespace    https://github.com/rybak/atlassian-tweaks
+// @version      9
 // @license      MIT
 // @description  Adds more convenient pull request links to Jira tickets.
 // @author       Andrei Rybak
