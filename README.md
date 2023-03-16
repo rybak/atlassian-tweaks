@@ -88,6 +88,12 @@ https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-fast-and-furious.us
 
 ## Confluence
 
+### Space avatar as tab icon
+
+Replaces tab icons for Confluence pages with avatars of the Confluence spaces.
+
+https://github.com/rybak/atlassian-tweaks/raw/main/confluence-space-avatar-favicons.user.js
+
 ### Hide Confluence banner
 
 Hides the "precursor" banner at the top of Confluence which takes up vertical
