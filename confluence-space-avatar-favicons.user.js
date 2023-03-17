@@ -1,12 +1,12 @@
 // ==UserScript==
 // @name         Confluence: space avatar as tab icon
-// @namespace    http://tampermonkey.net/
+// @namespace    https://github.com/rybak
 // @description  Sets browser tab icon of Confluence to the avatar of the space.
 // @author       Andrei Rybak
-// @include      https://*confluence*/*/repos/*/pull-requests/*
-// @match        https://confluence.example.com/*/repos/*/pull-requests/*
+// @include      https://*confluence*/*
+// @match        https://confluence.example.com/*
 // @icon         https://wac-cdn-2.atlassian.com/image/upload/f_auto,q_auto/dam/jcr:5d1374c2-276f-4bca-9ce4-813aba614b7a/confluence-icon-gradient-blue.svg?cdnVersion=691
-// @version      1
+// @version      2
 // @license      MIT
 // @grant        none
 // ==/UserScript==
@@ -20,7 +20,7 @@
 
 	function changeFavicon() {
 		log("Trying...");
-		const avatar = document.querySelector(".avatar-img");
+		const avatar = document.querySelector(".avatar-img") || document.querySelector('img[data-testid="space-icon"]');
 		const shortcutIcon = document.querySelector('link[rel="shortcut icon"]');
 		const icon = document.querySelector('link[rel="icon"]');
 		if (avatar && (shortcutIcon || icon)) {
