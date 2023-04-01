@@ -68,6 +68,13 @@ https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-pull-request-avatar
 
 [![Screenshot of "Bitbucket: PR author avatar as favicon"](images/bitbucket-pull-request-avatars.png)](https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-pull-request-avatars.user.js)
 
+### Bitbucket – speed up CI builds
+This user style speeds up continuous integration builds on Bitbucket.
+
+https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-fast-and-furious.user.css
+
+[![Demonstration of "Bitbucket: fast and furious"](images/bitbucket-fast-and-furious.gif)](https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-fast-and-furious.user.css)
+
 ## Confluence
 
 ### Hide Confluence banner
