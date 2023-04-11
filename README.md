@@ -15,12 +15,14 @@ newer cloud variants due to significant UI redesigns.
 
 ## Bitbucket
 
-### Hide Bitbucket banner
+### Bitbucket: hide banner
 
 Hides the banner at the top of Bitbucket which takes up vertical space in cases
 when it is almost never used.
 
 https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-hide-banner.user.css
+
+[![Screenshot of "Bitbucket: hide banner" in action: before and after](images/bitbucket-hide-banner.png)](https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-hide-banner.user.css)
 
 ### Bitbucket – fix commit tooltip
 
