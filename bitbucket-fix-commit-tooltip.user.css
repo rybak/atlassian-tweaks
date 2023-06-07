@@ -7,7 +7,7 @@
 @preprocessor uso
 @var text yourDomain "Your Bitbucket domain" "bitbucket.example.com"
 @var text yourDomain2 "Your 2nd Bitbucket domain" "bitbucket.example.com"
-@version      6
+@version      7
 ==/UserStyle== */
 
 /*
@@ -39,7 +39,6 @@
 	{
 		max-width: 600px !important;
 		width: auto !important;
-		left: 10% !important;
 	}
 	.tipsy .tipsy-inner {
 		max-width: 600px !important;
