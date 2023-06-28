@@ -8,7 +8,7 @@
 @preprocessor uso
 @var text yourDomain "Your Jira domain" "jira.example.com"
 @var text yourDomain2 "Your 2nd Jira domain" "jira.example.com"
-@version      12
+@version      13
 ==/UserStyle== */
 
 /*
@@ -53,5 +53,18 @@
 	body[data-version^="8."] .wiki-edit tt,
 	body[data-version^="8."] .flooded tt {
 		line-height: 160%;
+	}
+
+	html[data-color-mode="dark"][data-theme~="dark:dark"] #descriptionmodule tt,
+	html[data-color-mode="dark"][data-theme~="dark:dark"] .wiki-edit tt,
+	html[data-color-mode="dark"][data-theme~="dark:dark"] .flooded tt,
+	html[data-color-mode="dark"][data-theme~="dark:dark"] .comment-item__action-body--container tt,
+	html[data-color-mode="dark"][data-theme~="dark:dark"] span.monospace,
+	html[data-color-mode="dark"][data-theme~="dark:dark"] .mce-content-body tt,
+	html[data-color-mode="dark"][data-theme~="dark:dark"] code.code.css-z5oxh7,
+	html[data-color-mode="dark"][data-theme~="dark:dark"] .ak-editor-content-area.css-jkbmih span.code {
+		background-color: rgb(29, 33, 37);
+		color: #fff;
+		border-color: #A6C5E229;
 	}
 }
