@@ -208,6 +208,10 @@ version 1.2
 						container = document.getElementById("stalker").getElementsByClassName("aui-toolbar2-primary")[0];
 						button = createButtonForJira8();
 						break;
+					case "9":
+						container = document.getElementById("stalker").getElementsByClassName("aui-toolbar2-primary")[0];
+						button = createButtonForJira8();
+						break;
 					default:
 						console.log("Jira v" + jiraMajorVersion + " is not supported");
 						return;
