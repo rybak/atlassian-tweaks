@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Jira copy summary
 // @namespace    https://github.com/rybak/atlassian-tweaks
-// @version      4.3
+// @version      4.4
 // @license      MIT
 // @description  copies summary of Jira ticket
 // @author       Sergey Lukashevich, Andrei Rybak, Dmitry Trubin
@@ -36,6 +36,10 @@
  */
 
 /*
+version 4.4
+	- UX of copy-pasting the summary formatted with italics into a rich
+	  text editor has been improved.  Now the text that you type after
+	  pasting will not be formatted in italics automatically.
 version 4.2
 	- Styling of the button has been updated to be compatible with Jira
 	  version 8.20.*
@@ -182,7 +186,7 @@ version 1.2
 		var fullLink = jiraUrl + "/browse/" + ticketId;
 		textResult = '[' + ticketId + '] ' + summaryText;
 		if (cfg.get('italic_summary')) {
-			summaryText = '<i>' + summaryText + '</i>';
+			summaryText = '<i>' + summaryText + '</i> &#x200b;';
 		}
 		htmlResult = '[<a href="' + fullLink + '">' + ticketId + '</a>] ' + summaryText;
 		document.addEventListener('copy', handleCopyEvent);
