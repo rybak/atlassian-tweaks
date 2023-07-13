@@ -40,7 +40,7 @@ https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-hide-banner.user.cs
 
 [![Screenshot of "Bitbucket: hide banner" in action: before and after](images/bitbucket-hide-banner.png)](https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-hide-banner.user.css)
 
-### Bitbucket – fix commit tooltip
+### Bitbucket: fix commit tooltip
 
 The width of commit tooltip in Bitbucket can sometimes make it unreadable
 because it is too narrow.  This user style increases the width of the tooltip
@@ -55,7 +55,7 @@ https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-fix-commit-tooltip.
 
 [![Screenshot of "Fix commit tooltip"](images/bitbucket-fix-commit-tooltip.png)](https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-fix-commit-tooltip.user.css)
 
-### Bitbucket – fix selection of breadcrumbs
+### Bitbucket: fix selection of breadcrumbs
 Selection of file paths (breadcrumbs) is broken in some parts of the Bitbucket
 UI in a way, that marker "UPDATED", "ADDED", or "DELETED" is selected, depending
 on the exact way that the user performs the selection.  This style makes the
@@ -65,7 +65,7 @@ This style supports both Bitbucket Server and Bitbucket Cloud.
 
 https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-fix-breadcrumbs-selection.user.css
 
-### Bitbucket – commit links in diff tab of PRs
+### Bitbucket: commit links in diff tab of PRs
 This user script brings back convenient links to individual commit pages to the
 pull request's "Diff" tab, which was removed by Atlassian some time before
 Bitbucket Server version 7.6.  The commit link includes a fancy tooltip, same as
@@ -75,7 +75,7 @@ https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-pull-request-commit
 
 [![Screenshot of "PR links to commits"](images/bitbucket-pr-commit-links-screenshot-diff.png)](https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-pull-request-commit-links.user.js)
 
-### Bitbucket – header color
+### Bitbucket: header color
 Some instances of Bitbucket are deployed with custom look and feels, which have
 unfortunate color of the header.  This user style allows changing the color of
 Bitbucket header to any color.
@@ -86,7 +86,7 @@ https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-header-color.user.c
 
 [![Screenshot of "Bitbucket: header color"](images/bitbucket-header-color-rgb.png)](https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-header-color.user.css)
 
-### Bitbucket – PR author avatar as favicon
+### Bitbucket: PR author avatar as favicon
 This user script changes favicons of Bitbucket pull request pages (tab icon in
 browsers) to the avatar of pull request's author, which makes it easier to
 distinguish browser tabs.
@@ -97,7 +97,7 @@ https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-pull-request-avatar
 
 [![Screenshot of "Bitbucket: PR author avatar as favicon"](images/bitbucket-pull-request-avatars.png)](https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-pull-request-avatars.user.js)
 
-### Bitbucket – speed up CI builds
+### Bitbucket: speed up CI builds
 This user style speeds up continuous integration builds on Bitbucket.
 
 https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-fast-and-furious.user.css
@@ -106,7 +106,7 @@ https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-fast-and-furious.us
 
 ## Confluence
 
-### Space avatar as tab icon
+### Confluence: space avatar as tab icon
 
 Replaces tab icons for Confluence pages with avatars of the Confluence spaces.
 
@@ -114,7 +114,7 @@ This script supports both Confluence Server and Confluence Cloud.
 
 https://github.com/rybak/atlassian-tweaks/raw/main/confluence-space-avatar-favicons.user.js
 
-### Copy link buttons
+### Confluence: copy link buttons
 
 Adds buttons to copy a link to the current page directly into clipboard. Two
 buttons are supported: Markdown and Jira syntax. Both buttons support HTML for
@@ -126,7 +126,7 @@ https://github.com/rybak/atlassian-tweaks/raw/main/confluence-copy-link-buttons.
 
 [![Screenshots of "Confluence: copy link buttons" in action on Confluence Server and Confluence Cloud](images/confluence-copy-link-buttons.png)](https://github.com/rybak/atlassian-tweaks/raw/main/confluence-copy-link-buttons.user.js)
 
-### Hide banner
+### Confluence: hide banner
 
 Hides the "precursor" banner at the top of Confluence which takes up vertical
 space in cases when it is almost never used.
@@ -137,7 +137,7 @@ https://github.com/rybak/atlassian-tweaks/raw/main/confluence-hide-banner.user.c
 
 [![Screenshot of "Confluence: hide banner" in action: before and after](images/confluence-hide-banner.png)](https://github.com/rybak/atlassian-tweaks/raw/main/confluence-hide-banner.user.css)
 
-### Better monospace
+### Confluence: better monospace
 
 This style adds a border and a background to monospace text, making it easier
 to distinguish from surrounding text.
@@ -148,7 +148,7 @@ https://github.com/rybak/atlassian-tweaks/raw/main/confluence-better-monospace.u
 
 [![Screenshot of "Confluence: better monospace"](images/confluence-better-monospace.png)](https://github.com/rybak/atlassian-tweaks/raw/main/confluence-better-monospace.user.css)
 
-### Confluence – Simple Floating Table of Contents
+### Confluence: Simple Floating Table of Contents
 
 This style moves the table of contents to the right side of the page and makes
 the table of contents "sticky", floating in the same place when scrolling.
@@ -161,7 +161,7 @@ https://user-images.githubusercontent.com/624072/211896771-f93fd25a-a199-4bb0-97
 
 ## Jira
 
-### Jira – improve formatting of inline code
+### Jira: improve formatting of inline code
 
 Code in Jira in `{{inline code}}` syntax can be hard to read sometimes.  This
 user style adds a background and a border for such elements to improve
@@ -173,7 +173,7 @@ This style supports both Jira Server (self-hosted) and Jira Cloud.
 
 https://github.com/rybak/atlassian-tweaks/raw/main/jira-inline-code.user.css
 
-### Jira – copy summary button
+### Jira: copy summary button
 This user script adds or fixes a "Copy Summary" button for issue pages on Jira.
 When on a Jira page, the script can be configured using the corresponding
 extension menu item (screenshot from Tampermonkey):
@@ -182,14 +182,14 @@ extension menu item (screenshot from Tampermonkey):
 
 https://github.com/rybak/atlassian-tweaks/raw/main/jira_copy_summary.user.js
 
-### Jira – copy code blocks
+### Jira: copy code blocks
 This user scripts adds a "Copy!" button to all code and preformatted blocks in
 Jira to allow copying its contents.  Useful for copying commands when executing
 Zephyr test cases.
 
 https://github.com/rybak/atlassian-tweaks/raw/main/jira-copy-code-blocks.user.js
 
-### Jira – better pull request links
+### Jira: better pull request links
 Bitbucket integration in Jira is not very convenient.  It requires clicking on a
 link, like "3 pull requests", before actually giving the user access to the
 actual links to pull requests.  This user script adds a panel above
@@ -199,7 +199,7 @@ https://github.com/rybak/atlassian-tweaks/raw/main/jira-pr-links-improver.user.j
 
 [![Screenshot of "Jira: Pull Request Link Improver"](images/jira-pr-link-improver.png)](https://github.com/rybak/atlassian-tweaks/raw/main/jira-pr-links-improver.user.js)
 
-### Jira – project avatar as favicon
+### Jira: project avatar as favicon
 This user script changes favicons of Jira pages (tab icon in browsers) to the
 avatar of individual Jira projects, which makes it easier to distinguish browser
 tabs of tickets in different projects.
