@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Jira copy summary
 // @namespace    https://github.com/rybak/atlassian-tweaks
-// @version      4.4
+// @version      4.5
 // @license      MIT
 // @description  copies summary of Jira ticket
 // @author       Sergey Lukashevich, Andrei Rybak, Dmitry Trubin
@@ -9,8 +9,7 @@
 // @include      https://*jira*/browse/*
 // @match        https://jira.example.com/browse/*
 // @match        https://jira.example.com/browse/*
-// @icon         https://jira.atlassian.com/favicon.ico
-//
+// @icon         https://seeklogo.com/images/J/jira-logo-FD39F795A7-seeklogo.com.png
 // @require      https://raw.githubusercontent.com/odyniec/MonkeyConfig/0eaeb525/monkeyconfig.js
 // @grant        GM_registerMenuCommand
 // @grant        GM_addStyle
@@ -36,6 +35,8 @@
  */
 
 /*
+version 4.5
+	- Userscript's @icon has been made more reliable.
 version 4.4
 	- UX of copy-pasting the summary formatted with italics into a rich
 	  text editor has been improved.  Now the text that you type after

@@ -1,13 +1,14 @@
 // ==UserScript==
 // @name         Jira: Copy code blocks
 // @namespace    https://github.com/rybak/atlassian-tweaks
-// @version      6
+// @version      7
 // @description  Copy code blocks in Jira code blocks and Zephyr test steps.
 // @author       Andrei Rybak
 // @include      https://*jira*/browse/*
 // @include      https://*jira*/secure/enav/*
 // @match        https://jira.example.com/secure/enav/*
 // @match        https://jira.example.com/browse/*
+// @icon         https://seeklogo.com/images/J/jira-logo-FD39F795A7-seeklogo.com.png
 // @homepageURL  https://github.com/rybak/atlassian-tweaks
 //
 // ==/UserScript==

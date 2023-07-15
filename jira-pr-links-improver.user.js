@@ -1,13 +1,13 @@
 // ==UserScript==
 // @name         Jira: Pull Request Link Improver
 // @namespace    https://github.com/rybak/atlassian-tweaks
-// @version      9
+// @version      10
 // @license      MIT
 // @description  Adds more convenient pull request links to Jira tickets.
 // @author       Andrei Rybak
 // @match        https://jira.example.com/browse/*
 // @include      https://*jira*/browse/*
-// @icon         https://jira.atlassian.com/favicon.ico
+// @icon         https://seeklogo.com/images/J/jira-logo-FD39F795A7-seeklogo.com.png
 // @homepageURL  https://github.com/rybak/atlassian-tweaks
 // @grant        none
 // ==/UserScript==
