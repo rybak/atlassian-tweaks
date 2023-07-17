@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Jira: Project icon as tab icon
 // @namespace    https://github.com/rybak/atlassian-tweaks
-// @version      6
+// @version      7-alpha
 // @license      MIT
 // @description  Changes browser tab icon to Jira project icon
 // @author       Sergey Lukashevich
@@ -37,31 +37,108 @@
 (function() {
 	'use strict';
 
-	let projectAvatar = document.getElementById('project-avatar');
-	let url = null;
-	if (!projectAvatar) {
-		let elements = document.getElementsByClassName('aui-avatar-project');
-		if (elements.length === 1) {
-			let byTagName = elements[0].getElementsByTagName('img');
-			if (byTagName.length === 1) {
-				projectAvatar = byTagName[0];
+	const LOG_PREFIX = "[Jira project favicon]";
+
+	function error(...toLog) {
+		console.error(LOG_PREFIX, ...toLog);
+	}
+
+	function log(...toLog) {
+		console.log(LOG_PREFIX, ...toLog);
+	}
+
+	function debug(...toLog) {
+		console.debug(LOG_PREFIX, ...toLog);
+	}
+
+	function setFavicon(avatarUrl) {
+		const faviconNodes = document.querySelectorAll('link[rel="icon"], link[rel="shortcut icon"]');
+		if (!faviconNodes || faviconNodes.length == 0) {
+			error("Cannot find favicon elements.");
+			return;
+		}
+		log("New URL", avatarUrl);
+		faviconNodes.forEach(node => {
+			log("Replacing old URL =", node.href);
+			node.href = avatarUrl;
+		});
+	}
+
+	function getProjectKeyFromCurrentUrl() {
+		const pathname = document.location.pathname;
+		if (pathname.startsWith("/browse/")) {
+			const projectKey = pathname.slice(8, pathname.indexOf('-'));
+			log(`Found projectKey="${projectKey}" in a ticket URL.`);
+			return projectKey;
+		}
+		// first /browse/ link on the page is often to the project
+		const maybeProjectLink = document.querySelector('[href^="/browse/"]');
+		if (maybeProjectLink) {
+			const projectKey = maybeProjectLink.getAttribute('href').slice(8);
+			log(`Found projectKey="${projectKey}" in a random link.`);
+			return projectKey;
+		}
+		return null;
+	}
+
+	async function changeFavicon() {
+		let projectAvatar = document.getElementById('project-avatar');
+		let avatarUrl = null;
+		if (!projectAvatar) {
+			let elements = document.getElementsByClassName('aui-avatar-project');
+			if (elements.length === 1) {
+				let byTagName = elements[0].getElementsByTagName('img');
+				if (byTagName.length === 1) {
+					projectAvatar = byTagName[0];
+				}
 			}
 		}
-	}
-	if (projectAvatar) {
-		url = projectAvatar.src;
-	} else {
-		// try layout as in the cloud version of Jira Software
-		projectAvatar = document.querySelector('div[data-navheader="true"] span[style*=background]');
+
 		if (projectAvatar) {
-			const bgImage = projectAvatar.style.getPropertyValue("background-image");
-			url = bgImage.slice(5, bgImage.length - 7); // cut out the URL from CSS code `url('...');`
+			// Jira Server (self-hosted)
+			avatarUrl = projectAvatar.src;
+		} else {
+			// try layout as in the cloud version of Jira Software
+			projectAvatar = document.querySelector('div[data-navheader="true"] span[style*=background]');
+			if (projectAvatar) {
+				const bgImage = projectAvatar.style.getPropertyValue("background-image");
+				avatarUrl = bgImage.slice(5, bgImage.length - 7); // cut out the URL from CSS code `url('...');`
+			} else {
+				projectAvatar = document.querySelector('nav[aria-label="Breadcrumbs"] img');
+				if (projectAvatar) {
+					avatarUrl = projectAvatar.src;
+				} else {
+					/*
+					 * Last ditch effort: try loading from REST API.
+					 * Documentation:
+					 *   Cloud:  https://docs.atlassian.com/software/jira/docs/api/REST/1000.824.0/#api/2/project-getProject
+					 *   Server: TBD
+					 * Note that request `GET /rest/api/2/project/{projectIdOrKey}/avatars` is for
+					 * avatars "visible for the currently logged in user", not exactly for the
+					 * project of `{projectIdOrKey}`.
+					 */
+					// TODO: figure out how to get projectKey from _any_ page
+					let projectKey = getProjectKeyFromCurrentUrl();
+					const projectRestApiUrl = `/rest/api/2/project/${projectKey}`;
+					try {
+						log(`Fetching "${projectRestApiUrl}"...`);
+						const response = await fetch(projectRestApiUrl);
+						const json = await response.json();
+						log("Got avatars from JSON", json.avatarUrls);
+						avatarUrl = json.avatarUrls['48x48'];
+					} catch (e) {
+						error(`Cannot fetch "${projectRestApiUrl}"`, e);
+					}
+				}
+			}
 		}
+
+		if (!avatarUrl) {
+			error("Cannot find the avatar URL");
+			return;
+		}
+		setFavicon(avatarUrl);
 	}
 
-	let shortcutIco = document.querySelector('link[rel="shortcut icon"]');
-
-	if (url && shortcutIco) {
-		shortcutIco.href = url;
-	}
+	changeFavicon();
 })();
