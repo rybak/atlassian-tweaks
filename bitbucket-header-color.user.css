@@ -3,11 +3,11 @@
 @description  Allows changing the header color of Bitbucket to any color!
 @author       Andrei Rybak
 @homepageURL  https://github.com/rybak/atlassian-tweaks
-@version      3
+@version      4
 @license      MIT
 @namespace    https://github.com/rybak/atlassian-tweaks
 @preprocessor uso
-@var          color  myColor  "header color"  purple
+@var          color  myColor  "🎨 header color"  purple
 @var text yourDomain "Custom Bitbucket domain" "bitbucket.example.com"
 @var text yourDomain2 "Second custom Bitbucket domain" "stash.example.com"
 ==/UserStyle== */
