@@ -161,7 +161,7 @@ https://user-images.githubusercontent.com/624072/211896771-f93fd25a-a199-4bb0-97
 
 ## Jira
 
-### Jira: improve formatting of inline code
+### Jira: improve formatting of inline code
 
 Code in Jira in `{{inline code}}` syntax can be hard to read sometimes.  This
 user style adds a background and a border for such elements to improve
