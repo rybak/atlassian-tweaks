@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Confluence: copy link buttons
 // @namespace    https://github.com/rybak
-// @version      1
+// @version      2
 // @description  Adds buttons to copy a link to the current page directly into clipboard. Two buttons are supported: Markdown and Jira syntax. Both buttons support HTML for rich text editors.
 // @author       Andrei Rybak
 // @homepageURL  https://github.com/rybak/atlassian-tweaks
@@ -153,7 +153,7 @@
 		// HTML & CSS classes from the "Watch this page" button
 		// might need to actually look up the "Watch this page" button in live HTML to find actual CSS classes
 		return htmlToElement(
-			`<button class="_701w1ul9 css-hxlay7" type="button">
+			`<button class="_701w1ul9 css-1g4aceg" type="button">
 			  <span class="css-16j5qb5" title="${title}">
 			    <span role="img" style="--icon-primary-color: currentColor; --icon-secondary-color: var(--ds-surface, #FFFFFF); ${customCss}" class="css-snhnyn">
 			      ${icon}${text}
