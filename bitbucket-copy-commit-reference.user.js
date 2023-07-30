@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bitbucket: copy commit reference
 // @namespace    https://github.com/rybak/atlassian-tweaks
-// @version      2
+// @version      3
 // @description  Adds a "Copy commit reference" link to every commit page.
 // @author       Andrei Rybak
 // @include      https://*bitbucket*/*/commits/*
@@ -464,6 +464,7 @@
 	}
 
 	function ensureLink() {
+		removeExistingContainer();
 		try {
 			/*
 			 * Need this attribute to detect the kind of Bitbucket: Server or Cloud.
