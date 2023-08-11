@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bitbucket: copy commit reference
 // @namespace    https://github.com/rybak/atlassian-tweaks
-// @version      3
+// @version      4-alpha
 // @description  Adds a "Copy commit reference" link to every commit page.
 // @author       Andrei Rybak
 // @include      https://*bitbucket*/*/commits/*
@@ -48,6 +48,7 @@
 
 	const LOG_PREFIX = '[Bitbucket: copy commit reference]:';
 	const CONTAINER_ID = "BBCCR_container";
+	const CHECKMARK_ID = "BBCCR_checkmark";
 
 	function error(...toLog) {
 		console.error(LOG_PREFIX, ...toLog);
@@ -431,14 +432,36 @@
 		return template.content.firstChild;
 	}
 
-	function createCopyLink() {
-		const onclick = (event) => copyClickAction(event);
+	function showCheckmark() {
+		const checkmark = document.getElementById(CHECKMARK_ID);
+		checkmark.style.display = 'inline';
+	}
 
+	function hideCheckmark() {
+		const checkmark = document.getElementById(CHECKMARK_ID);
+		checkmark.style.display = 'none';
+	}
+
+	function createCopyLink() {
 		const linkText = "Copy commit reference";
 		const style = 'margin-left: 1em;';
 		const anchor = htmlToElement(`<a href="#" style="${style}">${linkText}</a>`);
+
+		const onclick = (event) => {
+			copyClickAction(event);
+			showCheckmark();
+			setTimeout(hideCheckmark, 2000);
+		}
 		anchor.onclick = onclick;
 		return anchor;
+	}
+
+	function createCheckmark() {
+		const container = document.createElement('span');
+		container.id = CHECKMARK_ID;
+		container.style.display = 'none';
+		container.innerHTML = " ✅ Copied to clipboard";
+		return container;
 	}
 
 	function doAddLink() {
@@ -452,6 +475,7 @@
 			const link = createCopyLink();
 			container.append(' ');
 			container.appendChild(link);
+			container.append(createCheckmark());
 		});
 	}
 
