@@ -431,7 +431,7 @@
 		return template.content.firstChild;
 	}
 
-	function copyLink() {
+	function createCopyLink() {
 		const onclick = (event) => copyClickAction(event);
 
 		const linkText = "Copy commit reference";
@@ -449,7 +449,7 @@
 			debug('target', target);
 			const container = htmlToElement(`<span id="${CONTAINER_ID}"></span>`);
 			target.append(container);
-			const link = copyLink();
+			const link = createCopyLink();
 			container.append(' ');
 			container.appendChild(link);
 		});
