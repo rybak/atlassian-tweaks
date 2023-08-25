@@ -1,0 +1,49 @@
+/* ==UserStyle==
+@name        Bitbucket: readable commit messages
+@namespace   https://github.com/rybak/atlassian-tweaks
+@version     1
+@description Make commit messages on Bitbucket Cloud more readable
+@license     MIT
+@homepageURL https://github.com/rybak/atlassian-tweaks
+@supportURL  https://github.com/rybak/atlassian-tweaks/issues
+@author      Andrei Rybak
+==/UserStyle== */
+
+/*
+ * Copyright (c) 2023 Andrei Rybak
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
+@-moz-document regexp("https://bitbucket.org/.*/commits/.+") {
+/*
+ * Fixes for readability
+ */
+/* border around the whole commit message */
+.css-1120ym1 > div:nth-child(1) > div:nth-child(3) {
+	border: 1px solid grey;
+	border-radius: 3px;
+	padding: 1em;
+}
+
+/* make the subject line of commit message bold */
+.css-1120ym1 > div:nth-child(1) > div:nth-child(3) > p:first-child {
+	font-weight: bold;
+}
+}

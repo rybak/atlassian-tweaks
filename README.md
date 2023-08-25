@@ -97,6 +97,14 @@ https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-pull-request-avatar
 
 [![Screenshot of "Bitbucket: PR author avatar as favicon"](images/bitbucket-pull-request-avatars.png)](https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-pull-request-avatars.user.js)
 
+### Bitbucket: readable commit messages
+Commit pages on Bitbucket Cloud are not very readable.  This user style adds a
+border around the commit messages and makes the subject line bold.
+
+This style supports only Bitbucket Cloud.
+
+https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-readable-commit-messages.user.css
+
 ### Bitbucket: speed up CI builds
 This user style speeds up continuous integration builds on Bitbucket.
 
