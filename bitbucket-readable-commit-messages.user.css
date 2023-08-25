@@ -1,18 +1,18 @@
 /* ==UserStyle==
 @name        Bitbucket: readable commit messages
 @namespace   https://github.com/rybak/atlassian-tweaks
-@version     2
+@version     3
 @description Make commit messages on Bitbucket Cloud more readable
 @license     MIT
 @homepageURL https://github.com/rybak/atlassian-tweaks
 @supportURL  https://github.com/rybak/atlassian-tweaks/issues
 @author      Andrei Rybak
 @preprocessor stylus
-@var number   borderWidth     "Border width"   [1, 1, 10, 1, 'px']
-@var color    borderColor     "Border color"   grey
-@var number   borderRadius    "Border radius"  [3, 1, 30, 1, 'px']
-@var number   paddingSize     "Padding"        [1, 0.5, 3, 0.1, 'em']
-@var checkbox monospaceEnable "Monospace font" 1
+@var number   borderWidth     "─ Border width ━"     [1, 1, 10, 1, 'px']
+@var color    borderColor     "🎨 Border color"       grey
+@var number   borderRadius    "╭ Border radius ╮"    [3, 1, 30, 1, 'px']
+@var number   paddingSize     "▣ Padding"              [1, 0.5, 3, 0.1, 'em']
+@var checkbox monospaceEnable "𝙼𝚘𝚗𝚘𝚜𝚙𝚊𝚌𝚎 font"       1
 ==/UserStyle== */
 
 /*
