@@ -100,6 +100,7 @@ https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-pull-request-avatar
 ### Bitbucket: readable commit messages
 Commit pages on Bitbucket Cloud are not very readable.  This user style adds a
 border around the commit messages and makes the subject line bold.
+[Demo](https://i.imgur.com/OMnBFQe.png).
 
 This style supports only Bitbucket Cloud.
 
