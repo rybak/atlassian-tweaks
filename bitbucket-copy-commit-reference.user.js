@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Bitbucket: copy commit reference
 // @namespace    https://github.com/rybak/atlassian-tweaks
-// @version      3
-// @description  Adds a "Copy commit reference" link to every commit page.
+// @version      4.OBSOLETE
+// @description  This userscript is obsolete. Please migrate to userscript "Git: copy commit reference"
 // @author       Andrei Rybak
 // @include      https://*bitbucket*/*/commits/*
 // @match        https://bitbucket.example.com/*/commits/*
