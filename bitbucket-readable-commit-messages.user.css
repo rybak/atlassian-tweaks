@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name        Bitbucket: readable commit messages
 @namespace   https://github.com/rybak/atlassian-tweaks
-@version     3
+@version     4
 @description Make commit messages on Bitbucket Cloud more readable
 @license     MIT
 @homepageURL https://github.com/rybak/atlassian-tweaks
@@ -37,26 +37,26 @@
  * SOFTWARE.
  */
 
-@-moz-document regexp("https://bitbucket.org/.*/commits/.+") {
+@-moz-document regexp("https://bitbucket.org/.*/commits/[^?]+") {
 /*
  * Fixes for readability
  */
 
 /* border around the whole commit message */
-.css-1120ym1 > div:nth-child(1) > div:nth-child(3) {
+.css-1120ym1 > div:nth-child(1) > div:nth-child(3):not([data-qa="commit-list-container"]) {
 	border: borderWidth solid borderColor;
 	border-radius: borderRadius;
 	padding: paddingSize;
 }
 if monospaceEnable {
 	/* monospace text */
-	.css-1120ym1 > div:nth-child(1) > div:nth-child(3) {
+	.css-1120ym1 > div:nth-child(1) > div:nth-child(3):not([data-qa="commit-list-container"]) {
 		font-family: monospace;
 	}
 }
 
 /* make the subject line of commit message bold */
-.css-1120ym1 > div:nth-child(1) > div:nth-child(3) > p:first-child {
+.css-1120ym1 > div:nth-child(1) > div:nth-child(3):not([data-qa="commit-list-container"]) > p:first-child {
 	font-weight: bold;
 }
 }
