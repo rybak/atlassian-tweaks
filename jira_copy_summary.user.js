@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Jira copy summary
 // @namespace    https://github.com/rybak/atlassian-tweaks
-// @version      4.4
+// @version      4.5
 // @license      MIT
 // @description  copies summary of Jira ticket
 // @author       Sergey Lukashevich, Andrei Rybak, Dmitry Trubin
@@ -11,7 +11,7 @@
 // @match        https://jira.example.com/browse/*
 // @icon         https://jira.atlassian.com/favicon.ico
 //
-// @require      https://raw.githubusercontent.com/odyniec/MonkeyConfig/0eaeb525/monkeyconfig.js
+// @require      https://cdn.jsdelivr.net/gh/odyniec/MonkeyConfig@0eaeb525/monkeyconfig.js
 // @grant        GM_registerMenuCommand
 // @grant        GM_addStyle
 // @grant        GM_getValue
@@ -36,6 +36,8 @@
  */
 
 /*
+version 4.5
+	- Migrated to jsDelivr as CDN for library code
 version 4.4
 	- UX of copy-pasting the summary formatted with italics into a rich
 	  text editor has been improved.  Now the text that you type after
