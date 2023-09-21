@@ -4,6 +4,7 @@
 // @version      4.OBSOLETE
 // @description  This userscript is obsolete. Please migrate to userscript "Git: copy commit reference"
 // @author       Andrei Rybak
+// @license      MIT
 // @include      https://*bitbucket*/*/commits/*
 // @match        https://bitbucket.example.com/*/commits/*
 // @match        https://bitbucket.org/*/commits/*

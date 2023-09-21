@@ -1,9 +1,10 @@
 // ==UserScript==
 // @name         Jira: Copy code blocks
 // @namespace    https://github.com/rybak/atlassian-tweaks
-// @version      6
+// @version      7
 // @description  Copy code blocks in Jira code blocks and Zephyr test steps.
 // @author       Andrei Rybak
+// @license      MIT
 // @include      https://*jira*/browse/*
 // @include      https://*jira*/secure/enav/*
 // @match        https://jira.example.com/secure/enav/*

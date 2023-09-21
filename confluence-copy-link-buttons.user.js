@@ -1,9 +1,10 @@
 // ==UserScript==
 // @name         Confluence: copy link buttons
 // @namespace    https://github.com/rybak
-// @version      3
+// @version      4
 // @description  Adds buttons to copy a link to the current page directly into clipboard. Two buttons are supported: Markdown and Jira syntax. Both buttons support HTML for rich text editors.
 // @author       Andrei Rybak
+// @license      MIT
 // @homepageURL  https://github.com/rybak/atlassian-tweaks
 // @include      https://confluence*
 // @match        https://confluence.example.com
