@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Jira copy summary
 // @namespace    https://github.com/rybak/atlassian-tweaks
-// @version      4.5
+// @version      4.6
 // @license      MIT
 // @description  copies summary of Jira ticket
 // @author       Sergey Lukashevich, Andrei Rybak, Dmitry Trubin
@@ -11,7 +11,7 @@
 // @match        https://jira.example.com/browse/*
 // @icon         https://jira.atlassian.com/favicon.ico
 //
-// @require      https://cdn.jsdelivr.net/gh/odyniec/MonkeyConfig@0eaeb525/monkeyconfig.js
+// @require      https://cdn.jsdelivr.net/gh/odyniec/MonkeyConfig@0eaeb525733a36d9e721ec4d9cf3b744b527bfcf/monkeyconfig.js
 // @grant        GM_registerMenuCommand
 // @grant        GM_addStyle
 // @grant        GM_getValue
@@ -36,6 +36,8 @@
  */
 
 /*
+version 4.6
+	- More precise reference to monkeyconfig.js library.
 version 4.5
 	- Migrated to jsDelivr as CDN for library code
 version 4.4
