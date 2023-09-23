@@ -27,7 +27,7 @@ do
 	count=$(grep -c '@version' "$file")
 	if [[ $count -ne 1 ]]
 	then
-		echo "Found $c @version tags in '$file'. Should be only one." >&2
+		echo "Found $count @version tags in '$file'. Should be only one." >&2
 		exit 3
 	fi
 
