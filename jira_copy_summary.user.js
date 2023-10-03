@@ -213,6 +213,7 @@ version 1.2
 						button = createButtonForJira7();
 						break;
 					case "8":
+					case "9":
 						container = document.getElementById("stalker").getElementsByClassName("aui-toolbar2-primary")[0];
 						button = createButtonForJira8();
 						break;
