@@ -3,7 +3,7 @@
 // @namespace    https://github.com/rybak/atlassian-tweaks
 // @version      4.6
 // @license      MIT
-// @description  copies summary of Jira ticket
+// @description  Adds a "Copy summary" button for issue pages on Jira.
 // @author       Sergey Lukashevich, Andrei Rybak, Dmitry Trubin
 // @homepage     https://github.com/rybak/atlassian-tweaks
 // @include      https://*jira*/browse/*
