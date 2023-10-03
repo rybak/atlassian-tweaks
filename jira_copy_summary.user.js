@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Jira copy summary
 // @namespace    https://github.com/rybak/atlassian-tweaks
-// @version      4.6
+// @version      5.0
 // @license      MIT
 // @description  Adds a "Copy summary" button for issue pages on Jira.
 // @author       Sergey Lukashevich, Andrei Rybak, Dmitry Trubin
@@ -36,6 +36,8 @@
  */
 
 /*
+version 5.0
+	- Jira 9 is now supported in addition to versions 7 and 8.
 version 4.6
 	- More precise reference to monkeyconfig.js library.
 version 4.5
@@ -162,7 +164,7 @@ version 1.2
 		return ul;
 	}
 
-	function createButtonForJira8() {
+	function createButtonForJira8and9() {
 		var div = document.createElement("div");
 		div.id = "opsbar-copycopy_container"
 		div.classList.add("aui-buttons");
@@ -213,8 +215,9 @@ version 1.2
 						button = createButtonForJira7();
 						break;
 					case "8":
+					case "9":
 						container = document.getElementById("stalker").getElementsByClassName("aui-toolbar2-primary")[0];
-						button = createButtonForJira8();
+						button = createButtonForJira8and9();
 						break;
 					default:
 						console.log("Jira v" + jiraMajorVersion + " is not supported");
