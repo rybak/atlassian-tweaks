@@ -34,6 +34,8 @@ This script supports both Bitbucket Server and Bitbucket Cloud.
 
 https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-copy-commit-reference.user.js
 
+[![Screenshot of "Bitbucket: copy commit reference" in action](images/bitbucket-copy-commit-reference.png)](https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-copy-commit-reference.user.js)
+
 ### Bitbucket: hide banner
 
 Hides the banner at the top of Bitbucket which takes up vertical space in cases
