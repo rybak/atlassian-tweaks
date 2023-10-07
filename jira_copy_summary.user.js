@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Jira copy summary
 // @namespace    https://github.com/rybak/atlassian-tweaks
-// @version      5.0
+// @version      5.1-alpha
 // @license      MIT
 // @description  Adds a "Copy summary" button for issue pages on Jira.
 // @author       Sergey Lukashevich, Andrei Rybak, Dmitry Trubin
@@ -12,6 +12,7 @@
 // @icon         https://jira.atlassian.com/favicon.ico
 //
 // @require      https://cdn.jsdelivr.net/gh/odyniec/MonkeyConfig@0eaeb525733a36d9e721ec4d9cf3b744b527bfcf/monkeyconfig.js
+// @require      https://github.com/sizzlemctwizzle/GM_config/raw/master/gm_config.js
 // @grant        GM_registerMenuCommand
 // @grant        GM_addStyle
 // @grant        GM_getValue
@@ -108,6 +109,22 @@ version 1.2
 				default: true
 			}
 		}
+	});
+	let gmc = new GM_config(		{
+		'id': 'MyConfig', // The id used for this instance of GM_config
+		'title': 'Jira copy summary configuration', // Panel Title
+		'fields': // Fields object
+		{
+			'italic_summary': // This is the id of the field
+			{
+				'label': 'Italic summary', // Appears next to field
+				'type': 'checkbox',
+				'default': true
+			}
+		}
+	});
+	GM.registerMenuCommand("Userscript options", () => {
+		gmc.open();
 	});
 
 	function getMeta(metaName) {
