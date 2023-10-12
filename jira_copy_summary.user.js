@@ -5,7 +5,7 @@
 // @license      MIT
 // @description  Adds a "Copy summary" button for issue pages on Jira.
 // @author       Sergey Lukashevich, Andrei Rybak, Dmitry Trubin
-// @homepage     https://github.com/rybak/atlassian-tweaks
+// @homepageURL  https://github.com/rybak/atlassian-tweaks
 // @include      https://*jira*/browse/*
 // @match        https://jira.example.com/browse/*
 // @match        https://jira.example.com/browse/*

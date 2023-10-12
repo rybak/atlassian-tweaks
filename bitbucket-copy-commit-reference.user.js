@@ -5,6 +5,7 @@
 // @description  Adds a "Copy commit reference" link to every commit page on Bitbucket Cloud and Bitbucket Server.
 // @license      AGPL-3.0-only
 // @author       Andrei Rybak
+// @homepageURL  https://github.com/rybak/atlassian-tweaks
 // @include      https://*bitbucket*/*/commits/*
 // @match        https://bitbucket.example.com/*/commits/*
 // @match        https://bitbucket.org/*/commits/*
