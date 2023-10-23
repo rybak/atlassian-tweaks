@@ -12,7 +12,7 @@ See individual scripts and styles for details.
 Instructions on how to use user scripts and styles are at the bottom of the README.
 
 Half of the scripts and styles support both the old-school self-hosted and the
-newer cloud variants of of Bitbucket, Jira, and Confluence – they are marked as
+newer cloud variants of Bitbucket, Jira, and Confluence – they are marked as
 such in their description.  Some scripts and styles are no longer applicable to
 newer cloud variants due to significant UI redesigns.
 
