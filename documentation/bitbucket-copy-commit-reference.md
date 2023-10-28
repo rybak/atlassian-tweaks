@@ -13,3 +13,5 @@ This script supports both Bitbucket Server and Bitbucket Cloud.
 https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-copy-commit-reference.user.js
 
 [![Screenshot of "Bitbucket: copy commit reference" in action](images/bitbucket-copy-commit-reference.png)](https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-copy-commit-reference.user.js)
+
+[git-log-formats]: https://git-scm.com/docs/git-log#_pretty_formats

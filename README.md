@@ -18,27 +18,27 @@ newer cloud variants due to significant UI redesigns.
 
 ## Userscripts and userstyles
 
-| Name                                                                                                 | Version | Install |
-|------------------------------------------------------------------------------------------------------|---------|---------|
-| [Bitbucket: copy commit reference](./documentation/bitbucket-copy-commit-reference.md)               |         |         |
-| [Bitbucket: hide banner](./documentation/bitbucket-hide-banner.md)                                   |         |         |
-| [Bitbucket: fix commit tooltip](./documentation/bitbucket-fix-commit-tooltip.md)                     |         |         |
-| [Bitbucket: fix selection of breadcrumbs](./documentation/bitbucket-fix-breadcrumbs-selection.md)    |         |         |
-| [Bitbucket: commit links in diff tab of PRs](./documentation/bitbucket-pull-request-commit-links.md) |         |         |
-| [Bitbucket: header color](./documentation/bitbucket-header-color.md)                                 |         |         |
-| [Bitbucket: PR author avatar as favicon](./documentation/bitbucket-pull-request-avatars.md)          |         |         |
-| [Bitbucket: readable commit messages](./documentation/bitbucket-readable-commit-messages.md)         |         |         |
-| [Bitbucket: speed up CI builds](./documentation/bitbucket-fast-and-furious.md)                       |         |         |
-| [Confluence: space avatar as tab icon](./documentation/confluence-space-avatar-favicons.md)          |         |         |
-| [Confluence: copy link buttons](./documentation/confluence-copy-link-buttons.md)                     |         |         |
-| [Confluence: hide banner](./documentation/confluence-hide-banner.md)                                 |         |         |
-| [Confluence: better monospace](./documentation/confluence-better-monospace.md)                       |         |         |
-| [Confluence: Simple Floating Table of Contents](./documentation/confluence-simple-floating-toc.md)   |         |         |
-| [Jira: improve formatting of inline code](./documentation/jira-inline-code.md)                       |         |         |
-| [Jira: copy summary button](./documentation/jira-copy-summary.md)                                    |         |         |
-| [Jira: copy code blocks](./documentation/jira-copy-code-blocks.md)                                   |         |         |
-| [Jira: better pull request links](./documentation/jira-pr-links-improver.md)                         |         |         |
-| [Jira: project avatar as favicon](./documentation/jira-project-avatar-as-favicon.md)                 |         |         |
+| Name                                                                                                 | Version                                                                                    | Install |
+|------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------|---------|
+| [Bitbucket: copy commit reference](./documentation/bitbucket-copy-commit-reference.md)               | [![][BitbucketVersion]][BitbucketGreasyFork] [![][BitbucketInstalls]][BitbucketGreasyFork] |
+| [Bitbucket: hide banner](./documentation/bitbucket-hide-banner.md)                                   |                                                                                            |         |
+| [Bitbucket: fix commit tooltip](./documentation/bitbucket-fix-commit-tooltip.md)                     |                                                                                            |         |
+| [Bitbucket: fix selection of breadcrumbs](./documentation/bitbucket-fix-breadcrumbs-selection.md)    |                                                                                            |         |
+| [Bitbucket: commit links in diff tab of PRs](./documentation/bitbucket-pull-request-commit-links.md) |                                                                                            |         |
+| [Bitbucket: header color](./documentation/bitbucket-header-color.md)                                 |                                                                                            |         |
+| [Bitbucket: PR author avatar as favicon](./documentation/bitbucket-pull-request-avatars.md)          |                                                                                            |         |
+| [Bitbucket: readable commit messages](./documentation/bitbucket-readable-commit-messages.md)         |                                                                                            |         |
+| [Bitbucket: speed up CI builds](./documentation/bitbucket-fast-and-furious.md)                       |                                                                                            |         |
+| [Confluence: space avatar as tab icon](./documentation/confluence-space-avatar-favicons.md)          |                                                                                            |         |
+| [Confluence: copy link buttons](./documentation/confluence-copy-link-buttons.md)                     |                                                                                            |         |
+| [Confluence: hide banner](./documentation/confluence-hide-banner.md)                                 |                                                                                            |         |
+| [Confluence: better monospace](./documentation/confluence-better-monospace.md)                       |                                                                                            |         |
+| [Confluence: Simple Floating Table of Contents](./documentation/confluence-simple-floating-toc.md)   |                                                                                            |         |
+| [Jira: improve formatting of inline code](./documentation/jira-inline-code.md)                       |                                                                                            |         |
+| [Jira: copy summary button](./documentation/jira-copy-summary.md)                                    |                                                                                            |         |
+| [Jira: copy code blocks](./documentation/jira-copy-code-blocks.md)                                   |                                                                                            |         |
+| [Jira: better pull request links](./documentation/jira-pr-links-improver.md)                         |                                                                                            |         |
+| [Jira: project avatar as favicon](./documentation/jira-project-avatar-as-favicon.md)                 |                                                                                            |         |
 
 ## How to use Atlassian Tweaks
 
@@ -117,4 +117,6 @@ Tampermonkey, and Greasemonkey.
 [copy-summary-cfg]: images/jira_copy_summary_cfg_tampermonkey.png
 [chrome-patterns]: https://developer.chrome.com/docs/extensions/mv3/match_patterns/
 [firefox-patterns]: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Match_patterns
-[git-log-formats]: https://git-scm.com/docs/git-log#_pretty_formats
+[BitbucketGreasyFork]: https://greasyfork.org/en/scripts/470667-bitbucket-copy-commit-reference
+[BitbucketInstalls]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Installs&query=total_installs&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F470667.json
+[BitbucketVersion]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F470667.json
