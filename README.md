@@ -130,7 +130,10 @@ Tampermonkey, and Greasemonkey.
 [BBReadableCommitMessagesUSW]: https://userstyles.world/style/11867/bitbucket-readable-commit-messages
 [BBReadableCommitMessagesVersion]: https://img.shields.io/badge/dynamic/json?style=flat&color=193652&label=Version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F473890.json
 <!--
-For userstyles, I want to use `#00f6eb`, which is the main color of the logo of userstyles.world.
-But this results in poor readability on the badge, due to https://github.com/badges/shields/issues/5497
-So for the time being, use `#193652` -- color of the "Install" button.
+Notes on badges for userstyles:
+ - Color: I want to use `#00f6eb`, which is the main color of the logo of userstyles.world.
+   But this results in poor readability on the badge, due to https://github.com/badges/shields/issues/5497
+   So for the time being, use `#193652` -- color of the "Install" button.
+ - API for version: userstyles.world has an API (example: <https://userstyles.world/api/style/11867>)
+   but it doesn't provide access to the version string.
 -->
