@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Check metadata of userscripts and userstyles
+#
+# Used by GitHub Actions. Can be used locally:
+#
+#	$ ./maintenance/check-metadata.sh
+
 set -e
 set -u
 
