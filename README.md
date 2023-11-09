@@ -19,6 +19,7 @@ newer cloud variants due to significant UI redesigns.
 ## Bitbucket
 
 ### Bitbucket: copy commit reference
+[![Greasy Fork link][badge_bitbucket_copy_commit_reference]][gfork_bitbucket_copy_commit_reference]
 
 Adds "Copy commit reference" link to every commit page. Commit reference is a
 commonly used [format][git-log-formats] to refer to past commits. It looks like
@@ -32,18 +33,16 @@ links to the commit, Jira issues, and Bitbucket pull requests.
 
 This script supports both Bitbucket Server and Bitbucket Cloud.
 
-https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-copy-commit-reference.user.js
-
-[![Screenshot of "Bitbucket: copy commit reference" in action](images/bitbucket-copy-commit-reference.png)](https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-copy-commit-reference.user.js)
+[![Screenshot of "Bitbucket: copy commit reference" in action](images/bitbucket-copy-commit-reference.png)][gfork_bitbucket_copy_commit_reference]
 
 ### Bitbucket: hide banner
+[![Greasy Fork link][badge_bitbucket_hide_banner_at_the_top]][gfork_bitbucket_hide_banner_at_the_top]
+[![UserStyles.world link][badge_usw_bitbucket_hide_banner_at_the_top]][usw_bitbucket_hide_banner_at_the_top]
 
 Hides the banner at the top of Bitbucket which takes up vertical space in cases
 when it is almost never used.
 
-https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-hide-banner.user.css
-
-[![Screenshot of "Bitbucket: hide banner" in action: before and after](images/bitbucket-hide-banner.png)](https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-hide-banner.user.css)
+[![Screenshot of "Bitbucket: hide banner" in action: before and after](images/bitbucket-hide-banner.png)][gfork_bitbucket_hide_banner_at_the_top]
 
 ### Bitbucket: fix commit tooltip
 
@@ -61,6 +60,9 @@ https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-fix-commit-tooltip.
 [![Screenshot of "Fix commit tooltip"](images/bitbucket-fix-commit-tooltip.png)](https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-fix-commit-tooltip.user.css)
 
 ### Bitbucket: fix selection of breadcrumbs
+[![Greasy Fork link][badge_bitbucket_fix_breadcrumbs_selection]][gfork_bitbucket_fix_breadcrumbs_selection]
+[![UserStyles.world link][badge_usw_bitbucket_fix_breadcrumbs_selection]][usw_bitbucket_fix_breadcrumbs_selection]
+
 Selection of file paths (breadcrumbs) is broken in some parts of the Bitbucket
 UI in a way, that marker "UPDATED", "ADDED", or "DELETED" is selected, depending
 on the exact way that the user performs the selection.  This style makes the
@@ -68,41 +70,43 @@ pill-shaped markers unselectable, fixing this issue.
 
 This style supports both Bitbucket Server and Bitbucket Cloud.
 
-https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-fix-breadcrumbs-selection.user.css
-
 ### Bitbucket: commit links in diff tab of PRs
+[![Greasy Fork link][badge_bitbucket_commit_links_in_diff_tab_of_prs]][gfork_bitbucket_commit_links_in_diff_tab_of_prs]
+
 This user script brings back convenient links to individual commit pages to the
 pull request's "Diff" tab, which was removed by Atlassian some time before
 Bitbucket Server version 7.6.  The commit link includes a fancy tooltip, same as
 commit links on the "Commits" tab.
 
-https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-pull-request-commit-links.user.js
-
-[![Screenshot of "PR links to commits"](images/bitbucket-pr-commit-links-screenshot-diff.png)](https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-pull-request-commit-links.user.js)
+[![Screenshot of "PR links to commits"](images/bitbucket-pr-commit-links-screenshot-diff.png)][gfork_bitbucket_commit_links_in_diff_tab_of_prs]
 
 ### Bitbucket: header color
+[![Greasy Fork link][badge_bitbucket_header_color]][gfork_bitbucket_header_color]
+[![UserStyles.world link][badge_usw_bitbucket_header_color]][usw_bitbucket_header_color]
+
 Some instances of Bitbucket are deployed with custom look and feels, which have
 unfortunate color of the header.  This user style allows changing the color of
 Bitbucket header to any color.
 
 This style supports both Bitbucket Server and Bitbucket Cloud.
 
-https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-header-color.user.css
-
-[![Screenshot of "Bitbucket: header color"](images/bitbucket-header-color-rgb.png)](https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-header-color.user.css)
+[![Screenshot of "Bitbucket: header color"](images/bitbucket-header-color-rgb.png)][gfork_bitbucket_header_color]
 
 ### Bitbucket: PR author avatar as favicon
+[![Greasy Fork link][badge_bitbucket_pr_author_avatar_as_favicon]][gfork_bitbucket_pr_author_avatar_as_favicon]
+
 This user script changes favicons of Bitbucket pull request pages (tab icon in
 browsers) to the avatar of pull request's author, which makes it easier to
 distinguish browser tabs.
 
 This script supports both Bitbucket Server and Bitbucket Cloud.
 
-https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-pull-request-avatars.user.js
-
-[![Screenshot of "Bitbucket: PR author avatar as favicon"](images/bitbucket-pull-request-avatars.png)](https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-pull-request-avatars.user.js)
+[![Screenshot of "Bitbucket: PR author avatar as favicon"](images/bitbucket-pull-request-avatars.png)][gfork_bitbucket_pr_author_avatar_as_favicon]
 
 ### Bitbucket: readable commit messages
+[![Greasy Fork link][badge_bitbucket_readable_commit_messages]][gfork_bitbucket_readable_commit_messages]
+[![UserStyles.world link][badge_usw_bitbucket_readable_commit_messages]][usw_bitbucket_readable_commit_messages]
+
 Commit pages on Bitbucket Cloud are not very readable.  This user style adds a
 border around the commit messages, makes the font monospace, and makes the
 subject line bold.  Many aspects of the style can be configured.
@@ -110,26 +114,24 @@ Demo: [monospace](https://i.imgur.com/a6nNxAI.png) and [without monospace](https
 
 This style supports only Bitbucket Cloud.
 
-https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-readable-commit-messages.user.css
-
 ### Bitbucket: speed up CI builds
+[![UserStyles.world link][badge_userstyles_world]][usw_bitbucket_fast_and_furious]
+
 This user style speeds up continuous integration builds on Bitbucket.
 
-https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-fast-and-furious.user.css
-
-[![Demonstration of "Bitbucket: fast and furious"](images/bitbucket-fast-and-furious.gif)](https://github.com/rybak/atlassian-tweaks/raw/main/bitbucket-fast-and-furious.user.css)
+[![Demonstration of "Bitbucket: fast and furious"](images/bitbucket-fast-and-furious.gif)][usw_bitbucket_fast_and_furious]
 
 ## Confluence
 
 ### Confluence: space avatar as tab icon
+[![Greasy Fork link][badge_confluence_space_avatar_as_tab_icon]][gfork_confluence_space_avatar_as_tab_icon]
 
 Replaces tab icons for Confluence pages with avatars of the Confluence spaces.
 
 This script supports both Confluence Server and Confluence Cloud.
 
-https://github.com/rybak/atlassian-tweaks/raw/main/confluence-space-avatar-favicons.user.js
-
 ### Confluence: copy link buttons
+[![Greasy Fork link][badge_confluence_copy_link_buttons]][gfork_confluence_copy_link_buttons]
 
 Adds buttons to copy a link to the current page directly into clipboard. Two
 buttons are supported: Markdown and Jira syntax. Both buttons support HTML for
@@ -137,46 +139,46 @@ rich text editors.
 
 This script supports both Confluence Server and Confluence Cloud.
 
-https://github.com/rybak/atlassian-tweaks/raw/main/confluence-copy-link-buttons.user.js
-
-[![Screenshots of "Confluence: copy link buttons" in action on Confluence Server and Confluence Cloud](images/confluence-copy-link-buttons.png)](https://github.com/rybak/atlassian-tweaks/raw/main/confluence-copy-link-buttons.user.js)
+[![Screenshots of "Confluence: copy link buttons" in action on Confluence Server and Confluence Cloud](images/confluence-copy-link-buttons.png)][gfork_confluence_copy_link_buttons]
 
 ### Confluence: hide banner
+[![Greasy Fork link][badge_confluence_hide_banner_at_the_top]][gfork_confluence_hide_banner_at_the_top]
+[![UserStyles.world link][badge_usw_confluence_hide_banner_at_the_top]][usw_confluence_hide_banner_at_the_top]
 
 Hides the "precursor" banner at the top of Confluence which takes up vertical
 space in cases when it is almost never used.
 
 This style supports both Confluence Server and Confluence Cloud.
 
-https://github.com/rybak/atlassian-tweaks/raw/main/confluence-hide-banner.user.css
-
-[![Screenshot of "Confluence: hide banner" in action: before and after](images/confluence-hide-banner.png)](https://github.com/rybak/atlassian-tweaks/raw/main/confluence-hide-banner.user.css)
+[![Screenshot of "Confluence: hide banner" in action: before and after](images/confluence-hide-banner.png)][gfork_confluence_hide_banner_at_the_top]
 
 ### Confluence: better monospace
+[![Greasy Fork link][badge_confluence_better_monospace]][gfork_confluence_better_monospace]
+[![UserStyles.world link][badge_usw_confluence_better_monospace]][usw_confluence_better_monospace]
 
 This style adds a border and a background to monospace text, making it easier
 to distinguish from surrounding text.
 
 This style supports both Confluence Server and Confluence Cloud.
 
-https://github.com/rybak/atlassian-tweaks/raw/main/confluence-better-monospace.user.css
-
-[![Screenshot of "Confluence: better monospace"](images/confluence-better-monospace.png)](https://github.com/rybak/atlassian-tweaks/raw/main/confluence-better-monospace.user.css)
+[![Screenshot of "Confluence: better monospace"](images/confluence-better-monospace.png)][gfork_confluence_better_monospace]
 
 ### Confluence: Simple Floating Table of Contents
+[![Greasy Fork link][badge_confluence_simple_floating_toc]][gfork_confluence_simple_floating_toc]
+[![UserStyles.world link][badge_usw_confluence_simple_floating_toc]][usw_confluence_simple_floating_toc]
 
 This style moves the table of contents to the right side of the page and makes
 the table of contents "sticky", floating in the same place when scrolling.
 
 This style supports both Confluence Server and Confluence Cloud.
 
-https://github.com/rybak/atlassian-tweaks/raw/main/confluence-simple-floating-toc.user.css
-
 https://user-images.githubusercontent.com/624072/211896771-f93fd25a-a199-4bb0-9766-46dfe09438ce.mp4
 
 ## Jira
 
 ### Jira: improve formatting of inline code
+[![Greasy Fork link][badge_jira_better_inline_code_formatting]][gfork_jira_better_inline_code_formatting]
+[![UserStyles.world link][badge_usw_jira_better_inline_code_formatting]][usw_jira_better_inline_code_formatting]
 
 Code in Jira in `{{inline code}}` syntax can be hard to read sometimes.  This
 user style adds a background and a border for such elements to improve
@@ -184,18 +186,16 @@ readability.
 
 This style supports both Jira Server (self-hosted) and Jira Cloud.
 
-[![Screenshot comparing sample text with and without user style "Jira: improve formatting of inline code"](images/jira-monospace.png)](https://github.com/rybak/atlassian-tweaks/raw/main/jira-inline-code.user.css)
-
-https://github.com/rybak/atlassian-tweaks/raw/main/jira-inline-code.user.css
+[![Screenshot comparing sample text with and without user style "Jira: improve formatting of inline code"](images/jira-monospace.png)][gfork_jira_better_inline_code_formatting]
 
 ### Jira: copy summary button
+[![Greasy Fork link][badge_jira_copy_summary]][gfork_jira_copy_summary]
+
 This user script adds or fixes a "Copy Summary" button for issue pages on Jira.
 When on a Jira page, the script can be configured using the corresponding
 extension menu item (screenshot from Tampermonkey):
 
-[![Jira copy summary Tampermonkey configuration][copy-summary-cfg]](https://github.com/rybak/atlassian-tweaks/raw/main/jira_copy_summary.user.js)
-
-https://github.com/rybak/atlassian-tweaks/raw/main/jira_copy_summary.user.js
+[![Jira copy summary Tampermonkey configuration][copy-summary-cfg]][gfork_jira_copy_summary]
 
 ### Jira: copy code blocks
 This user scripts adds a "Copy!" button to all code and preformatted blocks in
@@ -205,30 +205,32 @@ Zephyr test cases.
 https://github.com/rybak/atlassian-tweaks/raw/main/jira-copy-code-blocks.user.js
 
 ### Jira: better pull request links
+[![Greasy Fork link][badge_jira_pull_request_link_improver]][gfork_jira_pull_request_link_improver]
+
 Bitbucket integration in Jira is not very convenient.  It requires clicking on a
 link, like "3 pull requests", before actually giving the user access to the
 actual links to pull requests.  This user script adds a panel above
 "Development" with a list of clickable links to pull requests.
 
-https://github.com/rybak/atlassian-tweaks/raw/main/jira-pr-links-improver.user.js
-
-[![Screenshot of "Jira: Pull Request Link Improver"](images/jira-pr-link-improver.png)](https://github.com/rybak/atlassian-tweaks/raw/main/jira-pr-links-improver.user.js)
+[![Screenshot of "Jira: Pull Request Link Improver"](images/jira-pr-link-improver.png)][gfork_jira_pull_request_link_improver]
 
 ### Jira: project avatar as favicon
+[![Greasy Fork link][badge_jira_project_icon_as_tab_icon]][gfork_jira_project_icon_as_tab_icon]
+
 This user script changes favicons of Jira pages (tab icon in browsers) to the
 avatar of individual Jira projects, which makes it easier to distinguish browser
 tabs of tickets in different projects.
 
 This script supports both Jira Server (self-hosted) and Jira Cloud.
 
-https://github.com/rybak/atlassian-tweaks/raw/main/jira-project-avatar-as-favicon.user.js
-
-[![Screenshot of "Jira: project avatar as favicon"](images/jira-project-avatar-as-favicon.png)](https://github.com/rybak/atlassian-tweaks/raw/main/jira-project-avatar-as-favicon.user.js)
+[![Screenshot of "Jira: project avatar as favicon"](images/jira-project-avatar-as-favicon.png)][gfork_jira_project_icon_as_tab_icon]
 
 ## How to use Atlassian Tweaks
 
 1. Install browser extensions for user scripts and user styles.
-2. Click on the link for the user script or user style in the sections above.
+2. Install via [![Greasy Fork button][badge_greasy_fork]][greasy_fork_set],
+   [![UserStyles.world button][badge_userstyles_world]][userstyles_world],
+   or click on the raw GitHub link in the sections above.
    The corresponding browser extension will automatically recognize the filename
    extension in the link and prompt you for its installation.
 
@@ -303,3 +305,62 @@ Tampermonkey, and Greasemonkey.
 [chrome-patterns]: https://developer.chrome.com/docs/extensions/mv3/match_patterns/
 [firefox-patterns]: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Match_patterns
 [git-log-formats]: https://git-scm.com/docs/git-log#_pretty_formats
+
+[badge_bitbucket_copy_commit_reference]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F470667.json
+[gfork_bitbucket_copy_commit_reference]: https://greasyfork.org/en/scripts/470667-bitbucket-copy-commit-reference "Install via Greasy Fork"
+[badge_bitbucket_hide_banner_at_the_top]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F463770.json
+[gfork_bitbucket_hide_banner_at_the_top]: https://greasyfork.org/en/scripts/463770-bitbucket-hide-banner-at-the-top "Install via Greasy Fork"
+[badge_usw_bitbucket_hide_banner_at_the_top]: https://img.shields.io/badge/dynamic/json?style=flat&color=193652&label=Version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F463770.json
+[usw_bitbucket_hide_banner_at_the_top]: https://userstyles.world/style/9296/bitbucket-hide-banner-at-the-top "Install via UserStyles.world"
+[badge_bitbucket_fix_breadcrumbs_selection]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F459782.json
+[gfork_bitbucket_fix_breadcrumbs_selection]: https://greasyfork.org/en/scripts/459782-bitbucket-fix-breadcrumbs-selection "Install via Greasy Fork"
+[badge_usw_bitbucket_fix_breadcrumbs_selection]: https://img.shields.io/badge/dynamic/json?style=flat&color=193652&label=Version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F459782.json
+[usw_bitbucket_fix_breadcrumbs_selection]: https://userstyles.world/style/9295/bitbucket-fix-breadcrumbs-selection "Install via UserStyles.world"
+[badge_bitbucket_commit_links_in_diff_tab_of_prs]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F456690.json
+[gfork_bitbucket_commit_links_in_diff_tab_of_prs]: https://greasyfork.org/en/scripts/456690-bitbucket-commit-links-in-diff-tab-of-prs "Install via Greasy Fork"
+[badge_bitbucket_header_color]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F459783.json
+[gfork_bitbucket_header_color]: https://greasyfork.org/en/scripts/459783-bitbucket-header-color "Install via Greasy Fork"
+[badge_usw_bitbucket_header_color]: https://img.shields.io/badge/dynamic/json?style=flat&color=193652&label=Version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F459783.json
+[usw_bitbucket_header_color]: https://userstyles.world/style/9187/bitbucket-header-color "Install via UserStyles.world"
+[badge_bitbucket_pr_author_avatar_as_favicon]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F459150.json
+[gfork_bitbucket_pr_author_avatar_as_favicon]: https://greasyfork.org/en/scripts/459150-bitbucket-pr-author-avatar-as-favicon "Install via Greasy Fork"
+[badge_bitbucket_readable_commit_messages]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F473890.json
+[gfork_bitbucket_readable_commit_messages]: https://greasyfork.org/en/scripts/473890-bitbucket-readable-commit-messages "Install via Greasy Fork"
+[badge_usw_bitbucket_readable_commit_messages]: https://img.shields.io/badge/dynamic/json?style=flat&color=193652&label=Version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F473890.json
+[usw_bitbucket_readable_commit_messages]: https://userstyles.world/style/11867/bitbucket-readable-commit-messages "Install via UserStyles.world"
+<!-- no separate badge for fast_and_furious, because the style is not published to Greasy Fork and
+     UserStyles.world doesn't provide the version in its API: https://userstyles.world/api/style/9186 -->
+[usw_bitbucket_fast_and_furious]: https://userstyles.world/style/9186/bitbucket-fast-and-furious "Install via UserStyles.world"
+
+[badge_confluence_space_avatar_as_tab_icon]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F462032.json
+[gfork_confluence_space_avatar_as_tab_icon]: https://greasyfork.org/en/scripts/462032-confluence-space-avatar-as-tab-icon "Install via Greasy Fork"
+[badge_confluence_better_monospace]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F459792.json
+[gfork_confluence_better_monospace]: https://greasyfork.org/en/scripts/459792-confluence-better-monospace "Install via Greasy Fork"
+[badge_usw_confluence_better_monospace]: https://img.shields.io/badge/dynamic/json?style=flat&color=193652&label=Version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F459792.json
+[usw_confluence_better_monospace]: https://userstyles.world/style/9298/confluence-better-monospace "Install via UserStyles.world"
+[badge_confluence_simple_floating_toc]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F458053.json
+[gfork_confluence_simple_floating_toc]: https://greasyfork.org/en/scripts/458053-confluence-simple-floating-toc "Install via Greasy Fork"
+[badge_usw_confluence_simple_floating_toc]: https://img.shields.io/badge/dynamic/json?style=flat&color=193652&label=Version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F458053.json
+[usw_confluence_simple_floating_toc]: https://userstyles.world/style/9300/confluence-simple-floating-toc "Install via UserStyles.world"
+[badge_confluence_copy_link_buttons]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F470384.json
+[gfork_confluence_copy_link_buttons]: https://greasyfork.org/en/scripts/470384-confluence-copy-link-buttons "Install via Greasy Fork"
+[badge_confluence_hide_banner_at_the_top]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F463771.json
+[gfork_confluence_hide_banner_at_the_top]: https://greasyfork.org/en/scripts/463771-confluence-hide-banner-at-the-top "Install via Greasy Fork"
+[badge_usw_confluence_hide_banner_at_the_top]: https://img.shields.io/badge/dynamic/json?style=flat&color=193652&label=Version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F463771.json
+[usw_confluence_hide_banner_at_the_top]: https://userstyles.world/style/9299/confluence-hide-banner-at-the-top "Install via UserStyles.world"
+
+[badge_jira_better_inline_code_formatting]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F459794.json
+[gfork_jira_better_inline_code_formatting]: https://greasyfork.org/en/scripts/459794-jira-better-inline-code-formatting "Install via Greasy Fork"
+[badge_usw_jira_better_inline_code_formatting]: https://img.shields.io/badge/dynamic/json?style=flat&color=193652&label=Version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F459794.json
+[usw_jira_better_inline_code_formatting]: https://userstyles.world/style/9301/jira-better-inline-code-formatting "Install via UserStyles.world"
+[badge_jira_copy_summary]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F475815.json
+[gfork_jira_copy_summary]: https://greasyfork.org/en/scripts/475815-jira-copy-summary "Install via Greasy Fork"
+[badge_jira_pull_request_link_improver]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F456692.json
+[gfork_jira_pull_request_link_improver]: https://greasyfork.org/en/scripts/456692-jira-pull-request-link-improver "Install via Greasy Fork"
+[badge_jira_project_icon_as_tab_icon]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F457217.json
+[gfork_jira_project_icon_as_tab_icon]: https://greasyfork.org/en/scripts/457217-jira-project-icon-as-tab-icon "Install via Greasy Fork"
+
+[badge_greasy_fork]: https://img.shields.io/badge/Greasy-Fork-670000
+[greasy_fork_set]: https://greasyfork.org/en/scripts?language=all&set=585074
+[badge_userstyles_world]: https://img.shields.io/badge/UserStyles-world-193652
+[userstyles_world]: https://userstyles.world
