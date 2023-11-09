@@ -191,7 +191,18 @@ This style supports both Jira Server (self-hosted) and Jira Cloud.
 ### Jira: copy summary button
 [![Greasy Fork link][badge_jira_copy_summary]][gfork_jira_copy_summary]
 
-This user script adds or fixes a "Copy Summary" button for issue pages on Jira.
+This user script adds a "Copy summary" button for issue pages on Jira. The rich text (HTML) summary, which is great for pasting in Confluence and in Slack looks like this:
+
+> [[MC-179867](https://bugs.mojang.com/browse/MC-179867)] <i>Unicode Characters swapped in Minecraft</i>
+
+The plain text version looks like this:
+
+```
+[MC-179867] Unicode Characters swapped in Minecraft
+```
+
+[![Jira copy summary button][jira_copy_summary_button]][gfork_jira_copy_summary]
+
 When on a Jira page, the script can be configured using the corresponding
 extension menu item (screenshot from Tampermonkey):
 
@@ -302,6 +313,7 @@ Tampermonkey, and Greasemonkey.
 [Bitbucket]: https://bitbucket.org/product
 [Jira]: https://www.atlassian.com/software/jira
 [copy-summary-cfg]: images/jira_copy_summary_cfg_tampermonkey.png
+[jira_copy_summary_button]: images/jira_copy_summary_button.png
 [chrome-patterns]: https://developer.chrome.com/docs/extensions/mv3/match_patterns/
 [firefox-patterns]: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Match_patterns
 [git-log-formats]: https://git-scm.com/docs/git-log#_pretty_formats
