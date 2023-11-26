@@ -31,7 +31,8 @@ this:
 The copied reference supports plain text and rich text editors, with clickable
 links to the commit, Jira issues, and Bitbucket pull requests.
 
-This script supports both Bitbucket Server and Bitbucket Cloud.
+This script supports both Bitbucket Server and Bitbucket Cloud.  See repository
+[rybak/copy-commit-reference-userscript][CopyCommitReferenceGitHubRepo] for userscripts for other Git hostings.
 
 [![Screenshot of "Bitbucket: copy commit reference" in action](images/bitbucket-copy-commit-reference.png)][gfork_bitbucket_copy_commit_reference]
 
@@ -317,6 +318,7 @@ Tampermonkey, and Greasemonkey.
 [chrome-patterns]: https://developer.chrome.com/docs/extensions/mv3/match_patterns/
 [firefox-patterns]: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Match_patterns
 [git-log-formats]: https://git-scm.com/docs/git-log#_pretty_formats
+[CopyCommitReferenceGitHubRepo]: https://github.com/rybak/copy-commit-reference-userscript
 
 [badge_bitbucket_copy_commit_reference]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Install%20version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F470667.json
 [gfork_bitbucket_copy_commit_reference]: https://greasyfork.org/en/scripts/470667-bitbucket-copy-commit-reference "Install via Greasy Fork"
