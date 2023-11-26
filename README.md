@@ -239,9 +239,9 @@ This script supports both Jira Server (self-hosted) and Jira Cloud.
 ## How to use Atlassian Tweaks
 
 1. Install browser extensions for user scripts and user styles.
-2. Install via [![Greasy Fork button][badge_greasy_fork]][greasy_fork_set],
+2. Install by clicking on buttons for [![Greasy Fork button][badge_greasy_fork]][greasy_fork_set] and
    [![UserStyles.world button][badge_userstyles_world]][userstyles_world],
-   or click on the raw GitHub link in the sections above.
+   or the raw GitHub link in the sections above.
    The corresponding browser extension will automatically recognize the filename
    extension in the link and prompt you for its installation.
 
@@ -318,58 +318,58 @@ Tampermonkey, and Greasemonkey.
 [firefox-patterns]: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Match_patterns
 [git-log-formats]: https://git-scm.com/docs/git-log#_pretty_formats
 
-[badge_bitbucket_copy_commit_reference]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F470667.json
+[badge_bitbucket_copy_commit_reference]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Install%20version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F470667.json
 [gfork_bitbucket_copy_commit_reference]: https://greasyfork.org/en/scripts/470667-bitbucket-copy-commit-reference "Install via Greasy Fork"
-[badge_bitbucket_hide_banner_at_the_top]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F463770.json
+[badge_bitbucket_hide_banner_at_the_top]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Install%20version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F463770.json
 [gfork_bitbucket_hide_banner_at_the_top]: https://greasyfork.org/en/scripts/463770-bitbucket-hide-banner-at-the-top "Install via Greasy Fork"
-[badge_usw_bitbucket_hide_banner_at_the_top]: https://img.shields.io/badge/dynamic/json?style=flat&color=193652&label=Version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F463770.json
+[badge_usw_bitbucket_hide_banner_at_the_top]: https://img.shields.io/badge/dynamic/json?style=flat&color=193652&label=Install%20version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F463770.json
 [usw_bitbucket_hide_banner_at_the_top]: https://userstyles.world/style/9296/bitbucket-hide-banner-at-the-top "Install via UserStyles.world"
-[badge_bitbucket_fix_breadcrumbs_selection]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F459782.json
+[badge_bitbucket_fix_breadcrumbs_selection]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Install%20version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F459782.json
 [gfork_bitbucket_fix_breadcrumbs_selection]: https://greasyfork.org/en/scripts/459782-bitbucket-fix-breadcrumbs-selection "Install via Greasy Fork"
-[badge_usw_bitbucket_fix_breadcrumbs_selection]: https://img.shields.io/badge/dynamic/json?style=flat&color=193652&label=Version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F459782.json
+[badge_usw_bitbucket_fix_breadcrumbs_selection]: https://img.shields.io/badge/dynamic/json?style=flat&color=193652&label=Install%20version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F459782.json
 [usw_bitbucket_fix_breadcrumbs_selection]: https://userstyles.world/style/9295/bitbucket-fix-breadcrumbs-selection "Install via UserStyles.world"
-[badge_bitbucket_commit_links_in_diff_tab_of_prs]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F456690.json
+[badge_bitbucket_commit_links_in_diff_tab_of_prs]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Install%20version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F456690.json
 [gfork_bitbucket_commit_links_in_diff_tab_of_prs]: https://greasyfork.org/en/scripts/456690-bitbucket-commit-links-in-diff-tab-of-prs "Install via Greasy Fork"
-[badge_bitbucket_header_color]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F459783.json
+[badge_bitbucket_header_color]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Install%20version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F459783.json
 [gfork_bitbucket_header_color]: https://greasyfork.org/en/scripts/459783-bitbucket-header-color "Install via Greasy Fork"
-[badge_usw_bitbucket_header_color]: https://img.shields.io/badge/dynamic/json?style=flat&color=193652&label=Version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F459783.json
+[badge_usw_bitbucket_header_color]: https://img.shields.io/badge/dynamic/json?style=flat&color=193652&label=Install%20version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F459783.json
 [usw_bitbucket_header_color]: https://userstyles.world/style/9187/bitbucket-header-color "Install via UserStyles.world"
-[badge_bitbucket_pr_author_avatar_as_favicon]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F459150.json
+[badge_bitbucket_pr_author_avatar_as_favicon]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Install%20version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F459150.json
 [gfork_bitbucket_pr_author_avatar_as_favicon]: https://greasyfork.org/en/scripts/459150-bitbucket-pr-author-avatar-as-favicon "Install via Greasy Fork"
-[badge_bitbucket_readable_commit_messages]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F473890.json
+[badge_bitbucket_readable_commit_messages]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Install%20version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F473890.json
 [gfork_bitbucket_readable_commit_messages]: https://greasyfork.org/en/scripts/473890-bitbucket-readable-commit-messages "Install via Greasy Fork"
-[badge_usw_bitbucket_readable_commit_messages]: https://img.shields.io/badge/dynamic/json?style=flat&color=193652&label=Version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F473890.json
+[badge_usw_bitbucket_readable_commit_messages]: https://img.shields.io/badge/dynamic/json?style=flat&color=193652&label=Install%20version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F473890.json
 [usw_bitbucket_readable_commit_messages]: https://userstyles.world/style/11867/bitbucket-readable-commit-messages "Install via UserStyles.world"
 <!-- no separate badge for fast_and_furious, because the style is not published to Greasy Fork and
      UserStyles.world doesn't provide the version in its API: https://userstyles.world/api/style/9186 -->
 [usw_bitbucket_fast_and_furious]: https://userstyles.world/style/9186/bitbucket-fast-and-furious "Install via UserStyles.world"
 
-[badge_confluence_space_avatar_as_tab_icon]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F462032.json
+[badge_confluence_space_avatar_as_tab_icon]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Install%20version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F462032.json
 [gfork_confluence_space_avatar_as_tab_icon]: https://greasyfork.org/en/scripts/462032-confluence-space-avatar-as-tab-icon "Install via Greasy Fork"
-[badge_confluence_better_monospace]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F459792.json
+[badge_confluence_better_monospace]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Install%20version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F459792.json
 [gfork_confluence_better_monospace]: https://greasyfork.org/en/scripts/459792-confluence-better-monospace "Install via Greasy Fork"
-[badge_usw_confluence_better_monospace]: https://img.shields.io/badge/dynamic/json?style=flat&color=193652&label=Version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F459792.json
+[badge_usw_confluence_better_monospace]: https://img.shields.io/badge/dynamic/json?style=flat&color=193652&label=Install%20version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F459792.json
 [usw_confluence_better_monospace]: https://userstyles.world/style/9298/confluence-better-monospace "Install via UserStyles.world"
-[badge_confluence_simple_floating_toc]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F458053.json
+[badge_confluence_simple_floating_toc]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Install%20version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F458053.json
 [gfork_confluence_simple_floating_toc]: https://greasyfork.org/en/scripts/458053-confluence-simple-floating-toc "Install via Greasy Fork"
-[badge_usw_confluence_simple_floating_toc]: https://img.shields.io/badge/dynamic/json?style=flat&color=193652&label=Version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F458053.json
+[badge_usw_confluence_simple_floating_toc]: https://img.shields.io/badge/dynamic/json?style=flat&color=193652&label=Install%20version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F458053.json
 [usw_confluence_simple_floating_toc]: https://userstyles.world/style/9300/confluence-simple-floating-toc "Install via UserStyles.world"
-[badge_confluence_copy_link_buttons]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F470384.json
+[badge_confluence_copy_link_buttons]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Install%20version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F470384.json
 [gfork_confluence_copy_link_buttons]: https://greasyfork.org/en/scripts/470384-confluence-copy-link-buttons "Install via Greasy Fork"
-[badge_confluence_hide_banner_at_the_top]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F463771.json
+[badge_confluence_hide_banner_at_the_top]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Install%20version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F463771.json
 [gfork_confluence_hide_banner_at_the_top]: https://greasyfork.org/en/scripts/463771-confluence-hide-banner-at-the-top "Install via Greasy Fork"
-[badge_usw_confluence_hide_banner_at_the_top]: https://img.shields.io/badge/dynamic/json?style=flat&color=193652&label=Version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F463771.json
+[badge_usw_confluence_hide_banner_at_the_top]: https://img.shields.io/badge/dynamic/json?style=flat&color=193652&label=Install%20version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F463771.json
 [usw_confluence_hide_banner_at_the_top]: https://userstyles.world/style/9299/confluence-hide-banner-at-the-top "Install via UserStyles.world"
 
-[badge_jira_better_inline_code_formatting]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F459794.json
+[badge_jira_better_inline_code_formatting]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Install%20version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F459794.json
 [gfork_jira_better_inline_code_formatting]: https://greasyfork.org/en/scripts/459794-jira-better-inline-code-formatting "Install via Greasy Fork"
-[badge_usw_jira_better_inline_code_formatting]: https://img.shields.io/badge/dynamic/json?style=flat&color=193652&label=Version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F459794.json
+[badge_usw_jira_better_inline_code_formatting]: https://img.shields.io/badge/dynamic/json?style=flat&color=193652&label=Install%20version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F459794.json
 [usw_jira_better_inline_code_formatting]: https://userstyles.world/style/9301/jira-better-inline-code-formatting "Install via UserStyles.world"
-[badge_jira_copy_summary]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F475815.json
+[badge_jira_copy_summary]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Install%20version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F475815.json
 [gfork_jira_copy_summary]: https://greasyfork.org/en/scripts/475815-jira-copy-summary "Install via Greasy Fork"
-[badge_jira_pull_request_link_improver]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F456692.json
+[badge_jira_pull_request_link_improver]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Install%20version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F456692.json
 [gfork_jira_pull_request_link_improver]: https://greasyfork.org/en/scripts/456692-jira-pull-request-link-improver "Install via Greasy Fork"
-[badge_jira_project_icon_as_tab_icon]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F457217.json
+[badge_jira_project_icon_as_tab_icon]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Install%20version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F457217.json
 [gfork_jira_project_icon_as_tab_icon]: https://greasyfork.org/en/scripts/457217-jira-project-icon-as-tab-icon "Install via Greasy Fork"
 
 [badge_greasy_fork]: https://img.shields.io/badge/Greasy-Fork-670000
