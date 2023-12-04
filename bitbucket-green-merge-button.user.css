@@ -1,0 +1,56 @@
+/* ==UserStyle==
+@name         Bitbucket: green merge button
+@namespace    https://github.com/rybak/atlassian-tweaks
+@version      1
+@description  Makes an active merge button green in Bitbucket pull requests.
+@author       Andrei Rybak
+@homepageURL  https://github.com/rybak/atlassian-tweaks
+@license      MIT
+@preprocessor uso
+@var text yourDomain "Custom Bitbucket domain" "bitbucket.example.com"
+@var text yourDomain2 "Second custom Bitbucket domain" "stash.example.com"
+==/UserStyle== */
+
+/*
+ * Copyright (c) 2023 Andrei Rybak
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
+@-moz-document url-prefix("https://bitbucket"),
+domain(/*[[yourDomain]]*/),
+domain(/*[[yourDomain2]]*/) {
+	/* Greenification of the merge button */
+
+	/*
+	 * https://engineercodex.substack.com/p/how-google-takes-the-pain-out-of
+	 * "Satisfying gamification: While Critique isn’t built to be gamified,
+	 * Googlers reported how they enjoyed it when Critique “went green,”
+	 * which meant a PR was ready to submit (all tests passed, reviewers
+	 * LGTM-ed and approved).
+	 */
+
+	/* Bitbucket Server */
+	.merge-button:not([disabled]),
+	/* Bitbucket Cloud */
+	main > header .css-8fhpv4 {
+		background: green;
+		color: white !important;
+	}
+}
