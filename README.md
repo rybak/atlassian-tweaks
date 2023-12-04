@@ -115,6 +115,16 @@ Demo: [monospace](https://i.imgur.com/a6nNxAI.png) and [without monospace](https
 
 This style supports only Bitbucket Cloud.
 
+### Bitbucket: green merge button
+[![Greasy Fork link][badge_bitbucket_green_merge_button]][gfork_bitbucket_green_merge_button]
+[![UserStyles.world link][badge_usw_bitbucket_green_merge_button]][usw_bitbucket_green_merge_button]
+
+This userstyle makes active merge buttons green in Bitbucket pull requests.
+Inspired by [code review tool "Critique"](https://engineercodex.substack.com/p/how-google-takes-the-pain-out-of).
+This style supports both Bitbucket Server and Bitbucket Cloud.
+
+[![Before and After screenshots of "Bitbucket: green merge button"](images/bitbucket-green-merge-button.png)][gfork_bitbucket_green_merge_button]
+
 ### Bitbucket: speed up CI builds
 [![UserStyles.world link][badge_userstyles_world]][usw_bitbucket_fast_and_furious]
 
@@ -342,6 +352,10 @@ Tampermonkey, and Greasemonkey.
 [gfork_bitbucket_readable_commit_messages]: https://greasyfork.org/en/scripts/473890-bitbucket-readable-commit-messages "Install via Greasy Fork"
 [badge_usw_bitbucket_readable_commit_messages]: https://img.shields.io/badge/dynamic/json?style=flat&color=193652&label=Install%20version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F473890.json
 [usw_bitbucket_readable_commit_messages]: https://userstyles.world/style/11867/bitbucket-readable-commit-messages "Install via UserStyles.world"
+[badge_bitbucket_green_merge_button]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Install%20version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F481383.json
+[gfork_bitbucket_green_merge_button]: https://greasyfork.org/en/scripts/481383-bitbucket-green-merge-button "Install via Greasy Fork"
+[badge_usw_bitbucket_green_merge_button]: https://img.shields.io/badge/dynamic/json?style=flat&color=193652&label=Install%20version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F481383.json
+[usw_bitbucket_green_merge_button]: https://userstyles.world/style/13446/bitbucket-green-merge-button "Install via UserStyles.world"
 <!-- no separate badge for fast_and_furious, because the style is not published to Greasy Fork and
      UserStyles.world doesn't provide the version in its API: https://userstyles.world/api/style/9186 -->
 [usw_bitbucket_fast_and_furious]: https://userstyles.world/style/9186/bitbucket-fast-and-furious "Install via UserStyles.world"
