@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Jira copy summary
 // @namespace    https://github.com/rybak/atlassian-tweaks
-// @version      5.0
+// @version      5.1
 // @license      MIT
 // @description  Adds a "Copy summary" button for issue pages on Jira.
 // @author       Sergey Lukashevich, Andrei Rybak, Dmitry Trubin
@@ -36,6 +36,8 @@
  */
 
 /*
+version 5.1
+	- handling of ticket summaries with angle brackets "<>" has been fixed
 version 5.0
 	- Jira 9 is now supported in addition to versions 7 and 8.
 version 4.6
@@ -181,20 +183,35 @@ version 1.2
 		return div;
 	}
 
+	function htmlEncode(s) {
+		const tmp = document.createElement("div");
+		tmp.appendChild(document.createTextNode(s));
+		return tmp.innerHTML;
+	}
+
+	function getTextResult(ticketId, summaryText) {
+		return '[' + ticketId + '] ' + summaryText;
+	}
+
+	function getHtmlResult(ticketId, summaryText) {
+		const jiraUrl = getMeta("ajs-jira-base-url");
+		const fullLink = jiraUrl + "/browse/" + ticketId;
+		let htmlSummary = htmlEncode(summaryText);
+		if (cfg.get('italic_summary')) {
+			htmlSummary = '<i>' + htmlSummary + '</i> &#x200b;';
+		}
+		return '[<a href="' + fullLink + '">' + ticketId + '</a>] ' + htmlSummary;
+	}
+
 	function copyClickAction() {
-		var summaryText = document.getElementById("summary-val").textContent;
+		const summaryText = document.getElementById("summary-val").textContent;
 		var ticketIdSource = document.querySelector("#dx-issuekey-val-h1 a");
 		if (!ticketIdSource) {
 			ticketIdSource = document.querySelector(".aui-page-header-main .issue-link");
 		}
-		var ticketId = ticketIdSource.dataset.issueKey;
-		var jiraUrl = getMeta("ajs-jira-base-url");
-		var fullLink = jiraUrl + "/browse/" + ticketId;
-		textResult = '[' + ticketId + '] ' + summaryText;
-		if (cfg.get('italic_summary')) {
-			summaryText = '<i>' + summaryText + '</i> &#x200b;';
-		}
-		htmlResult = '[<a href="' + fullLink + '">' + ticketId + '</a>] ' + summaryText;
+		const ticketId = ticketIdSource.dataset.issueKey;
+		textResult = getTextResult(ticketId, summaryText);
+		htmlResult = getHtmlResult(ticketId, summaryText);
 		document.addEventListener('copy', handleCopyEvent);
 		document.execCommand('copy');
 		document.removeEventListener('copy', handleCopyEvent);
