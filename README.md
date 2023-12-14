@@ -307,7 +307,6 @@ Tampermonkey instructions:
 ### Browser extensions
 
 #### For scripts
-- Recommended: https://www.tampermonkey.net/
 - Big list of different extensions for different browsers available on
   https://greasyfork.org
 
