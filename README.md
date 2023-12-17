@@ -2,8 +2,8 @@ Atlassian Tweaks
 ================
 
 This is a collection of [user scripts](https://en.wikipedia.org/wiki/Userscript)
-and [user styles][WikipediaUserStyles] for [Bitbucket][Bitbucket],
-[Confluence][Confluence], and [Jira][Jira].
+and [user styles][WikipediaUserStyles] for [Bitbucket](#bitbucket),
+[Confluence](#confluence), and [Jira](#jira).
 
 The source code is distributed under the terms of [MIT](LICENSE.txt) or
 [AGPL-3.0-only](LICENSE-AGPL-3.0-only.txt) licenses, depending on the file.
@@ -16,7 +16,9 @@ newer cloud variants of Bitbucket, Jira, and Confluence – they are marked as
 such in their description.  Some scripts and styles are no longer applicable to
 newer cloud variants due to significant UI redesigns.
 
-## Bitbucket
+## <a id="bitbucket"></a>Bitbucket
+
+[Bitbucket][Bitbucket] is a Git hosting provider.
 
 ### Bitbucket: copy commit reference
 [![Greasy Fork link][badge_bitbucket_copy_commit_reference]][gfork_bitbucket_copy_commit_reference]
@@ -132,7 +134,9 @@ This user style speeds up continuous integration builds on Bitbucket.
 
 [![Demonstration of "Bitbucket: fast and furious"](images/bitbucket-fast-and-furious.gif)][usw_bitbucket_fast_and_furious]
 
-## Confluence
+## <a id="confluence"></a>Confluence
+
+[Confluence][Confluence] is a corporate wiki.
 
 ### Confluence: space avatar as tab icon
 [![Greasy Fork link][badge_confluence_space_avatar_as_tab_icon]][gfork_confluence_space_avatar_as_tab_icon]
@@ -186,7 +190,10 @@ This style supports both Confluence Server and Confluence Cloud.
 
 https://user-images.githubusercontent.com/624072/211896771-f93fd25a-a199-4bb0-9766-46dfe09438ce.mp4
 
-## Jira
+## <a id="jira"></a>Jira
+
+[Jira][Jira] is a bug-tracking, issue-tracking and project-management software
+application.
 
 ### Jira: improve formatting of inline code
 [![Greasy Fork link][badge_jira_better_inline_code_formatting]][gfork_jira_better_inline_code_formatting]
