@@ -8,7 +8,7 @@
 @preprocessor uso
 @var text yourDomain "Your Confluence domain" "confluence.example.com"
 @var text yourDomain2 "Your 2nd Confluence domain" "confluence.example.com"
-@version      6
+@version      7
 ==/UserStyle== */
 
 /*
@@ -39,11 +39,19 @@
 	/* Selector for Confluence Server */
 	code:not([class]),
 	/* Selectors for Confluence Cloud. One for reading and one for editing. */
-	code.code.css-z5oxh7, .css-13t9qq0 span.code {
+	code.code.cc-1o5d2cw,
+	#ak-editor-textarea span.code {
 		color: #000;
 		background-color: #f8f9fa;
 		border: 1px solid #eaecf0;
 		border-radius: 2px;
 		padding: 1px 4px;
+	}
+
+	html[data-color-mode="dark"] code.code.cc-1o5d2cw,
+	html[data-color-mode="dark"] #ak-editor-textarea span.code {
+		background-color: rgb(29, 33, 37);
+		color: #fff;
+		border-color: #A6C5E229;
 	}
 }
