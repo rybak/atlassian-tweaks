@@ -7,7 +7,7 @@
 // @include      https://*confluence*/*
 // @match        https://confluence.example.com/*
 // @icon         https://wac-cdn-2.atlassian.com/image/upload/f_auto,q_auto/dam/jcr:5d1374c2-276f-4bca-9ce4-813aba614b7a/confluence-icon-gradient-blue.svg?cdnVersion=691
-// @version      2
+// @version      3
 // @license      MIT
 // @grant        none
 // ==/UserScript==
@@ -16,7 +16,7 @@
 	'use strict';
 
 	function log(...toLog) {
-		console.log("[avatar favicons]", ...toLog);
+		console.log("[Confluence: avatar favicons]", ...toLog);
 	}
 
 	function changeFavicon() {
