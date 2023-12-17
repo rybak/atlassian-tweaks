@@ -8,7 +8,7 @@
 @preprocessor uso
 @var text yourDomain "Your Bitbucket domain" "bitbucket.example.com"
 @var text yourDomain2 "Your 2nd Bitbucket domain" "bitbucket.example.com"
-@version      9
+@version      10
 ==/UserStyle== */
 
 /*
@@ -41,7 +41,8 @@
 	.change-mode-placeholder,
 	.aui-lozenge.change-type-lozenge,
 	/* Bitbucket Cloud */
-	.diff-entry-lozenge.aui-lozenge {
+	.diff-entry-lozenge.aui-lozenge,
+	.css-i9qcsw {
 		user-select: none;
 	}
 }
