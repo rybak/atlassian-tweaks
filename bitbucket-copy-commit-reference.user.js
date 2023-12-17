@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bitbucket: copy commit reference
 // @namespace    https://github.com/rybak/atlassian-tweaks
-// @version      5
+// @version      6
 // @description  Adds a "Copy commit reference" link to every commit page on Bitbucket Cloud and Bitbucket Server.
 // @license      AGPL-3.0-only
 // @author       Andrei Rybak
@@ -139,7 +139,7 @@
 				icon.classList.add('css-bwxjrz', 'css-snhnyn');
 				const buttonText = this.getButtonText();
 				button.replaceChildren(icon, document.createTextNode(` ${buttonText}`));
-				button.classList.add('css-1leee2m');
+				button.classList.add('css-1luyhz2');
 			} catch (e) {
 				warn('BitbucketCloud: cannot find icon of "copy commit hash"');
 			}
