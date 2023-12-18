@@ -170,7 +170,8 @@ This style supports both Confluence Server and Confluence Cloud.
 This style adds a border and a background to monospace text, making it easier
 to distinguish from surrounding text.
 
-This style supports both Confluence Server and Confluence Cloud.
+This style supports both Confluence Server and Confluence Cloud.  On Confluence
+Cloud, this style supports both light and dark themes.
 
 [![Screenshot of "Confluence: better monospace"](images/confluence-better-monospace.png)][gfork_confluence_better_monospace]
 
@@ -195,7 +196,8 @@ Code in Jira in `{{inline code}}` syntax can be hard to read sometimes.  This
 user style adds a background and a border for such elements to improve
 readability.
 
-This style supports both Jira Server (self-hosted) and Jira Cloud.
+This style supports both Jira Server (self-hosted) and Jira Cloud. On Jira
+Cloud, this style supports both light and dark themes.
 
 [![Screenshot comparing sample text with and without user style "Jira: improve formatting of inline code"](images/jira-monospace.png)][gfork_jira_better_inline_code_formatting]
 
