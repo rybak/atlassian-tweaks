@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Jira: Pull Request Link Improver
 // @namespace    https://github.com/rybak/atlassian-tweaks
-// @version      9
+// @version      10
 // @license      MIT
 // @description  Adds more convenient pull request links to Jira tickets.
 // @author       Andrei Rybak
@@ -61,12 +61,13 @@
 				header = '<div class="mod-header"><h2 class="toggle-title">Pull requests</h2></div>';
 				break;
 			case "8":
+			case "9":
 				header = '<div class="mod-header"><h4 class="toggle-title">Pull requests</h4></div>';
 				break;
 			default:
 				warn("Jira v" + jiraMajorVersion + " is not supported");
 				header = '<div class="mod-header"><h4 class="toggle-title">Pull requests</h4></div>';
-				return;
+				break;
 		}
 		$('#viewissue-devstatus-panel')
 			.prepend($(header +
