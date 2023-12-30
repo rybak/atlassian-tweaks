@@ -16,7 +16,7 @@ error () {
 has_metadata_entry () {
 	# .user.jss files have slashes and spaces at the start of the line,
 	# but .user.css files do not
-	grep -q -E "^[/ ]*@${1}" "${2}"
+	test "$(grep -c -E "^[/ ]*@${1}" "${2}")" = 1
 }
 
 has_version () {
@@ -32,10 +32,12 @@ has_namespace () {
 	# have https://github.com/rybak, without the repository name
 	# both are fine
 	has_metadata_entry 'namespace  *https://github.com/rybak' "$1"
+	has_metadata_entry 'namespace ' "$1"
 }
 
 has_homepageURL () {
 	has_metadata_entry 'homepageURL  *https://github.com/rybak/atlassian-tweaks' "$1"
+	has_metadata_entry 'homepageURL ' "$1"
 }
 
 check () {
@@ -51,10 +53,10 @@ GITHUB_URL=https://github.com/rybak/atlassian-tweaks
 res=true
 for f in *.user.js *.user.css
 do
-	check has_version "$f" "File '$f' is missing @version"
-	check has_license "$f" "File '$f' is missing @license"
-	check has_namespace "$f" "File '$f' is missing @namespace $GITHUB_URL"
-	check has_homepageURL "$f" "File '$f' is missing @homepageURL $GITHUB_URL"
+	check has_version "$f" "File '$f': invalid or missing @version"
+	check has_license "$f" "File '$f': invalid or missing @license"
+	check has_namespace "$f" "File '$f': invalid or missing @namespace $GITHUB_URL"
+	check has_homepageURL "$f" "File '$f' invalid or missing @homepageURL $GITHUB_URL"
 done
 
 $res
