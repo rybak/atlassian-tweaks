@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         Bitbucket: green merge button
 @namespace    https://github.com/rybak/atlassian-tweaks
-@version      3
+@version      4
 @description  Makes an active merge button green in Bitbucket pull requests.
 @author       Andrei Rybak
 @homepageURL  https://github.com/rybak/atlassian-tweaks
@@ -49,8 +49,21 @@ domain(/*[[yourDomain2]]*/) {
 	/* Bitbucket Server */
 	.merge-button:not([disabled]),
 	/* Bitbucket Cloud */
-	main > header .css-8fhpv4 {
+	main > header .css-8fhpv4,
+	main > header .css-1ha3nxa button {
 		background: #00875a;
+		color: white !important;
+	}
+	/* extra stuff for Bitbucket Cloud as of 2024-01 */
+	main > header .css-1ha3nxa button.css-ijafgl:hover {
+		background: #00a36d;
+	}
+	main > header .css-1ha3nxa button.css-ic3jw3:hover {
+		background: #00a3a3;
+	}
+	/* newer versions of Bitbucket Cloud have additional <span> for text of the
+	 * button */
+	main > header .css-1ha3nxa .css-178ag6o {
 		color: white !important;
 	}
 }
