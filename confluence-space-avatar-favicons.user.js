@@ -7,7 +7,7 @@
 // @include      https://*confluence*/*
 // @match        https://confluence.example.com/*
 // @icon         https://wac-cdn-2.atlassian.com/image/upload/f_auto,q_auto/dam/jcr:5d1374c2-276f-4bca-9ce4-813aba614b7a/confluence-icon-gradient-blue.svg?cdnVersion=691
-// @version      3
+// @version      4
 // @license      MIT
 // @grant        none
 // ==/UserScript==
@@ -19,6 +19,10 @@
 
 	function log(...toLog) {
 		console.log(LOG_PREFIX, ...toLog);
+	}
+
+	function warn(...toLog) {
+		console.warn(LOG_PREFIX, ...toLog);
 	}
 
 	function changeFavicon() {
@@ -42,7 +46,11 @@
 		}
 	}
 
-	window.addEventListener('load', function() {
+	// https://youmightnotneedjquery.com/#ready
+	if (document.readyState !== 'loading') {
 		changeFavicon();
-	}, false);
+	} else {
+		warn('Cannot load yet. Setting up a listener...');
+		document.addEventListener('DOMContentLoaded', changeFavicon);
+	}
 })();
