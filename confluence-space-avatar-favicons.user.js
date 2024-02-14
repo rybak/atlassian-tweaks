@@ -15,8 +15,10 @@
 (function() {
 	'use strict';
 
+	const LOG_PREFIX = "[Confluence: avatar favicons]";
+
 	function log(...toLog) {
-		console.log("[Confluence: avatar favicons]", ...toLog);
+		console.log(LOG_PREFIX, ...toLog);
 	}
 
 	function changeFavicon() {
