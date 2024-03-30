@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bitbucket: copy commit reference
 // @namespace    https://github.com/rybak/atlassian-tweaks
-// @version      7
+// @version      8
 // @description  Adds a "Copy commit reference" link to every commit page on Bitbucket Cloud and Bitbucket Server.
 // @license      AGPL-3.0-only
 // @author       Andrei Rybak
@@ -16,7 +16,7 @@
 // ==/UserScript==
 
 /*
- * Copyright (C) 2023 Andrei Rybak
+ * Copyright (C) 2023-2024 Andrei Rybak
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published
@@ -111,7 +111,7 @@
 		}
 
 		getCommitMessage() {
-			const commitMsgContainer = document.querySelector('.css-1qa9ryl.e1tw8lnx1+div');
+			const commitMsgContainer = document.querySelector('[data-testid="Content"] .e1tw8lnx1+div');
 			return commitMsgContainer.innerText;
 		}
 
