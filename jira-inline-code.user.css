@@ -8,11 +8,11 @@
 @preprocessor uso
 @var text yourDomain "Your Jira domain" "jira.example.com"
 @var text yourDomain2 "Your 2nd Jira domain" "jira.example.com"
-@version      13
+@version      14
 ==/UserStyle== */
 
 /*
- * Copyright (c) 2021-2023 Andrei Rybak
+ * Copyright (c) 2021-2024 Andrei Rybak
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -41,7 +41,8 @@
 	span.monospace,
 	.mce-content-body tt,
 	code.code.css-z5oxh7,
-	.ak-editor-content-area.css-jkbmih span.code {
+	.ak-editor-content-area.css-jkbmih span.code,
+	code.c-mrkdwn__code {
 		background-color: #f8f9fa;
 		color: #000;
 		padding: .1em .3em;
@@ -62,7 +63,8 @@
 	html[data-color-mode="dark"][data-theme~="dark:dark"] span.monospace,
 	html[data-color-mode="dark"][data-theme~="dark:dark"] .mce-content-body tt,
 	html[data-color-mode="dark"][data-theme~="dark:dark"] code.code.css-z5oxh7,
-	html[data-color-mode="dark"][data-theme~="dark:dark"] .ak-editor-content-area.css-jkbmih span.code {
+	html[data-color-mode="dark"][data-theme~="dark:dark"] .ak-editor-content-area.css-jkbmih span.code,
+	html[data-color-mode="dark"][data-theme~="dark:dark"] code.c-mrkdwn__code {
 		background-color: rgb(29, 33, 37);
 		color: #fff;
 		border-color: #A6C5E229;
