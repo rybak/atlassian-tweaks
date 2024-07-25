@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bitbucket: copy commit reference
 // @namespace    https://github.com/rybak/atlassian-tweaks
-// @version      8
+// @version      9
 // @description  Adds a "Copy commit reference" link to every commit page on Bitbucket Cloud and Bitbucket Server.
 // @license      AGPL-3.0-only
 // @author       Andrei Rybak
@@ -99,7 +99,7 @@
 			/*
 			 * "View source" button on the right.
 			 */
-			const a = document.querySelector('div.css-1oy5iav a.css-1luyhz2');
+			const a = document.querySelector('#root [data-testid="settingsButton"]')?.parentNode.querySelector('a');
 			const href = a.getAttribute('href');
 			debug("BitbucketCloud:", href);
 			return href.slice(-41, -1);
@@ -136,10 +136,11 @@
 		wrapButton(button) {
 			try {
 				const icon = document.querySelector('[aria-label="copy commit hash"] svg').cloneNode(true);
-				icon.classList.add('css-bwxjrz', 'css-snhnyn');
+				icon.classList.add('css-bwxjrz', 'css-snhnyn'); // same classes as <span>s inside "Approve" button
 				const buttonText = this.getButtonText();
 				button.replaceChildren(icon, document.createTextNode(` ${buttonText}`));
-				button.classList.add('css-1luyhz2');
+				const settingsButton = document.querySelector('#root [data-testid="settingsButton"]');
+				button.classList.add(settingsButton.classList);
 			} catch (e) {
 				warn('BitbucketCloud: cannot find icon of "copy commit hash"');
 			}
