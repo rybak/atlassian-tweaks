@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bitbucket: copy commit reference
 // @namespace    https://github.com/rybak/atlassian-tweaks
-// @version      9
+// @version      10
 // @description  Adds a "Copy commit reference" link to every commit page on Bitbucket Cloud and Bitbucket Server.
 // @license      AGPL-3.0-only
 // @author       Andrei Rybak
@@ -92,7 +92,7 @@
 			 * Box with "Jane Doe authored and John Doe committed deadbeef"
 			 *          "YYYY-MM-DD"
 			 */
-			return '.css-tbegx5.e1tw8lnx2';
+			return '[data-testid="profileCardTrigger"] + div';
 		}
 
 		getFullHash() {
