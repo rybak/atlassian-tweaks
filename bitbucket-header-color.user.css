@@ -3,7 +3,7 @@
 @description  Allows changing the header color of Bitbucket to any color!
 @author       Andrei Rybak
 @homepageURL  https://github.com/rybak/atlassian-tweaks
-@version      4
+@version      5
 @license      MIT
 @namespace    https://github.com/rybak/atlassian-tweaks
 @preprocessor uso
@@ -39,7 +39,7 @@
 
 	/* CSS classes ".look-and-feel-custom-theme .aui-header" are needed for older versions of Bitbucket, e.g. v7.21.* */
 	.look-and-feel-custom-theme .aui-header,
-	header[role="banner"] {
+	header[role="banner"][style] {
 		background-color: /*[[myColor]]*/ !important;
 	}
 }
