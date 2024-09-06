@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bitbucket: copy commit reference
 // @namespace    https://github.com/rybak/atlassian-tweaks
-// @version      10
+// @version      11
 // @description  Adds a "Copy commit reference" link to every commit page on Bitbucket Cloud and Bitbucket Server.
 // @license      AGPL-3.0-only
 // @author       Andrei Rybak
@@ -292,6 +292,7 @@
 		 * clicking to a commit page.
 		 */
 		static #SHA_LINK_SELECTOR = '.commit-badge-oneline .commit-details .commitid';
+		static #BITBUCKET_SERVER_8_COMMIT_HASH = '#commit-details-container .commit-hash a';
 
 		getLoadedSelector() {
 			/*
@@ -303,11 +304,13 @@
 		}
 
 		isRecognized() {
-			return document.querySelector(BitbucketServer.#SHA_LINK_SELECTOR) != null;
+			return document.querySelector(BitbucketServer.#SHA_LINK_SELECTOR) != null ||
+				document.querySelector(BitbucketServer.#BITBUCKET_SERVER_8_COMMIT_HASH != null) ||
+				document.querySelector('html.cm-s-stash-default') != null;
 		}
 
 		getTargetSelector() {
-			return '.plugin-section-secondary';
+			return '.plugin-section-secondary, .commit-details-summary-panel';
 		}
 
 		wrapButtonContainer(container) {
@@ -317,9 +320,15 @@
 
 		wrapButton(button) {
 			const icon = document.createElement('span');
-			icon.classList.add('aui-icon', 'aui-icon-small', 'aui-iconfont-copy');
+			icon.classList.add('aui-icon', 'aui-icon-small', 'aui-iconfont-copy',
+				'css-1ujqpe8' // BitbucketServer 8.9.*
+			);
 			const buttonText = this.getButtonText();
-			button.replaceChildren(icon, document.createTextNode(` ${buttonText}`));
+			const buttonTextSpan = document.createElement('span');
+			buttonTextSpan.classList.add('css-19r5em7'); // BitbucketServer 8.9.*
+			buttonTextSpan.appendChild(document.createTextNode(` ${buttonText}`));
+			button.classList.add('css-9bherd'); // BitbucketServer 8.9.*
+			button.replaceChildren(icon, buttonTextSpan);
 			button.title = "Copy commit reference to clipboard";
 			return button;
 		}
@@ -344,21 +353,39 @@
 		}
 
 		getFullHash() {
-			const commitAnchor = document.querySelector(BitbucketServer.#SHA_LINK_SELECTOR);
-			const commitHash = commitAnchor.getAttribute('data-commitid');
-			return commitHash;
+			return this.onAuiVersion(
+				() => {
+					const commitAnchor = document.querySelector(BitbucketServer.#SHA_LINK_SELECTOR);
+					const commitHash = commitAnchor.getAttribute('data-commitid');
+					return commitHash;
+				}, () => {
+					const commitAnchor = document.querySelector(BitbucketServer.#BITBUCKET_SERVER_8_COMMIT_HASH);
+					return commitAnchor.href.slice(-40, -1);
+				}
+			);
 		}
 
 		getDateIso(hash) {
-			const commitTimeTag = document.querySelector('.commit-badge-oneline .commit-details time');
+			const commitTimeTag = this.onAuiVersion(
+				() => document.querySelector('.commit-badge-oneline .commit-details time'),
+				() => document.querySelector('#commit-details-container .commit-summary-date')
+			);
 			const dateIso = commitTimeTag.getAttribute('datetime').slice(0, 'YYYY-MM-DD'.length);
 			return dateIso;
+
 		}
 
 		getCommitMessage(hash) {
-			const commitAnchor = document.querySelector(BitbucketServer.#SHA_LINK_SELECTOR);
-			const commitMessage = commitAnchor.getAttribute('data-commit-message');
-			return commitMessage;
+			return this.onAuiVersion(
+				() => {
+					const commitAnchor = document.querySelector(BitbucketServer.#SHA_LINK_SELECTOR);
+					const commitMessage = commitAnchor.getAttribute('data-commit-message');
+					return commitMessage;
+				},
+				() => {
+					return document.querySelector('#commit-details-container .commit-message').innerText;
+				}
+			);
 		}
 
 		async convertPlainSubjectToHtml(plainTextSubject, commitHash) {
@@ -489,6 +516,14 @@
 			} catch (e) {
 				error("Cannot insert pull request links", e);
 				return text;
+			}
+		}
+
+		onAuiVersion(eight, nine) {
+			if (parseInt(document.body.dataset.auiVersion.split('.')[0]) > 8) {
+				return nine();
+			} else {
+				return eight();
 			}
 		}
 	}
