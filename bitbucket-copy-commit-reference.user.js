@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bitbucket: copy commit reference
 // @namespace    https://github.com/rybak/atlassian-tweaks
-// @version      12
+// @version      13
 // @description  Adds a "Copy commit reference" link to every commit page on Bitbucket Cloud and Bitbucket Server.
 // @license      AGPL-3.0-only
 // @author       Andrei Rybak
@@ -401,7 +401,16 @@
 		#getIssueKeys() {
 			const issuesElem = document.querySelector('.plugin-section-primary .commit-issues-trigger');
 			if (!issuesElem) {
-				warn("Cannot find issues element");
+				if (!issuesElem) {
+					info("Newer version of Bitbucket Server with mangled CSS classes. Hold onto your butt.");
+					const keys = new Set();
+					document.querySelectorAll('[data-issuekey]').forEach(a => keys.add(a.dataset.issuekey));
+					const array = Array.from(keys);
+					if (array.length === 0) {
+						warn("Cannot find issues elements for Jira integration.");
+					}
+					return array;
+				}
 				return [];
 			}
 			const issueKeys = issuesElem.getAttribute('data-issue-keys').split(',');
