@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bitbucket: copy commit reference
 // @namespace    https://github.com/rybak/atlassian-tweaks
-// @version      14
+// @version      15
 // @description  Adds a "Copy commit reference" link to every commit page on Bitbucket Cloud and Bitbucket Server.
 // @license      AGPL-3.0-only
 // @author       Andrei Rybak
@@ -389,7 +389,7 @@
 		}
 
 		async convertPlainSubjectToHtml(plainTextSubject, commitHash) {
-			const escapedHtml = super.convertPlainSubjectToHtml(plainTextSubject);
+			const escapedHtml = await super.convertPlainSubjectToHtml(plainTextSubject);
 			return await this.#insertPrLinks(await this.#insertJiraLinks(escapedHtml), commitHash);
 		}
 
