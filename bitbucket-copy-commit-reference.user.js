@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bitbucket: copy commit reference
 // @namespace    https://github.com/rybak/atlassian-tweaks
-// @version      15
+// @version      16
 // @description  Adds a "Copy commit reference" link to every commit page on Bitbucket Cloud and Bitbucket Server.
 // @license      AGPL-3.0-only
 // @author       Andrei Rybak
@@ -365,14 +365,8 @@
 			);
 		}
 
-		getDateIso(hash) {
-			const commitTimeTag = this.onAuiVersion(
-				() => document.querySelector('.commit-badge-oneline .commit-details time'),
-				() => document.querySelector('#commit-details-container .commit-summary-date')
-			);
-			const dateIso = commitTimeTag.getAttribute('datetime').slice(0, 'YYYY-MM-DD'.length);
-			return dateIso;
-
+		async getDateIso(commitHash) {
+			return this.#getApiDateIso(commitHash);
 		}
 
 		getCommitMessage(hash) {
@@ -389,7 +383,7 @@
 		}
 
 		async convertPlainSubjectToHtml(plainTextSubject, commitHash) {
-			const escapedHtml = await super.convertPlainSubjectToHtml(plainTextSubject);
+			const escapedHtml = await super.convertPlainSubjectToHtml(plainTextSubject, commitHash);
 			return await this.#insertPrLinks(await this.#insertJiraLinks(escapedHtml), commitHash);
 		}
 
@@ -526,6 +520,26 @@
 			} catch (e) {
 				error("Cannot insert pull request links", e);
 				return text;
+			}
+		}
+
+		async #getApiDateIso(commitHash) {
+			const t = await this.#getApiTimestamp(commitHash);
+			const d = new Date(t);
+			return d.toISOString().slice(0, 'YYYY-MM-DD'.length);
+		}
+
+		async #getApiTimestamp(commitHash) {
+			const projectKey = this.#getProjectKey();
+			const repoSlug = this.#getRepositorySlug();
+			const url = `/rest/api/latest/projects/${projectKey}/repos/${repoSlug}/commits/${commitHash}`;
+			try {
+				const response = await fetch(url);
+				const obj = await response.json();
+				return obj.authorTimestamp;
+			} catch (e) {
+				error(`Cannot getApiTimestamp url="${url}"`, e);
+				return NaN;
 			}
 		}
 
