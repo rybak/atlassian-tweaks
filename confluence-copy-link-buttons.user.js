@@ -114,7 +114,7 @@
 					return;
 				}
 			}
-			const url = document.location.href;
+			const url = document.querySelector('link[rel="shortlink"]').href;
 			/*
 			 * Using both plain text and HTML ("rich text") means that the copied links
 			 * can be inserted both in plain text inputs (Jira syntax – for Jira, Markdown
