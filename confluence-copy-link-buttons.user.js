@@ -7,7 +7,7 @@
 // @license      MIT
 // @homepageURL  https://github.com/rybak/atlassian-tweaks
 // @include      https://confluence*
-// @match        https://confluence.example.com
+// @match        https://confluence.example.com/*
 // @icon         https://seeklogo.com/images/C/confluence-logo-D9B07137C2-seeklogo.com.png
 // @grant        none
 // ==/UserScript==
