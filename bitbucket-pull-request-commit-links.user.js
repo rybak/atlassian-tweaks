@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bitbucket: commit links in diff tab of PRs
 // @namespace    https://github.com/rybak/atlassian-tweaks
-// @version      15
+// @version      16
 // @license      MIT
 // @description  Adds convenience links in PRs of Bitbucket v7.6.+
 // @author       Andrei Rybak
@@ -13,7 +13,7 @@
 // ==/UserScript==
 
 /*
- * Copyright (c) 2021-2024 Andrei Rybak
+ * Copyright (c) 2021-2025 Andrei Rybak
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -118,11 +118,14 @@
 		if (prevBlock.length) {
 			log(label, "Updating the link...");
 		} else {
-			// css-18u3ks8 is for Bitbucket Server ~v7.6 (aui ~ 8.1.*)
-			// css-7svmop is for Bitbucket Server v7.21+ (aui ~ 9.3.*)
-			// css-7uss0q is for Bitbucket Server v8.9+ (aui ~ 9.4.*)
-			const html = '<div id="' + BLOCK_ID + '"><div class="css-18u3ks8 css-7svmop css-7uss0q">' + '<a id="' + URL_ID + '"></a>' + '</div></div>';
-			$(".changes-scope-actions").append(html);
+			const searchCodeButton = document.querySelector('#main .changes-scope-actions [data-testid="search-action-button-tooltip--container"] button');
+			const container = document.createElement('div');
+			container.id = BLOCK_ID;
+			container.classList.add(searchCodeButton.classList[0]);
+			const link = document.createElement('a');
+			link.id = URL_ID;
+			container.appendChild(link);
+			document.querySelector('.changes-scope-actions').append(container);
 			log(label, "Creating the link...");
 		}
 		$('#' + URL_ID)
