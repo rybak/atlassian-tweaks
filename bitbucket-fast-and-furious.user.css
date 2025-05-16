@@ -2,7 +2,7 @@
 @name         Bitbucket: fast and furious
 @homepageURL  https://github.com/rybak/atlassian-tweaks
 @namespace    https://github.com/rybak/atlassian-tweaks
-@version      2
+@version      3
 @description  Speed up builds on CI for Bitbucket
 @author       Andrei Rybak
 @license      MIT
@@ -13,7 +13,7 @@
 ==/UserStyle== */
 
 /*
- * Copyright (c) 2023 Andrei Rybak
+ * Copyright (c) 2023-2025 Andrei Rybak
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -60,7 +60,8 @@
 	/* "Builds" column on the pages `/branches`, `/commits`, etc.
 	 * It is the same SVG as the regular build status in PRs, but
 	 * for some reason, these icons aren't animated.*/
-	.inprogress-build-icon svg {
+	.inprogress-build-icon svg,
+	.build-in-progress-icon svg {
 		animation-name: rotate-animation-copy;
 		animation-play-state: running;
 		animation-iteration-count: infinite;
