@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bitbucket: copy commit reference
 // @namespace    https://github.com/rybak/atlassian-tweaks
-// @version      16
+// @version      17
 // @description  Adds a "Copy commit reference" link to every commit page on Bitbucket Cloud and Bitbucket Server.
 // @license      AGPL-3.0-only
 // @author       Andrei Rybak
@@ -16,7 +16,7 @@
 // ==/UserScript==
 
 /*
- * Copyright (C) 2023-2024 Andrei Rybak
+ * Copyright (C) 2023-2025 Andrei Rybak
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published
@@ -319,15 +319,20 @@
 		}
 
 		wrapButton(button) {
+			// take CSS classes from a similar button
+			const downloadSourceButton = document.querySelector('.commit-details a[data-testid="download-commit"]');
+			const downloadSourceIcon = downloadSourceButton.querySelector('span:nth-child(1)');
+			const downloadSourceText = downloadSourceButton.querySelector('span:nth-child(2)');
+
 			const icon = document.createElement('span');
 			icon.classList.add('aui-icon', 'aui-icon-small', 'aui-iconfont-copy',
-				'css-1ujqpe8' // BitbucketServer 8.9.*
-			);
+				downloadSourceIcon.classList[0]);
+			icon.style.width = '24px';
 			const buttonText = this.getButtonText();
 			const buttonTextSpan = document.createElement('span');
-			buttonTextSpan.classList.add('css-19r5em7'); // BitbucketServer 8.9.*
+			buttonTextSpan.classList.add(downloadSourceText.classList[0]);
 			buttonTextSpan.appendChild(document.createTextNode(` ${buttonText}`));
-			button.classList.add('css-9bherd'); // BitbucketServer 8.9.*
+			button.classList.add(downloadSourceButton.classList[0]);
 			button.replaceChildren(icon, buttonTextSpan);
 			button.title = "Copy commit reference to clipboard";
 			return button;
