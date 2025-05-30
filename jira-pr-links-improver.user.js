@@ -13,7 +13,7 @@
 // ==/UserScript==
 
 /*
- * Copyright (c) 2022-2023 Andrei Rybak
+ * Copyright (c) 2022-2025 Andrei Rybak
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -37,16 +37,25 @@
 (function() {
 	'use strict';
 
+	const LOG_PREFIX = '[PR Link Improver]';
 	const PANEL_ID = 'PrLinksImproverPanel';
 	const LIST_ID = 'PrLinksImproverList';
 	var loadInProgress = false;
 
 	function log(...toLog) {
-		console.log('[PR Link Improver]:', ...toLog);
+		console.log(LOG_PREFIX, ...toLog);
+	}
+
+	function info(...toLog) {
+		console.info(LOG_PREFIX, ...toLog);
 	}
 
 	function warn(...toLog) {
-		console.warn('[PR Link Improver]:', ...toLog);
+		console.warn(LOG_PREFIX, ...toLog);
+	}
+
+	function error(...toLog) {
+		console.error(LOG_PREFIX, ...toLog);
 	}
 
 	function getJiraMajorVersion() {
@@ -76,7 +85,7 @@
 
 	function addError(errors) {
 		for (const e of errors) {
-			log("Error: " + e);
+			error("Error: " + e);
 		}
 		$(`#${PANEL_ID}`).append($(`<p>Could not load from Bitbucket. Got: ${errors}</p>`));
 	}
