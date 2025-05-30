@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Jira: Pull Request Link Improver
 // @namespace    https://github.com/rybak/atlassian-tweaks
-// @version      10
+// @version      11
 // @license      MIT
 // @description  Adds more convenient pull request links to Jira tickets.
 // @author       Andrei Rybak
@@ -41,6 +41,7 @@
 	const PANEL_ID = 'PrLinksImproverPanel';
 	const LIST_ID = 'PrLinksImproverList';
 	var loadInProgress = false;
+	const PARSE_PATH = /[/](projects|users)[/]([^/]*)[/]repos[/]([^/]*)[/].*/;
 
 	function log(...toLog) {
 		console.log(LOG_PREFIX, ...toLog);
@@ -90,6 +91,15 @@
 		$(`#${PANEL_ID}`).append($(`<p>Could not load from Bitbucket. Got: ${errors}</p>`));
 	}
 
+	function extractProjectRepoSlugsFromPr(pr) {
+		const url = pr.url;
+		const path = new URL(url).pathname;
+		const matching = path.match(PARSE_PATH);
+		const project = matching[2];
+		const repository = matching[3];
+		return project + '/' + repository;
+	}
+
 	function addPrLinks(pullRequests) {
 		$(`#${PANEL_ID}`).append($(`<ul id="${LIST_ID}" class="item-details status-panels devstatus-entry"></ul>`));
 		const list = $(`#${LIST_ID}`);
@@ -97,15 +107,18 @@
 			const url = pr.url;
 			const prId = pr.id;
 			const li = $('<li/>').appendTo(list);
-			var link = `<a href="${url}">${prId}: ${pr.name}</a>`;
-			log("NAME='" + pr.name + "' issue='" + JIRA.Issue.getIssueKey() + "'");
+			const slugsPrefix = extractProjectRepoSlugsFromPr(pr) + ': ';
+			const link = document.createElement('a');
+			link.href = url;
+			link.appendChild(document.createTextNode(`${prId}: ${pr.name}`));
+			info("NAME='" + pr.name + "' issue='" + JIRA.Issue.getIssueKey() + "'");
 			if (pr.name.includes(JIRA.Issue.getIssueKey())) {
-				link = `<strong>${link}</strong>`;
+				link.style.fontWeight = 'bold';
 			}
 			if (pr.status == "DECLINED") {
-				link = `<s>${link}</s>`;
+				link.style.textDecoration = 'line-through';
 			}
-			$(link).appendTo(li);
+			$(li).append(slugsPrefix).append(link);
 		}
 	}
 
