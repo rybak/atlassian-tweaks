@@ -14,7 +14,7 @@
 // ==/UserScript==
 
 /*
- * Copyright (c) 2023 Andrei Rybak
+ * Copyright (c) 2023-2025 Andrei Rybak
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -38,16 +38,20 @@
 (function() {
 	'use strict';
 
-	function log(...toLog) {
-		console.log("[PR avatars]", ...toLog);
+	function info(...toLog) {
+		console.info("[PR avatars]", ...toLog);
 	}
 
 	function debug(...toLog) {
 		console.debug("[PR avatars]", ...toLog);
 	}
 
+	function error(...toLog) {
+		console.error("[PR avatars]", ...toLog);
+	}
+
 	window.addEventListener('load', function() {
-		log("Looking for author avatar...")
+		info("Looking for author avatar...")
 		let userAvatar = document.querySelector("[data-testid=pull-request-author--image]");
 		let url = null;
 
@@ -57,7 +61,7 @@
 			url = image.substr(5, image.length - 7); // cut out the URL from CSS code `url('...');`
 		} else {
 			// fallback to bitbucket.org's layout (Bitbucket Cloud?)
-			log("Falling back to layout as on bitbucket.org for the avatar...");
+			info("Falling back to layout as on bitbucket.org for the avatar...");
 			userAvatar = document.querySelector('div[data-qa="pr-header-author-styles"] img')
 			url = userAvatar.src;
 		}
@@ -70,7 +74,7 @@
 		if (url && shortcutIcon) {
 			shortcutIcon.href = url;
 		} else {
-			log("Something went wrong");
+			error("Something went wrong");
 		}
 	}, false);
 })();
