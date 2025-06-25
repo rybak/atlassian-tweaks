@@ -107,7 +107,7 @@
 			const url = pr.url;
 			const prId = pr.id;
 			const li = $('<li/>').appendTo(list);
-			const slugsPrefix = extractProjectRepoSlugsFromPr(pr) + ': ';
+			const slugsPrefix = extractProjectRepoSlugsFromPr(pr);
 			const link = document.createElement('a');
 			link.href = url;
 			link.appendChild(document.createTextNode(`${prId}: ${pr.name}`));
