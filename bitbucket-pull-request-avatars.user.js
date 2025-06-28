@@ -14,7 +14,7 @@
 // ==/UserScript==
 
 /*
- * Copyright (c) 2023-2025 Andrei Rybak
+ * Copyright (c) 2023-2026 Andrei Rybak
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -38,20 +38,19 @@
 (function() {
 	'use strict';
 
-	function info(...toLog) {
-		console.info("[PR avatars]", ...toLog);
-	}
-
+	const LOG_PREFIX = '[PR avatars]';
 	function debug(...toLog) {
-		console.debug("[PR avatars]", ...toLog);
+		console.debug(LOG_PREFIX, ...toLog);
 	}
-
+	function info(...toLog) {
+		console.info(LOG_PREFIX, ...toLog);
+	}
 	function error(...toLog) {
-		console.error("[PR avatars]", ...toLog);
+		console.error(LOG_PREFIX, ...toLog);
 	}
 
 	window.addEventListener('load', function() {
-		info("Looking for author avatar...")
+		info("Looking for author avatar...");
 		let userAvatar = document.querySelector("[data-testid=pull-request-author--image]");
 		let url = null;
 
