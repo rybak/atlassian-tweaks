@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bitbucket: PR author avatar as favicon
 // @namespace    https://github.com/rybak/atlassian-tweaks
-// @version      4
+// @version      5
 // @license      MIT
 // @description  Set Bitbucket PR favicon to author's avatar
 // @author       Andrei Rybak
@@ -66,7 +66,7 @@
 		} else {
 			// fallback to bitbucket.org's layout (Bitbucket Cloud?)
 			info("Falling back to layout as on bitbucket.org for the avatar...");
-			userAvatar = document.querySelector('div[data-qa="pr-header-author-styles"] img')
+			userAvatar = document.querySelector('div[data-qa="pr-header-author-styles"] img, div[data-qa="pr-header-author"] img')
 			url = userAvatar.src;
 		}
 
