@@ -128,6 +128,15 @@ This style supports both Bitbucket Server and Bitbucket Cloud.
 
 [![Before and After screenshots of "Bitbucket: green merge button"](images/bitbucket-green-merge-button.png)][gfork_bitbucket_green_merge_button]
 
+### Bitbucket: fix branch labels
+[![Greasy Fork link][badge_bitbucket_fix_branch_labels]][gfork_bitbucket_fix_branch_labels]
+[![UserStyles.world link][badge_usw_bitbucket_fix_branch_labels]][usw_bitbucket_fix_branch_labels]
+
+This userstyle makes underscores, as well as other descent elements below the
+baseline, fully visible in the branch labels on the "Commits" pages.
+
+[![Before and after screenshots of "Bitbucket: fix readability of branch labels"](images/bitbucket-fix-branch-label.png)][usw_bitbucket_fix_branch_labels]
+
 ### Bitbucket: speed up CI builds
 [![UserStyles.world link][badge_userstyles_world]][usw_bitbucket_fast_and_furious]
 
@@ -365,6 +374,10 @@ Tampermonkey, and Greasemonkey.
 [gfork_bitbucket_green_merge_button]: https://greasyfork.org/en/scripts/481383-bitbucket-green-merge-button "Install via Greasy Fork"
 [badge_usw_bitbucket_green_merge_button]: https://img.shields.io/badge/dynamic/json?style=flat&color=193652&label=Install%20version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F481383.json
 [usw_bitbucket_green_merge_button]: https://userstyles.world/style/13446/bitbucket-green-merge-button "Install via UserStyles.world"
+[badge_bitbucket_fix_branch_labels]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Install%20version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F547389.json
+[gfork_bitbucket_fix_branch_labels]: https://greasyfork.org/en/scripts/547389-bitbucket-fix-readability-of-branch-labels "Install via Greasy Fork"
+[badge_usw_bitbucket_fix_branch_labels]: https://img.shields.io/badge/dynamic/json?style=flat&color=193652&label=Install%20version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F547389.json
+[usw_bitbucket_fix_branch_labels]: https://userstyles.world/style/23932/bitbucket-fix-readability-of-branch-labels "Install via UserStyles.world"
 <!-- no separate badge for fast_and_furious, because the style is not published to Greasy Fork and
      UserStyles.world doesn't provide the version in its API: https://userstyles.world/api/style/9186 -->
 [usw_bitbucket_fast_and_furious]: https://userstyles.world/style/9186/bitbucket-fast-and-furious "Install via UserStyles.world"
