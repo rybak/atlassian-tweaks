@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Jira: Pull Request Link Improver
 // @namespace    https://github.com/rybak/atlassian-tweaks
-// @version      11
+// @version      12
 // @license      MIT
 // @description  Adds more convenient pull request links to Jira tickets.
 // @author       Andrei Rybak
@@ -9,7 +9,7 @@
 // @include      https://*jira*/browse/*
 // @icon         https://jira.atlassian.com/favicon.ico
 // @homepageURL  https://github.com/rybak/atlassian-tweaks
-// @grant        none
+// @grant        GM_addStyle
 // ==/UserScript==
 
 /*
@@ -40,6 +40,7 @@
 	const LOG_PREFIX = '[PR Link Improver]';
 	const PANEL_ID = 'PrLinksImproverPanel';
 	const LIST_ID = 'PrLinksImproverList';
+	const COPY_BUTTONS_CLASS = 'PrLinksImproverCopyButton';
 	var loadInProgress = false;
 	const PARSE_PATH = /[/](projects|users)[/]([^/]*)[/]repos[/]([^/]*)[/].*/;
 
@@ -100,6 +101,57 @@
 		return project + '/' + repository;
 	}
 
+	function extractRepoSlugFromPr(pr) {
+		const url = pr.url;
+		const path = new URL(url).pathname;
+		const matching = path.match(PARSE_PATH);
+		const repository = matching[3];
+		return repository;
+	}
+
+	function createCopyLink(linkText, title, textSupplier) {
+		const link = document.createElement('a');
+		link.classList.add('aui-button');
+		link.style.padding = '2px 4px';
+		link.style.height = '1.8em';
+		link.href = '#';
+		link.title = title;
+		link.appendChild(document.createTextNode(linkText));
+		link.onclick = e => {
+			e.preventDefault();
+			try {
+				navigator.clipboard.writeText(textSupplier());
+			} catch (e) {
+				error('navigator.clipboard is not supported:', e)
+			}
+		};
+		return link;
+	}
+
+	function formatMarkdownLink(pr) {
+		const repository = extractRepoSlugFromPr(pr);
+		return `[pull request ${pr.id} in ${repository}](${pr.url})`;
+	}
+
+	function formatJiraSyntaxLink(pr) {
+		const repository = extractRepoSlugFromPr(pr);
+		return `[pull request ${pr.id} in ${repository}|${pr.url}]`;
+	}
+
+	function createCopyLinks(pr) {
+		const container = document.createElement('span');
+		container.classList.add(COPY_BUTTONS_CLASS);
+
+		container.append(
+			createCopyLink('#', 'Copy PR number', () => pr.id),
+			createCopyLink('/#', 'Copy PR number with project/repo slugs', () => extractProjectRepoSlugsFromPr(pr) + pr.id),
+			createCopyLink('[]()', 'Copy Markdown link to the PR', () => formatMarkdownLink(pr)),
+			createCopyLink('[|]', 'Copy Jira link to the PR', () => formatJiraSyntaxLink(pr))
+		);
+
+		return container;
+	}
+
 	function addPrLinks(pullRequests) {
 		$(`#${PANEL_ID}`).append($(`<ul id="${LIST_ID}" class="item-details status-panels devstatus-entry"></ul>`));
 		const list = $(`#${LIST_ID}`);
@@ -118,8 +170,38 @@
 			if (pr.status == "DECLINED") {
 				link.style.textDecoration = 'line-through';
 			}
-			$(li).append(slugsPrefix).append(link);
+			const copyLinks = createCopyLinks(pr);
+			$(li).append(slugsPrefix).append(link).append(" ").append(copyLinks);
 		}
+	}
+
+	function addStyles() {
+		GM_addStyle(`.${COPY_BUTTONS_CLASS} {
+	opacity: 0;
+	animation: fadeOut 0.3s ease-out;
+}
+#${LIST_ID} li:hover .${COPY_BUTTONS_CLASS} {
+	opacity: 1;
+	animation: fadeIn 0.4s ease-out;
+}
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}`);
 	}
 
 	function addPrLinksPanel() {
@@ -128,6 +210,7 @@
 			loadInProgress = false;
 			return;
 		}
+		addStyles();
 		const issueId = JIRA.Issue.getIssueId();
 		// https://community.atlassian.com/t5/Jira-questions/JIRA-REST-API-to-get-list-of-branches-related-to-a-issue/qaq-p/800389
 		const pullRequestsUrl = `/rest/dev-status/1.0/issue/detail?issueId=${issueId}&applicationType=stash&dataType=pullrequest`;
