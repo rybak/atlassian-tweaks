@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Jira: Pull Request Link Improver
 // @namespace    https://github.com/rybak/atlassian-tweaks
-// @version      12
+// @version      13
 // @license      MIT
 // @description  Adds more convenient pull request links to Jira tickets.
 // @author       Andrei Rybak
@@ -154,7 +154,16 @@
 			createCopyLinkText('#', 'Copy PR number', () => pr.id),
 			createCopyLinkText('/#', 'Copy PR number with project/repo slugs', () => extractProjectRepoSlugsFromPr(pr) + pr.id),
 			createCopyLinkText('[]()', 'Copy Markdown link to the PR', () => formatMarkdownLink(pr)),
-			createCopyLinkText('[|]', 'Copy Jira link to the PR', () => formatJiraSyntaxLink(pr))
+			createCopyLinkText('[|]', 'Copy Jira link to the PR', () => formatJiraSyntaxLink(pr)),
+			createCopyLink(
+				link => {
+					const span = document.createElement('span');
+					span.classList.add('aui-icon', 'aui-icon-small', 'aui-iconfont-devtools-branch-small');
+					link.appendChild(span);
+				},
+				"Copy pull request's source branch's name",
+				() => pr.source.branch
+			)
 		);
 
 		return container;
