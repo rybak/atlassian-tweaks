@@ -109,14 +109,14 @@
 		return repository;
 	}
 
-	function createCopyLink(linkText, title, textSupplier) {
+	function createCopyLink(linkTextAdder, title, textSupplier) {
 		const link = document.createElement('a');
 		link.classList.add('aui-button');
 		link.style.padding = '2px 4px';
 		link.style.height = '1.8em';
 		link.href = '#';
 		link.title = title;
-		link.appendChild(document.createTextNode(linkText));
+		linkTextAdder(link);
 		link.onclick = e => {
 			e.preventDefault();
 			try {
@@ -126,6 +126,14 @@
 			}
 		};
 		return link;
+	}
+
+	function createCopyLinkText(linkText, title, textSupplier) {
+		return createCopyLink(
+			link => link.appendChild(document.createTextNode(linkText)),
+			title,
+			textSupplier
+		);
 	}
 
 	function formatMarkdownLink(pr) {
@@ -143,10 +151,10 @@
 		container.classList.add(COPY_BUTTONS_CLASS);
 
 		container.append(
-			createCopyLink('#', 'Copy PR number', () => pr.id),
-			createCopyLink('/#', 'Copy PR number with project/repo slugs', () => extractProjectRepoSlugsFromPr(pr) + pr.id),
-			createCopyLink('[]()', 'Copy Markdown link to the PR', () => formatMarkdownLink(pr)),
-			createCopyLink('[|]', 'Copy Jira link to the PR', () => formatJiraSyntaxLink(pr))
+			createCopyLinkText('#', 'Copy PR number', () => pr.id),
+			createCopyLinkText('/#', 'Copy PR number with project/repo slugs', () => extractProjectRepoSlugsFromPr(pr) + pr.id),
+			createCopyLinkText('[]()', 'Copy Markdown link to the PR', () => formatMarkdownLink(pr)),
+			createCopyLinkText('[|]', 'Copy Jira link to the PR', () => formatJiraSyntaxLink(pr))
 		);
 
 		return container;
