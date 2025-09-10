@@ -186,11 +186,9 @@
 	function addStyles() {
 		GM_addStyle(`.${COPY_BUTTONS_CLASS} {
 	opacity: 0;
-	animation: fadeOut 0.3s ease-out;
 }
 #${LIST_ID} li:hover .${COPY_BUTTONS_CLASS} {
 	opacity: 1;
-	animation: fadeIn 0.4s ease-out;
 }
 @keyframes fadeOut {
     0% {
