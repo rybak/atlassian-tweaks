@@ -40,8 +40,12 @@
 
 	const LOG_PREFIX = '[Confluence copy link buttons]:';
 
-	function log(...toLog) {
-		console.log(LOG_PREFIX, ...toLog);
+	function info(...toLog) {
+		console.info(LOG_PREFIX, ...toLog);
+	}
+
+	function warn(...toLog) {
+		console.warn(LOG_PREFIX, ...toLog);
 	}
 
 	function error(...toLog) {
@@ -75,7 +79,7 @@
 		if (maybeVersionElem) {
 			const majorVersion = parseInt(maybeVersionElem.content);
 			if (isNaN(majorVersion)) {
-				log("Cannot parse major version", maybeVersionElem.content);
+				warn("Cannot parse major version", maybeVersionElem.content);
 				return cloudFn();
 			}
 			if (majorVersion >= 1000) {
@@ -84,7 +88,7 @@
 				return selfHostedFn();
 			}
 		} else {
-			log("Couldn't find meta tag with version");
+			warn("Couldn't find meta tag with version");
 			return cloudFn();
 		}
 	}
@@ -215,12 +219,12 @@
 			/*
 			 * Buttons are added to the left of the `target` element.
 			 */
-			log('target', target);
+			info('target', target);
 			const markdownListItem = copyButton("[]()", "Copy Markdown link", markdownSyntaxLink);
 			const jiraListItem = copyButton("[&#124;]", "Copy Jira syntax link", jiraSyntaxLink);
 			insertBefore(markdownListItem, target);
 			insertBefore(jiraListItem, target);
-			log('Created buttons');
+			info('Created buttons');
 		});
 	}
 
