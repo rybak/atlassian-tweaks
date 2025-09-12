@@ -9,6 +9,7 @@
 // @include      https://confluence*
 // @match        https://confluence.example.com/*
 // @icon         https://seeklogo.com/images/C/confluence-logo-D9B07137C2-seeklogo.com.png
+// @require      https://cdn.jsdelivr.net/gh/rybak/userscript-libs@e86c722f2c9cc2a96298c8511028f15c45180185/waitForElement.js
 // @grant        none
 // ==/UserScript==
 
@@ -201,26 +202,6 @@
 
 	function insertBefore(newElem, oldElem) {
 		oldElem.parentNode.insertBefore(newElem, oldElem);
-	}
-
-	// from https://stackoverflow.com/a/61511955/1083697 by Yong Wang
-	function waitForElement(selector) {
-		return new Promise(resolve => {
-			if (document.querySelector(selector)) {
-				return resolve(document.querySelector(selector));
-			}
-			const observer = new MutationObserver(mutations => {
-				if (document.querySelector(selector)) {
-					resolve(document.querySelector(selector));
-					observer.disconnect();
-				}
-			});
-
-			observer.observe(document.body, {
-				childList: true,
-				subtree: true
-			});
-		});
 	}
 
 	function createButtons() {
