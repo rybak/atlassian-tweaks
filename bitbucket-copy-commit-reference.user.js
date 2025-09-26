@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bitbucket: copy commit reference
 // @namespace    https://github.com/rybak/atlassian-tweaks
-// @version      17
+// @version      18
 // @description  Adds a "Copy commit reference" link to every commit page on Bitbucket Cloud and Bitbucket Server.
 // @license      AGPL-3.0-only
 // @author       Andrei Rybak
@@ -111,7 +111,7 @@
 		}
 
 		getCommitMessage() {
-			const commitMsgContainer = document.querySelector('[data-testid="Content"] .e1tw8lnx1+div');
+			const commitMsgContainer = document.getElementById('main').querySelector('div > div > div > div > div > div:has(> p)');
 			return commitMsgContainer.innerText;
 		}
 
@@ -247,9 +247,10 @@
 			}
 			try {
 				// TODO better way of getting projectKey and repositorySlug
-				const mainSelfLink = document.querySelector('#bitbucket-navigation a');
-				// slice(1, -1) is needed to cut off slashes
-				const projectKeyRepoSlug = mainSelfLink.getAttribute('href').slice(1, -1);
+				const mainSelfLink = document.querySelector('nav[aria-label="Breadcrumbs"] > ol > li:nth-child(3) > a');
+				// slice(1, -3) is needed to cut off `/src`
+				const projectKeyRepoSlug = mainSelfLink.getAttribute('href').slice(1, -3);
+				debug('#downloadJson:', 'projectKeyRepoSlug =', projectKeyRepoSlug);
 
 				const commitHash = this.getFullHash();
 				/*
