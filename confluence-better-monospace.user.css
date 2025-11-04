@@ -8,11 +8,11 @@
 @preprocessor uso
 @var text yourDomain "Your Confluence domain" "confluence.example.com"
 @var text yourDomain2 "Your 2nd Confluence domain" "confluence.example.com"
-@version      7
+@version      8
 ==/UserStyle== */
 
 /*
- * Copyright (c) 2021-2023 Andrei Rybak
+ * Copyright (c) 2021-2025 Andrei Rybak
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -36,6 +36,9 @@
 @-moz-document url-prefix("https://confluence"), domain(/*[[yourDomain]]*/), domain(/*[[yourDomain2]]*/) {
 	/* Better monospace */
 
+	/*
+	 * Remember to update the dark mode below.
+	 */
 	/* Selector for Confluence Server */
 	code:not([class]),
 	/* Selectors for Confluence Cloud. One for reading and one for editing. */
@@ -48,10 +51,11 @@
 		padding: 1px 4px;
 	}
 
+	html[data-color-mode="dark"] code:not([class]),
 	html[data-color-mode="dark"] code.code.cc-1o5d2cw,
 	html[data-color-mode="dark"] #ak-editor-textarea span.code {
-		background-color: rgb(29, 33, 37);
+		background-color: rgb(32, 33, 34);
+		border-color: rgb(64, 66, 68);
 		color: #fff;
-		border-color: #A6C5E229;
 	}
 }
