@@ -251,7 +251,9 @@ https://github.com/rybak/atlassian-tweaks/raw/main/jira-copy-code-blocks.user.js
 Bitbucket integration in Jira is not very convenient.  It requires clicking on a
 link, like "3 pull requests", before actually giving the user access to the
 actual links to pull requests.  This user script adds a panel above
-"Development" with a list of clickable links to pull requests.
+"Development" with a list of clickable links to pull requests.  It also provides
+convenient buttons to copy a link to the pull request, as well as its number or
+branch name.
 
 [![Screenshot of "Jira: Pull Request Link Improver"](images/jira-pr-link-improver.png)][gfork_jira_pull_request_link_improver]
 
