@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Confluence: copy link buttons
 // @namespace    https://github.com/rybak
-// @version      7
+// @version      8
 // @description  Adds buttons to copy a link to the current page directly into clipboard. Two buttons are supported: Markdown and Jira syntax. Both buttons support HTML for rich text editors.
 // @author       Andrei Rybak
 // @license      MIT
@@ -10,7 +10,7 @@
 // @match        https://confluence.example.com/*
 // @icon         https://seeklogo.com/images/C/confluence-logo-D9B07137C2-seeklogo.com.png
 // @require      https://cdn.jsdelivr.net/gh/rybak/userscript-libs@e86c722f2c9cc2a96298c8511028f15c45180185/waitForElement.js
-// @grant        none
+// @grant        GM_addStyle
 // ==/UserScript==
 
 /*
@@ -35,10 +35,18 @@
  * SOFTWARE.
  */
 
+/* jshint esversion: 6 */
+/* globals waitForElement AJS */
+
 (function() {
 	'use strict';
 
 	const LOG_PREFIX = '[Confluence copy link buttons]:';
+	const PRIVATE_BUTTON_CLASS = 'atlassianTweaksCopyLinkButton';
+
+	function debug(...toLog) {
+		console.debug(LOG_PREFIX, ...toLog);
+	}
 
 	function info(...toLog) {
 		console.info(LOG_PREFIX, ...toLog);
@@ -53,8 +61,8 @@
 	}
 
 	function cloudCopyIcon() {
-		// icon similar to the achnor "Copy link" under the button "Share"
-		return '<svg width="24" height="24" viewBox="0 0 24 24" role="presentation"><path d="M12.654 8.764a.858.858 0 01-1.213-1.213l1.214-1.214a3.717 3.717 0 015.257 0 3.714 3.714 0 01.001 5.258l-1.214 1.214-.804.804a3.72 3.72 0 01-5.263.005.858.858 0 011.214-1.214c.781.782 2.05.78 2.836-.005l.804-.803 1.214-1.214a1.998 1.998 0 00-.001-2.831 2 2 0 00-2.83 0l-1.215 1.213zm-.808 6.472a.858.858 0 011.213 1.213l-1.214 1.214a3.717 3.717 0 01-5.257 0 3.714 3.714 0 01-.001-5.258l1.214-1.214.804-.804a3.72 3.72 0 015.263-.005.858.858 0 01-1.214 1.214 2.005 2.005 0 00-2.836.005l-.804.803L7.8 13.618a1.998 1.998 0 00.001 2.831 2 2 0 002.83 0l1.215-1.213z" fill="currentColor"></path></svg>';
+		// from "Duplicate" menu item
+		return '<svg fill="none" viewBox="0 0 16 16" role="presentation" class="_1reo15vq _18m915vq _syaz1r31 _lcxvglyw _s7n4yfq0 _vc881r31 _1bsbpxbi _4t3ipxbi"><path fill="currentcolor" fill-rule="evenodd" d="M1 3a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2zm2-.5a.5.5 0 0 0-.5.5v8a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5V3a.5.5 0 0 0-.5-.5zM16 6v6.75A3.25 3.25 0 0 1 12.75 16H6v-1.5h6.75a1.75 1.75 0 0 0 1.75-1.75V6z" clip-rule="evenodd"></path></svg>';
 	}
 
 	/*
@@ -102,22 +110,34 @@
 		clipboardData.setData('text/html', html);
 	}
 
+	function getPageTitle() {
+		try {
+			return document.querySelector('meta[name="ajs-page-title"]').content;
+		} catch (metaException) {
+			warn('Could not access page title through meta tags:', metaException.message);
+		}
+		try {
+			// `AJS` is defined in Confluence's own JS
+			return AJS.Data.get('page-title');
+		} catch (ajsException) {
+			warn('Could not access page title through AJS:', ajsException.message);
+		}
+		try {
+			const h1 = document.querySelector('[data-testid="title-wrapper"] #heading-title-text');
+			return h1.innerText;
+		} catch (h1Exception) {
+			warn('Could not access page title through h1 tag:', h1Exception.message);
+			return null;
+		}
+	}
+
 	function copyClickAction(event, plainTextFn) {
 		event.preventDefault();
 		try {
-			let pageTitle = null;
-			try {
-				pageTitle = document.querySelector('meta[name="ajs-page-title"]').content;
-			} catch (ignored) {
-			}
-			if (!pageTitle) {
-				try {
-					// `AJS` is defined in Confluence's own JS
-					pageTitle = AJS.Data.get('page-title');
-				} catch (e) {
-					error('Could not get the page title. Aborting.', e);
-					return;
-				}
+			const pageTitle = getPageTitle();
+			if (pageTitle === null) {
+				error('Could not get the page title. Aborting.');
+				return;
 			}
 			const url = document.location.href;
 			if (document.location.hash.length !== 0) {
@@ -161,21 +181,19 @@
 	}
 
 	function cloudButtonHtml(text, title) {
+		const hoverCss = `.${PRIVATE_BUTTON_CLASS}:hover {  background-color: var(--ds-background-neutral-subtle-hovered,#0515240f); }`; // copied from classes of "Share" button
+		GM_addStyle(hoverCss);
 		const icon = cloudCopyIcon();
-		// Custom CSS is needed to make the ${text} readable.
-		const customCss = 'font-size: 16px; line-height: 26px;';
-		// HTML & CSS classes from the "Watch this page" button
-		const watchThisPageButton = document.querySelector('[data-id="page-watch-button"]');
-		const buttonClasses = watchThisPageButton.className;
-		const innerSpanClasses = watchThisPageButton.children[0].className;
-		const innerInnerSpanClasses = watchThisPageButton.children[0].children[0].className;
+		// HTML & CSS classes from the "Edit" button
+		const editThisPageButton = document.querySelector('#editPageLink');
+		const buttonClasses = editThisPageButton.className;
+		const iconSpanClasses = editThisPageButton.children[0].className;
+		const copyPastedCss = 'opacity: 1; transition: opacity 0.3s; margin: 0 2px;';
+		// const textInnerSpanClasses = editThisPageButton.children[1].children[0].className;
 		return htmlToElement(
-			`<button class="${buttonClasses}" type="button">
-			  <span class="${innerSpanClasses}" title="${title}">
-			    <span class="${innerInnerSpanClasses}" role="img" style="--icon-primary-color: currentColor; --icon-secondary-color: var(--ds-surface, #FFFFFF); ${customCss}">
-			      ${icon}${text}
-			    </span>
-			  </span>
+			`<button class="${buttonClasses} ${PRIVATE_BUTTON_CLASS}" type="button" title="${title}">
+			  <span class="${iconSpanClasses}" role="img" style="--icon-primary-color: currentColor; --icon-secondary-color: var(--ds-surface, #FFFFFF);">${icon}</span>
+			  <span style="${copyPastedCss}"><span>${text}</span></span>
 			</button>`
 		);
 	}
@@ -216,13 +234,27 @@
 		oldElem.parentNode.insertBefore(newElem, oldElem);
 	}
 
+	function observeAndRecreate(container) {
+		const observer = new MutationObserver(mutations => {
+			info('Observer triggered...');
+			observer.disconnect(); // must disconnect first to avoid infinite recursion
+			document.querySelectorAll(`.${PRIVATE_BUTTON_CLASS}`).forEach(button => {
+				button.remove();
+			});
+			createButtons();
+		});
+		observer.observe(container, {
+			childList: true,
+			subtree: true
+		});
+		info('Observer created');
+	}
+
 	function createButtons() {
+		info('Creating buttons...');
 		onVersion(
 			() => waitForElement('#action-menu-link'),
-			() => waitForElement('button[aria-label="Share"]').then(shareButton => {
-				// HTML of Cloud version is weird, lots of nesting and wrapping
-				return shareButton.parentNode.parentNode.parentNode.parentNode;
-			})
+			() => waitForElement('div[data-testid="share-action-container-without-separator"]')
 		).then(target => {
 			/*
 			 * Buttons are added to the left of the `target` element.
@@ -233,8 +265,20 @@
 			insertBefore(markdownListItem, target);
 			insertBefore(jiraListItem, target);
 			info('Created buttons');
+			onVersion(
+				() => {
+					// do nothing in self-hosted version
+				},
+				() => {
+					// cloud needs extra step -- buttons get recreated on every "hover" event
+					const container = document.getElementById('object-header-container-id').parentElement.parentElement.parentElement;
+					debug(container);
+					observeAndRecreate(container);
+				}
+			);
 		});
 	}
+	// unsafeWindow.TWEAKS_PRIVATE_CREATE = createButtons;
 
 	try {
 		createButtons();
