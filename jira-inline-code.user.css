@@ -8,11 +8,11 @@
 @preprocessor uso
 @var text yourDomain "Your Jira domain" "jira.example.com"
 @var text yourDomain2 "Your 2nd Jira domain" "jira.example.com"
-@version      15
+@version      16
 ==/UserStyle== */
 
 /*
- * Copyright (c) 2021-2024 Andrei Rybak
+ * Copyright (c) 2021-2025 Andrei Rybak
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -51,10 +51,13 @@
 		border-radius: 2px;
 	}
 
+	body[data-version^="9."] #descriptionmodule tt,
+	body[data-version^="9."] .wiki-edit tt,
+	body[data-version^="9."] .flooded tt,
 	body[data-version^="8."] #descriptionmodule tt,
 	body[data-version^="8."] .wiki-edit tt,
 	body[data-version^="8."] .flooded tt {
-		line-height: 160%;
+		line-height: 1.6;
 	}
 
 	html[data-color-mode="dark"][data-theme~="dark:dark"] #descriptionmodule tt,
