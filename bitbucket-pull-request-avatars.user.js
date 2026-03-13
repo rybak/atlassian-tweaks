@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bitbucket: PR author avatar as favicon
 // @namespace    https://github.com/rybak/atlassian-tweaks
-// @version      5
+// @version      6
 // @license      MIT
 // @description  Set Bitbucket PR favicon to author's avatar
 // @author       Andrei Rybak
@@ -11,6 +11,7 @@
 // @icon         https://bitbucket.org/favicon.ico
 // @homepageURL  https://github.com/rybak/atlassian-tweaks
 // @grant        none
+// @require      https://cdn.jsdelivr.net/gh/rybak/userscript-libs@e86c722f2c9cc2a96298c8511028f15c45180185/waitForElement.js
 // ==/UserScript==
 
 /*
@@ -35,6 +36,9 @@
  * SOFTWARE.
  */
 
+/* jshint esversion: 6 */
+/* globals waitForElement */
+
 (function() {
 	'use strict';
 
@@ -47,6 +51,18 @@
 	}
 	function error(...toLog) {
 		console.error(LOG_PREFIX, ...toLog);
+	}
+
+	function setFaviconToAvatar(userAvatar, url) {
+		let shortcutIcon = document.querySelector('link[rel="shortcut icon"], link[rel="icon"]');
+		debug("userAvatar =", userAvatar);
+		debug("shortcutIcon =", shortcutIcon);
+		debug("URL =", url);
+		if (url && shortcutIcon) {
+			shortcutIcon.href = url;
+		} else {
+			error("Something went wrong");
+		}
 	}
 
 	window.addEventListener('load', function() {
@@ -62,22 +78,14 @@
 				info('userAvatar.style.backgroundImage is empty, using userAvatar.src...');
 				url = userAvatar.src;
 			}
+			setFaviconToAvatar(userAvatar, url);
 		} else {
 			// fallback to bitbucket.org's layout (Bitbucket Cloud?)
 			info("Falling back to layout as on bitbucket.org for the avatar...");
-			userAvatar = document.querySelector('div[data-qa="pr-header-author-styles"] img, div[data-qa="pr-header-author"] img')
-			url = userAvatar.src;
-		}
-
-		let shortcutIcon = document.querySelector('link[rel="shortcut icon"], link[rel="icon"]');
-
-		debug("userAvatar =", userAvatar);
-		debug("shortcutIcon =", shortcutIcon);
-		debug("URL =", url);
-		if (url && shortcutIcon) {
-			shortcutIcon.href = url;
-		} else {
-			error("Something went wrong");
+			waitForElement('div[data-qa="pr-header-author-styles"] img, div[data-qa="pr-header-author"] img').then(userAvatar => {
+				url = userAvatar.src;
+				setFaviconToAvatar(userAvatar, url);
+			});
 		}
 	}, false);
 })();
