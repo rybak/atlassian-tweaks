@@ -268,6 +268,16 @@ This script supports both Jira Server (self-hosted) and Jira Cloud.
 
 [![Screenshot of "Jira: project avatar as favicon"](images/jira-project-avatar-as-favicon.png)][gfork_jira_project_icon_as_tab_icon]
 
+### Jira: editor controls tweaks
+[![Greasy Fork link][badge_jira_editor_controls_tweaks]][gfork_jira_editor_controls_tweaks]
+[![UserStyles.world link][badge_usw_jira_editor_controls_tweaks]][usw_jira_editor_controls_tweaks]
+
+Editor of comments and descriptions on Jira can be confusing, because `bq.` is
+not the syntax for "Block quote", but for "Paragraph quote".  This user style
+adds reminders for different formatting buttons.
+
+[![Before and after screenshots of "Jira: editor controls tweaks"](images/jira-editor-controls-tweaks.png)][usw_jira_editor_controls_tweaks]
+
 ## How to use Atlassian Tweaks
 
 1. Install browser extensions for user scripts and user styles.
@@ -411,6 +421,10 @@ Tampermonkey, and Greasemonkey.
 [gfork_jira_pull_request_link_improver]: https://greasyfork.org/en/scripts/456692-jira-pull-request-link-improver "Install via Greasy Fork"
 [badge_jira_project_icon_as_tab_icon]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Install%20version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F457217.json
 [gfork_jira_project_icon_as_tab_icon]: https://greasyfork.org/en/scripts/457217-jira-project-icon-as-tab-icon "Install via Greasy Fork"
+[badge_jira_editor_controls_tweaks]: https://img.shields.io/badge/dynamic/json?style=flat&color=670000&label=Install%20version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F574351.json
+[gfork_jira_editor_controls_tweaks]: https://greasyfork.org/en/scripts/574351-jira-editor-controls-tweaks "Install via Greasy Fork"
+[badge_usw_jira_editor_controls_tweaks]: https://img.shields.io/badge/dynamic/json?style=flat&color=193652&label=Install%20version&query=version&url=https%3A%2F%2Fgreasyfork.org%2Fscripts%2F574351.json
+[usw_jira_editor_controls_tweaks]: https://userstyles.world/style/27641/jira-editor-controls-tweaks "Install via UserStyles.world"
 
 [badge_greasy_fork]: https://img.shields.io/badge/Greasy-Fork-670000
 [greasy_fork_set]: https://greasyfork.org/en/scripts?language=all&set=585074
