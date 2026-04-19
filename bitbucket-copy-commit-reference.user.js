@@ -16,7 +16,7 @@
 // ==/UserScript==
 
 /*
- * Copyright (C) 2023-2025 Andrei Rybak
+ * Copyright (C) 2023-2026 Andrei Rybak
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published
@@ -40,6 +40,7 @@
  * - Merge commit with mentions of Jira issue and PR
  *   https://bitbucket.org/andreyrybak/atlassian-tweaks/commits/19ca4f537e454e15f4e3bf1f88ebc43c0e9c559a
  */
+/* globals GitHosting */
 
 (function () {
 	'use strict';
