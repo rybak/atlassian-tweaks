@@ -5,7 +5,10 @@
 @homepageURL  https://github.com/rybak/atlassian-tweaks
 @license      MIT
 @namespace    https://github.com/rybak/atlassian-tweaks
-@version      1
+@preprocessor uso
+@var text yourDomain "Your Jira domain" "jira.example.com"
+@var text yourDomain2 "Your 2nd Jira domain" "jira.example.com"
+@version      2
 ==/UserStyle== */
 
 /*
