@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Jira copy summary
 // @namespace    https://github.com/rybak/atlassian-tweaks
-// @version      5.2
+// @version      5.3
 // @license      MIT
 // @description  Adds a "Copy summary" button for issue pages on Jira.
 // @author       Sergey Lukashevich, Andrei Rybak, Dmitry Trubin
@@ -36,6 +36,8 @@
  */
 
 /*
+version 5.3
+	- Fixed broken handling of subtasks in some versions of Jira
 version 5.2
 	- Jira 10 is now supported.
 version 5.1
@@ -207,13 +209,16 @@ version 1.2
 
 	function copyClickAction() {
 		const summaryText = document.getElementById("summary-val").textContent;
-		var ticketIdSource = document.querySelector("#dx-issuekey-val-h1 a");
-		if (!ticketIdSource) {
-			ticketIdSource = document.querySelector(".aui-page-header-main .issue-link");
+		let ticketKey = document.querySelector('meta[name="ajs-issue-key"]')?.getAttribute('content');
+		if (!ticketKey) {
+			let ticketIdSource = document.querySelector("#dx-issuekey-val-h1 a");
+			if (!ticketIdSource) {
+				ticketIdSource = document.querySelector(".aui-page-header-main .issue-link");
+			}
+			ticketKey = ticketIdSource.dataset.issueKey;
 		}
-		const ticketId = ticketIdSource.dataset.issueKey;
-		textResult = getTextResult(ticketId, summaryText);
-		htmlResult = getHtmlResult(ticketId, summaryText);
+		textResult = getTextResult(ticketKey, summaryText);
+		htmlResult = getHtmlResult(ticketKey, summaryText);
 		document.addEventListener('copy', handleCopyEvent);
 		document.execCommand('copy');
 		document.removeEventListener('copy', handleCopyEvent);
