@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Jira: Pull Request Link Improver
 // @namespace    https://github.com/rybak/atlassian-tweaks
-// @version      13
+// @version      14
 // @license      MIT
 // @description  Adds more convenient pull request links to Jira tickets.
 // @author       Andrei Rybak
@@ -13,7 +13,7 @@
 // ==/UserScript==
 
 /*
- * Copyright (c) 2022-2025 Andrei Rybak
+ * Copyright (c) 2022-2026 Andrei Rybak
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -89,7 +89,8 @@
 		for (const e of errors) {
 			error("Error: " + e);
 		}
-		$(`#${PANEL_ID}`).append($(`<p>Could not load from Bitbucket. Got: ${errors}</p>`));
+		const jsonErrors = JSON.stringify(errors, null, 2);
+		$(`#${PANEL_ID}`).append($(`<p>Could not load from Bitbucket. Got: ${jsonErrors}</p>`));
 	}
 
 	function extractProjectRepoSlugsFromPr(pr) {
