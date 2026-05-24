@@ -89,8 +89,8 @@ commit links on the "Commits" tab.
 [![UserStyles.world link][badge_usw_bitbucket_header_color]][usw_bitbucket_header_color]
 
 Some instances of Bitbucket are deployed with custom look and feels, which have
-unfortunate color of the header.  This user style allows changing the color of
-Bitbucket header to any color.
+unfortunate color of the header.  This user style allows changing Bitbucket
+header to any color.
 
 This style supports both Bitbucket Server and Bitbucket Cloud.
 
