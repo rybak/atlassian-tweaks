@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Jira copy summary
 // @namespace    https://github.com/rybak/atlassian-tweaks
-// @version      5.3
+// @version      5.4
 // @license      MIT
 // @description  Adds a "Copy summary" button for issue pages on Jira.
 // @author       Sergey Lukashevich, Andrei Rybak, Dmitry Trubin
@@ -36,6 +36,8 @@
  */
 
 /*
+version 5.4
+	- Replaced broken retrieval of issue key from a <meta> tag.
 version 5.3
 	- Fixed broken handling of subtasks in some versions of Jira
 version 5.2
@@ -98,6 +100,8 @@ version 2.0
 version 1.2
 	- Button "Copy summary" no longer breaks after editing a Jira ticket
 */
+
+/* globals MonkeyConfig, JIRA */
 
 (function () {
 	'use strict';
@@ -207,16 +211,22 @@ version 1.2
 		return '[<a href="' + fullLink + '">' + ticketId + '</a>] ' + htmlSummary;
 	}
 
+	function getCurrentIssueKey() {
+		try {
+			return JIRA.Issue.getIssueKey();
+		} catch (e) {
+			warn('Cannot use JIRA.Issue.getIssueKey()', e);
+		}
+		let ticketIdSource = document.querySelector("#dx-issuekey-val-h1 a");
+		if (!ticketIdSource) {
+			ticketIdSource = document.querySelector(".aui-page-header-main .issue-link");
+		}
+		return ticketIdSource.dataset.issueKey;
+	}
+
 	function copyClickAction() {
 		const summaryText = document.getElementById("summary-val").textContent;
-		let ticketKey = document.querySelector('meta[name="ajs-issue-key"]')?.getAttribute('content');
-		if (!ticketKey) {
-			let ticketIdSource = document.querySelector("#dx-issuekey-val-h1 a");
-			if (!ticketIdSource) {
-				ticketIdSource = document.querySelector(".aui-page-header-main .issue-link");
-			}
-			ticketKey = ticketIdSource.dataset.issueKey;
-		}
+		const ticketKey = getCurrentIssueKey();
 		textResult = getTextResult(ticketKey, summaryText);
 		htmlResult = getHtmlResult(ticketKey, summaryText);
 		document.addEventListener('copy', handleCopyEvent);
