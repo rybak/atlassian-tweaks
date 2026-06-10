@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Confluence: copy link buttons
 // @namespace    https://github.com/rybak
-// @version      9
+// @version      10
 // @description  Adds buttons to copy a link to the current page directly into clipboard. Two buttons are supported: Markdown and Jira syntax. Both buttons support HTML for rich text editors.
 // @author       Andrei Rybak
 // @license      MIT
@@ -141,11 +141,12 @@
 			}
 			const url = document.location.href;
 			if (document.location.hash.length !== 0) {
+				const sectionHeaderId = decodeURIComponent(document.location.hash.slice(1));
 				/*
 				 * cannot use `.querySelector(document.location.hash)` here,
 				 * because IDs can be really weird
 				 */
-				const sectionName = document.getElementById(document.location.hash.slice(1)).innerText;
+				const sectionName = document.getElementById(sectionHeaderId).innerText;
 				pageTitle = `${pageTitle} § ${sectionName}`;
 			}
 			/*
