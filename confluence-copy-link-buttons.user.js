@@ -72,7 +72,10 @@
 	 * Tested on versions:
 	 * - Confluence Server 7.13.*
 	 * - Confluence Server 7.19.*
-	 * - Confluence Cloud 1000.0.0-22300355ddad (a free version on https://atlassian.net as of 2023-06-19)
+	 * - Confluence Server 9.2.21
+	 * - https://andrybak.atlassian.net/wiki/spaces/TS/pages/163841/Test+page
+	 *   - Confluence Cloud 1000.0.0-22300355ddad (as of 2023-06-19)
+	 *   - Confluence Cloud 1000.0.0-921272cb1a1f (as of 2026-07-03)
 	 */
 	function onVersion(selfHostedFn, cloudFn) {
 		if (document.querySelector('meta[name=ajs-cloud-id]')) {
