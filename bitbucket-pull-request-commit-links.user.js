@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bitbucket: commit links in diff tab of PRs
 // @namespace    https://github.com/rybak/atlassian-tweaks
-// @version      16
+// @version      17
 // @license      MIT
 // @description  Adds convenience links in PRs of Bitbucket v7.6.+
 // @author       Andrei Rybak
@@ -10,6 +10,7 @@
 // @icon         https://bitbucket.org/favicon.ico
 // @homepageURL  https://github.com/rybak/atlassian-tweaks
 // @grant        none
+// @require      https://cdn.jsdelivr.net/gh/rybak/userscript-libs@e86c722f2c9cc2a96298c8511028f15c45180185/waitForElement.js
 // ==/UserScript==
 
 /*
@@ -34,6 +35,8 @@
  * SOFTWARE.
  */
 
+/* global waitForElement */
+
 (function() {
 	'use strict';
 
@@ -42,7 +45,9 @@
 	function warn(...toLog) {
 		console.warn(LOG_PREFIX, ...toLog);
 	}
-
+	function info(...toLog) {
+		console.info(LOG_PREFIX, ...toLog);
+	}
 	function log(...toLog) {
 		console.log(LOG_PREFIX, ...toLog);
 	}
@@ -91,10 +96,17 @@
 		});
 	}
 
+	let updating = false;
 	function ensureCommitLink(label) {
+		if (updating) {
+			info(label, 'Already updating. Aborting.');
+			return;
+		}
+		updating = true;
 		const matching = document.location.pathname.match(parsePath);
 		if (!matching) {
 			log(label, "No commit in the URL: " + document.location.pathname);
+			updating = false;
 			return;
 		}
 		const origin = document.location.origin;
@@ -141,9 +153,11 @@
 			log(label, "Ajax response received");
 			if (!document.getElementById(BLOCK_ID)) {
 				warn(label, `Something happened to #${BLOCK_ID}. Re-creating...`);
+				updating = false;
 				ensureCommitLink("[smth happened]");
 			}
 			createTooltip(data.message);
+			updating = false;
 		});
 		log(label, "Done");
 	}
@@ -154,5 +168,10 @@
 			ensureCommitLink("[onpopstate]");
 		};
 	});
-
+	const commitSelectorObserver = new MutationObserver(() => {
+		ensureCommitLink('[commitSelectorObserver]');
+	});
+	waitForElement('#main .changes-sidebar .commit-selector').then(commitSelector => {
+		commitSelectorObserver.observe(commitSelector, { subtree: true, childList: true });
+	});
 })();
