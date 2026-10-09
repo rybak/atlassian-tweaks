@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Jira: Pull Request Link Improver
 // @namespace    https://github.com/rybak/atlassian-tweaks
-// @version      14
+// @version      15
 // @license      MIT
 // @description  Adds more convenient pull request links to Jira tickets.
 // @author       Andrei Rybak
@@ -102,12 +102,69 @@
 		return project + '/' + repository;
 	}
 
-	function extractRepoSlugFromPr(pr) {
-		const url = pr.url;
-		const path = new URL(url).pathname;
-		const matching = path.match(PARSE_PATH);
-		const repository = matching[3];
-		return repository;
+	function createAuthorImg(pr) {
+		const img = document.createElement('img');
+		img.setAttribute('src', pr.author.avatar);
+		img.setAttribute('title', pr.author.name);
+		const spanInner = document.createElement('span');
+		spanInner.append(img);
+		spanInner.classList.add('aui-avatar-inner');
+		const span = document.createElement('span');
+		span.append(spanInner);
+		span.classList.add('aui-avatar', 'aui-avatar-small');
+		return span;
+	}
+
+	const PR_STATUS_CLASSES = {
+		'OPEN': 'aui-lozenge-current',
+		'MERGED': 'aui-lozenge-success',
+		'DECLINED': 'aui-lozenge-error'
+	};
+
+	function createPrStatusPill(pr) {
+		const span = document.createElement('span');
+		span.append(pr.status);
+		span.classList.add('aui-lozenge', 'aui-lozenge-subtle');
+		if (pr.status in PR_STATUS_CLASSES) {
+			span.classList.add(PR_STATUS_CLASSES[pr.status]);
+		} else {
+			warn('createPrStatusPill: unhandled status in PR_STATUS_CLASSES: ', pr.status);
+		}
+		return span;
+	}
+
+	function createPrTitleLink(pr) {
+		const link = document.createElement('a');
+		link.href = pr.url;
+		link.appendChild(document.createTextNode(pr.name));
+		info("NAME='" + pr.name + "' issue='" + JIRA.Issue.getIssueKey() + "'");
+		if (pr.name.includes(JIRA.Issue.getIssueKey())) {
+			link.style.fontWeight = 'bold';
+		}
+		if (pr.status === 'DECLINED') {
+			link.style.textDecoration = 'line-through';
+		}
+		return link;
+	}
+
+	function extractReviewerStats(pr) {
+		const reviewersApproved = pr.reviewers.filter(r => r.approved);
+		return {
+			'reviewersApproved': reviewersApproved,
+			'reviewersCount': pr.reviewers.length,
+		};
+	}
+
+	function createStatsSpan(pr) {
+		const reviewStats = extractReviewerStats(pr);
+		const span = document.createElement('span');
+		if (reviewStats.reviewersCount > 0) {
+			span.append("✅".repeat(reviewStats.reviewersApproved.length) + "/" + reviewStats.reviewersCount);
+		} else {
+			span.append("0️⃣/0️⃣");
+		}
+		span.setAttribute('title', reviewStats.reviewersApproved.map(r => r.name + ': ✅').join('\n'));
+		return span;
 	}
 
 	function createCopyLink(linkTextAdder, title, textSupplier) {
@@ -135,6 +192,14 @@
 			title,
 			textSupplier
 		);
+	}
+
+	function extractRepoSlugFromPr(pr) {
+		const url = pr.url;
+		const path = new URL(url).pathname;
+		const matching = path.match(PARSE_PATH);
+		const repository = matching[3];
+		return repository;
 	}
 
 	function formatMarkdownLink(pr) {
@@ -170,26 +235,45 @@
 		return container;
 	}
 
+	function createPrTooltip(pr) {
+		const rs = extractReviewerStats(pr);
+		return 'status: ' + pr.status +
+			'\nlast update: ' + pr.lastUpdate +
+			'\napprovals: ' + rs.reviewersApproved.length + '/' + rs.reviewersCount;
+	}
+
 	function addPrLinks(pullRequests) {
 		$(`#${PANEL_ID}`).append($(`<ul id="${LIST_ID}" class="item-details status-panels devstatus-entry"></ul>`));
 		const list = $(`#${LIST_ID}`);
 		for (const pr of pullRequests) {
-			const url = pr.url;
-			const prId = pr.id;
-			const li = $('<li/>').appendTo(list);
-			const slugsPrefix = extractProjectRepoSlugsFromPr(pr);
-			const link = document.createElement('a');
-			link.href = url;
-			link.appendChild(document.createTextNode(`${prId}: ${pr.name}`));
-			info("NAME='" + pr.name + "' issue='" + JIRA.Issue.getIssueKey() + "'");
-			if (pr.name.includes(JIRA.Issue.getIssueKey())) {
-				link.style.fontWeight = 'bold';
-			}
-			if (pr.status == "DECLINED") {
-				link.style.textDecoration = 'line-through';
-			}
-			const copyLinks = createCopyLinks(pr);
-			$(li).append(slugsPrefix).append(link).append(" ").append(copyLinks);
+			const img = createAuthorImg(pr);
+			const firstLine = document.createElement('div');
+			firstLine.append(
+				createPrStatusPill(pr),
+				" ",
+				createPrTitleLink(pr),
+				" ",
+				createStatsSpan(pr),
+			);
+			const secondLine = document.createElement('div');
+			secondLine.append(
+				extractProjectRepoSlugsFromPr(pr) + pr.id,
+				" ",
+				createCopyLinks(pr),
+			);
+			const tdImage = document.createElement('td');
+			tdImage.append(img);
+			const tdLines = document.createElement('td');
+			tdLines.append(firstLine, secondLine);
+			const tr = document.createElement('tr');
+			tr.append(tdImage, tdLines);
+			const table = document.createElement('table');
+			table.append(tr);
+
+			const li = document.createElement('li');
+			li.setAttribute('title', createPrTooltip(pr));
+			li.append(table);
+			list.append(li);
 		}
 	}
 
